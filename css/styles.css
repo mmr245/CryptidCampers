@@ -1,4 +1,5 @@
 /* Cryptid Campers */
+/*Mobile first approach*/
 /* CSS Reset */
 body, header, nav, main, footer, h1, div, img, ul {
     margin: 0;
@@ -100,4 +101,38 @@ footer {
     position: absolute;
     width: 100%;
     bottom: 0;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+    header {
+        padding: 20px 40px;
+    }
+
+    .hero {
+        padding: 80px;
+    }
+
+    form {
+        width: 400px;
+    }
+
+    nav ul {
+        gap: 30px;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    header {
+        padding: 30px 60px;
+    }
+
+    .hero {
+        padding: 100px;
+    }
+
+    form {
+        width: 500px;
+    }
 }
