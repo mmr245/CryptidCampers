@@ -13,6 +13,28 @@ body {
     color: #fff;
 }
 
+/*Mobile Styling*/
+
+.mobile {
+    display: block;
+}
+
+.mobile h1 {
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.mobile h3 {
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.tab-desk {
+    display: none;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -95,6 +117,7 @@ button:hover {
 
 footer {
     text-align: center;
+    text-decoration: none;
     padding: 10px;
     background-color: #1d2429;
     color: white;
