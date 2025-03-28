@@ -3,8 +3,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e5dbca;
-    color: #1d2429;
+    background-color: #1d2429;
+    color: #fff;
 }
 
 header {
@@ -74,8 +74,8 @@ input {
 }
 
 button {
-    background-color: #1d2429;
-    color: white;
+    background-color: #77a290;
+    color: #1d2429;
     padding: 10px;
     border: none;
     border-radius: 5px;
