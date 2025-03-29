@@ -1,21 +1,16 @@
-/* Cryptid Campers */
-/* Mobile first approach */
-
-/* CSS Reset */
-body,
-header,
-nav,
-main,
-footer,
-h1,
-div,
-img,
-ul {
+/* ---------- CSS Reset ---------- */
+body, header, nav, main, footer, h1, div, img, ul {
     margin: 0;
     padding: 0;
     border: 0;
 }
 
+/* Use border-box for predictable sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* ---------- Global Styles ---------- */
 body {
     display: block;
     height: 100%;
@@ -23,43 +18,45 @@ body {
     font-family: Arial, sans-serif;
     background-color: #1d2429;
     color: #fff;
-    overflow-x: hidden;
-    /* No horizontal scrolling in mobile view */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+/* Container to hold the page and force full viewport height */
 .page-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
+/* Main content grows to push the footer to the bottom */
 main {
-    /*TO BE DELETED*/
-    background-color: aqua;
-    /**/
     flex: 1;
 }
 
-/* Header and Nav */
+/* ---------- Header & Navigation ---------- */
 header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     background-color: #1d2429;
-    position: relative;
+    position: relative; /* Contains absolute children (menu toggle) */
+    width: 100%;
 }
 
+/* Logo (for desktop view) */
 .logo {
-    max-width: 200px;
+    max-width: 200px; /* Adjust as needed */
     height: auto;
     display: block;
 }
 
+/* Hide desktop logo on mobile */
 .tab-desk {
     display: none;
 }
 
-/*Burger menu toggle formatting*/
+/* ---------------- Hamburger Menu Toggle ---------------- */
+/* Positioned in the top-right corner */
 .menu-toggle {
     position: absolute;
     top: 15px;
@@ -69,67 +66,66 @@ header {
     border: none;
     padding: 0;
     cursor: pointer;
-
 }
 
+/* Hamburger icon dimensions */
 .hamburger-icon {
     width: 30px;
     height: 30px;
 }
 
+/* Show open-icon by default; hide close-icon */
 .open-icon {
     display: block;
 }
-
 .close-icon {
     display: none;
 }
 
+/* When active, swap icons */
 .menu-toggle.active .open-icon {
     display: none;
 }
-
 .menu-toggle.active .close-icon {
     display: block;
 }
 
+/* ---------------- Navigation Links (Mobile) ---------------- */
 .nav-links {
     display: none;
     flex-direction: column;
+    align-items: center; /* Center items within the flex container */
     gap: 20px;
     width: 100%;
     background-color: #1d2429;
-    padding: 60px 0 20px;
-    /* Top padding to give space for the toggle button */
+    padding: 60px 0 20px; /* Space for the toggle button */
     text-align: center;
     z-index: 1000;
 }
 
+/* When toggled, show the nav links */
 .nav-links.show {
     display: flex;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
+/* List items take full width and center their content */
+.nav-links li {
+    display: block;
+    width: 100%;
 }
 
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
+/* Navigation link styling */
+.nav-links li a {
+    display: block;
+    width: 100%;
+    text-align: center;
     text-decoration: none;
     white-space: nowrap;
     color: white;
     font-weight: bold;
 }
 
-nav ul li a.active {
-    color: #fdd059;
-}
-
-/* Mobile Branding */
+/* ---------- Mobile Branding ---------- */
 .mobile {
     display: block;
 }
@@ -148,7 +144,7 @@ nav ul li a.active {
     font-weight: 700;
 }
 
-/* Hero Section */
+/* ---------- Hero Section ---------- */
 .hero {
     text-align: center;
     padding: 50px;
@@ -156,6 +152,7 @@ nav ul li a.active {
     color: white;
 }
 
+/* Call-to-action button */
 .cta-button {
     display: inline-block;
     padding: 10px 20px;
@@ -166,7 +163,7 @@ nav ul li a.active {
     border-radius: 5px;
 }
 
-/* Forms */
+/* ---------- Forms ---------- */
 form {
     display: flex;
     flex-direction: column;
@@ -195,53 +192,51 @@ button:hover {
     color: #1d2429;
 }
 
-/* Footer */
+/* ---------- Footer ---------- */
 footer {
     position: relative;
-    font-size: .8em;
+    font-size: 0.8em;
     text-align: center;
-    text-decoration: none;
     padding: 10px;
     background-color: #1d2429;
     color: white;
     width: 100%;
-
 }
 
-/* Tablet styles */
+/* =======================================================
+   Media Queries for Tablet and Desktop
+   ======================================================= */
+
+/* ---------------- Tablet Styles (min-width: 768px) ---------------- */
 @media (min-width: 768px) {
+    /* Hide mobile branding on larger screens */
     .mobile {
         display: none;
     }
-
+    /* Show desktop logo */
     .tab-desk {
         display: block;
     }
-
+    /* Hide hamburger toggle on larger screens */
     .menu-toggle {
         display: none !important;
     }
-
+    /* Header layout changes to a row */
     header {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         padding: 20px 10px;
     }
-
+    /* Adjust hero section spacing */
     .hero {
         min-height: 10vh;
         padding: 80px;
     }
-
     form {
         width: 400px;
     }
-
-    .menu-toggle {
-        display: none;
-    }
-
+    /* Navigation for larger screens */
     .nav-links {
         display: flex !important;
         flex-direction: row;
@@ -251,28 +246,21 @@ footer {
         padding: 0;
         justify-content: flex-end;
     }
-
-    nav ul {
-        gap: 30px;
-    }
 }
 
-/* Desktop styles */
+/* ---------------- Desktop Styles (min-width: 1024px) ---------------- */
 @media (min-width: 1024px) {
     #wrapper {
         max-width: 1200px;
         margin: 0 auto;
     }
-
     header {
         padding: 30px 60px;
     }
-
     .hero {
         min-height: 60vh;
         padding: 100px;
     }
-
     form {
         width: 500px;
     }
