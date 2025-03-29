@@ -1,3 +1,7 @@
+/* =======================================================
+   Cryptid Campers – Mobile First Responsive Styles
+   ======================================================= */
+
 /* ---------- CSS Reset ---------- */
 body, header, nav, main, footer, h1, div, img, ul {
     margin: 0;
@@ -31,6 +35,8 @@ body {
 /* Main content grows to push the footer to the bottom */
 main {
     flex: 1;
+    /* Example background for testing; remove when not needed */
+    background-color: aqua;
 }
 
 /* ---------- Header & Navigation ---------- */
@@ -43,7 +49,7 @@ header {
     width: 100%;
 }
 
-/* Logo (for desktop view) */
+/* Logo (desktop) */
 .logo {
     max-width: 200px; /* Adjust as needed */
     height: auto;
@@ -61,7 +67,7 @@ header {
     position: absolute;
     top: 15px;
     right: 25px;
-    z-index: 1100;
+    z-index: 2000;
     background: none;
     border: none;
     padding: 0;
@@ -81,7 +87,6 @@ header {
 .close-icon {
     display: none;
 }
-
 /* When active, swap icons */
 .menu-toggle.active .open-icon {
     display: none;
@@ -91,38 +96,51 @@ header {
 }
 
 /* ---------------- Navigation Links (Mobile) ---------------- */
+/* Container for the mobile nav – hidden by default */
 .nav-links {
-    display: none;
-    flex-direction: column;
-    align-items: center; /* Center items within the flex container */
-    gap: 20px;
-    width: 100%;
-    background-color: #1d2429;
-    padding: 60px 0 20px; /* Space for the toggle button */
-    text-align: center;
-    z-index: 1000;
+    position: fixed;            /* Fixes the menu to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;                /* Full viewport width */
+    height: 100%;               /* Full viewport height */
+    display: none;              /* Hidden by default */
+    flex-direction: column;     /* Stack items vertically */
+    align-items: center;        /* Center items horizontally */
+    justify-content: center;    /* Center items vertically */
+    gap: 20px;                  /* Space between nav items */
+    background-color: rgba(29,36,41,0.95); /* Semi-transparent background */
+    z-index: 1500;              /* Ensure it overlays other content */
 }
 
-/* When toggled, show the nav links */
+/* When toggled, show the overlay */
 .nav-links.show {
     display: flex;
 }
 
-/* List items take full width and center their content */
+/* Show nav when toggled */
+.nav-links.show {
+    display: flex;
+}
+
+/* Each nav list item */
 .nav-links li {
-    display: block;
+    list-style: none;           /* Remove bullets */
+    /* Let li span full width if desired (optional) */
     width: 100%;
 }
 
-/* Navigation link styling */
+/* Nav link styling – center text inside a button-like area */
 .nav-links li a {
-    display: block;
-    width: 100%;
-    text-align: center;
+    display: block;             /* Make the anchor fill its li */
+    padding: 10px 20px;         /* Internal spacing */
+    background-color: #333;     /* Optional background for visual button */
+    border-radius: 4px;         /* Rounded corners */
     text-decoration: none;
-    white-space: nowrap;
-    color: white;
+    color: #fff;
     font-weight: bold;
+    max-width: 200px;           /* Limit width for button-like appearance */
+    text-align: center;         /* Center the text */
+    margin: 0 auto;             /* Center the button within its li */
 }
 
 /* ---------- Mobile Branding ---------- */
