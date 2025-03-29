@@ -6,44 +6,79 @@
     <title>Register - Mystic Campers</title>
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
+
+
 <body>
-    <header>
-        <img src="../../images/logo.png" alt="Mystic Campers Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="../../index.html" class="active">Home</a></li>
-                <li><a href="../shopping/shopping.html">Shop</a></li>
-                <li><a href="../about-us/aboutus.html">About Us</a></li>
-                <li><a href="../the-hunt/thehunt.html">The Hunt</a></li>
-                <li><a href="../contact/contact.html">Contact</a></li>
-                <li><a href="account.html">Account</a></li>
-                <li><a href="../cart/cart.html">Cart</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="register">
-            <h2>Create an Account</h2>
-            <form action="#" method="post">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                
-                <label for="confirm-password">Confirm Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
-                
-                <button type="submit">Register</button>
-            </form>
-            <p>Already have an account? <a href="account.html">Login here</a>.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
-    </footer>
+    <div class="page-container" id="wrapper">
+        <header>
+            <!-- Logo and hamburger in a flex row -->
+            <div class="header-top">
+                <img class="tab-desk logo" src="../../images/top-logo.png" alt="Mystic Campers Logo" />
+
+                <!-- Branding text -->
+                <div class="mobile branding">
+                    <h1>Mystic Campers</h1>
+                    <h3>Where the wild meets the weird.</h3>
+                </div>
+
+                <!-- Hamburger menu toggle for mobile -->
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <img src="../../images/icons/burger_menu.png" alt="Menu" class="hamburger-icon open-icon" />
+                    <img src="../../images/icons/close.png" alt="Close Menu" class="hamburger-icon close-icon">
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../../index.html" class="active">Home</a></li>
+                    <li><a href="../shopping/shopping.html">Shop</a></li>
+                    <li><a href="../about-us/aboutus.html">About Us</a></li>
+                    <li><a href="../the-hunt/thehunt.html">The Hunt</a></li>
+                    <li><a href="../contact/contact.html">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="../cart/cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <main>
+            <section class="register">
+                <h2>Create an Account</h2>
+                <form action="#" method="post">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    
+                    <button type="submit">Register</button>
+                </form>
+                <p>Already have an account? <a href="account.html">Login here</a>.</p>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Mobile navigation toggle script -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            menuToggle.classList.toggle('active');
+        });
+    </script>
 </body>
+
 </html>
