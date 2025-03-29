@@ -267,14 +267,14 @@ figure {
 #teamgrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    padding: 10px;
 }
 
 .team-member {
-    display: block;
-    width: auto;
-    text-overflow: wrap;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: left;
 }
 
 .team-member img {
