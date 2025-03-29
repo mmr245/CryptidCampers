@@ -34,6 +34,7 @@ body {
 
 /* Main content grows to push the footer to the bottom */
 main {
+    padding: 2%;
     flex: 1;
     /* Example background for testing; remove when not needed */
     background-color: aqua;
