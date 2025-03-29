@@ -224,8 +224,9 @@ header {
 .banner {
     max-width: 100%;
     height: auto;
-    opacity: .75;
+    opacity: 0.5;
 }
+
 /* ---------- Forms ---------- */
 form {
     display: flex;
