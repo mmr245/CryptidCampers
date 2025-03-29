@@ -2,60 +2,68 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mystic Campers Home</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mystic Campers Home</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-    <div id="wrapper"> <!--wraps content for large viewport formatting-->
-        <header>
-            <img src="images/logo.png" alt="Mystic Campers Logo" class="logo">
+  <div id="wrapper">
+    <header>
+      <!-- Logo and hamburger in a flex row -->
+      <div class="header-top">
+        <img src="images/logo.png" alt="Mystic Campers Logo" class="logo" />
 
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <img src="images/icons/burger_menu.png" alt="Menu" class="hamburger-icon">
-            </button>
+        <!-- Hamburger menu toggle for mobile -->
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <img src="images/icons/burger_menu.png" alt="Menu" class="hamburger-icon" />
+        </button>
+      </div>
 
-            <div class="mobile">
-                <h1>Mystic Campers</h1>
-                <h3>Where the wild meets the weird.</h3>
-            </div>
-            
-            <nav>
-                <ul class="nav-links nav-mobile">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="pages/shopping/shopping.html">Shop</a></li>
-                    <li><a href="pages/about-us/aboutus.html">About Us</a></li>
-                    <li><a href="pages/the-hunt/thehunt.html">The Hunt</a></li>
-                    <li><a href="pages/contact/contact.html">Contact</a></li>
-                    <li><a href="pages/account/account.html">Account</a></li>
-                    <li><a href="pages/cart/cart.html">Cart</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section class="hero">
-                <h1>Welcome to Mystic Campers</h1>
-                <p>Explore the unknown with our top-tier camping gear.</p>
-                <p>Examples</p>
-                <a href="shopping/shopping.html" class="cta-button">Shop Now</a>
-            </section>
-        </main>
-        <footer>
-            <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
-        </footer>
-    </div>
-    
-    <!--burger menu script-->
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-      
-        menuToggle.addEventListener('click', () => {
-          navLinks.classList.toggle('show');
-        });
-      </script>
+      <!-- Branding text -->
+      <div class="mobile">
+        <h1>Mystic Campers</h1>
+        <h3>Where the wild meets the weird.</h3>
+      </div>
+
+      <!-- Navigation -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="pages/shopping/shopping.html">Shop</a></li>
+          <li><a href="pages/about-us/aboutus.html">About Us</a></li>
+          <li><a href="pages/the-hunt/thehunt.html">The Hunt</a></li>
+          <li><a href="pages/contact/contact.html">Contact</a></li>
+          <li><a href="pages/account/account.html">Account</a></li>
+          <li><a href="pages/cart/cart.html">Cart</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Welcome to Mystic Campers</h1>
+        <p>Explore the unknown with our top-tier camping gear.</p>
+        <p>Examples</p>
+        <a href="shopping/shopping.html" class="cta-button">Shop Now</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Mobile navigation toggle script -->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
 </body>
 
 </html>

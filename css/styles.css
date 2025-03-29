@@ -1,37 +1,33 @@
 /* Cryptid Campers */
-/*Mobile first approach*/
+/* Mobile first approach */
+
 /* CSS Reset */
-body,
-header,
-nav,
-main,
-footer,
-h1,
-div,
-img,
-ul {
+body, header, nav, main, footer, h1, div, img, ul {
     margin: 0;
     padding: 0;
     border: 0;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1d2429;
+    color: #fff;
+    overflow-x: hidden; /* No horizontal scrolling in mobile view */
+}
+
+/* Header and Nav */
 header {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     background-color: #1d2429;
     padding: 10px 20px;
 }
 
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #1d2429;
-    color: #fff;
+.logo {
+    height: 50px;
 }
 
-/*Mobile Styling*/
-
-/* Mobile Nav Styling */
 .menu-toggle {
     background: none;
     border: none;
@@ -45,62 +41,27 @@ body {
     height: 30px;
 }
 
-.nav-mobile {
-    display: none;
-}
-
 .nav-links {
     display: none;
     flex-direction: column;
     gap: 20px;
     position: absolute;
     top: 60px;
-    /* adjust based on header height */
     right: 0;
     width: 100%;
     background-color: #1d2429;
     padding: 20px 0;
     text-align: center;
+    z-index: 1000;
 }
 
 .nav-links.show {
     display: flex;
 }
 
-/*No horizontal scrolling in mobile view */
-body {
-    overflow-x: hidden;
-}
-
-.mobile {
-    display: block;
-}
-
-.mobile h1 {
-    font-family: Arial, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.mobile h3 {
-    font-family: Arial, sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.tab-desk {
-    display: none;
-}
-
-.logo {
-    height: 50px;
-}
-
 nav ul {
     list-style-type: none;
     padding: 0;
-    display: flex;
-    gap: 15px;
 }
 
 nav ul li {
@@ -115,6 +76,28 @@ nav ul li a {
 
 nav ul li a.active {
     color: #fdd059;
+}
+
+/* Mobile Branding */
+.mobile {
+    display: block;
+}
+
+.mobile h1,
+.mobile h3 {
+    font-family: Arial, sans-serif;
+}
+
+.mobile h1 {
+    font-weight: 400;
+}
+
+.mobile h3 {
+    font-weight: 700;
+}
+
+.tab-desk {
+    display: none;
 }
 
 /* Hero Section */
@@ -164,6 +147,7 @@ button:hover {
     color: #1d2429;
 }
 
+/* Footer */
 footer {
     text-align: center;
     text-decoration: none;
@@ -178,10 +162,10 @@ footer {
 /* Tablet styles */
 @media (min-width: 768px) {
     header {
-        padding: 20px 40px;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        padding: 20px 40px;
     }
 
     .hero {
@@ -195,10 +179,6 @@ footer {
     .menu-toggle {
         display: none;
     }
-
-    .nav-mobile {
-        display: flex !important;
-      }
 
     .nav-links {
         display: flex !important;
