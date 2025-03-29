@@ -8,15 +8,32 @@
 </head>
 <body>
     <header>
-        <img src="../../images/logo.png" alt="Mystic Campers Logo" class="logo">
+        <!-- Logo and hamburger in a flex row -->
+        <div class="header-top">
+            <img class="tab-desk logo" src="../../images/top-logo.png" alt="Mystic Campers Logo" />
+
+            <!-- Branding text -->
+            <div class="mobile branding">
+                <h1>Mystic Campers</h1>
+                <h3>Where the wild meets the weird.</h3>
+            </div>
+
+            <!-- Hamburger menu toggle for mobile -->
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <img src="../../images/icons/burger_menu.png" alt="Menu" class="hamburger-icon open-icon" />
+                <img src="../../images/icons/close.png" alt="Close Menu" class="hamburger-icon close-icon">
+            </button>
+        </div>
+
+        <!-- Navigation -->
         <nav>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="../../index.html" class="active">Home</a></li>
                 <li><a href="../shopping/shopping.html">Shop</a></li>
                 <li><a href="../about-us/aboutus.html">About Us</a></li>
                 <li><a href="../the-hunt/thehunt.html">The Hunt</a></li>
                 <li><a href="../contact/contact.html">Contact</a></li>
-                <li><a href="../account/account.html">Account</a></li>
+                <li><a href="../about-us/account.html">Account</a></li>
                 <li><a href="cart.html">Cart</a></li>
             </ul>
         </nav>
@@ -35,9 +52,21 @@
                 <input type="text" id="zip" name="zip" required>
             </form>
         </section>
-        <footer>
-            <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
-        </footer>
     </main>
+    <footer>
+        <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
+    </footer>
+</div>
+
+<!-- Mobile navigation toggle script -->
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+        menuToggle.classList.toggle('active');
+    });
+</script>
 </body>
 </html>
