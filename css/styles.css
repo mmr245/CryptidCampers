@@ -16,10 +16,6 @@ ul {
     border: 0;
 }
 
-* {
-    box-sizing: border-box;
-  }
-
 body {
     height: 100%;
     margin: 0;
@@ -46,6 +42,7 @@ header {
     align-items: flex-start;
     background-color: #1d2429;
     padding: 10px 20px;
+    position: relative;
 }
 
 .tab-desk {
