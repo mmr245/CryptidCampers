@@ -149,10 +149,15 @@ header {
     display: block;
 }
 
+/*Mobile branding language*/
+.branding {
+    padding: 25px;
+}
+
 .mobile h1,
 .mobile h3 {
     font-family: Arial, sans-serif;
-    text-align: center;
+    text-align: left;
 }
 
 .mobile h1 {
