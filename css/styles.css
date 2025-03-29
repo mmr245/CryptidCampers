@@ -257,13 +257,17 @@ footer {
     }
     /* Navigation for larger screens */
     .nav-links {
-        display: flex !important;
+        display: flex;
         flex-direction: row;
         position: static;
-        gap: 50px;
+        gap: 10px;
         background: none;
         padding: 0;
         justify-content: flex-end;
+    }
+
+    .nav-links li a {
+        white-space: nowrap; /*Keeps the menu items from text wrapping*/
     }
 }
 
