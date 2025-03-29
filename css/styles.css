@@ -199,6 +199,7 @@ footer {
     background-color: #1d2429;
     color: white;
     width: 100%;
+
 }
 
 /* Tablet styles */
@@ -223,6 +224,7 @@ footer {
     }
 
     .hero {
+        min-height: 60vh;
         padding: 80px;
     }
 
@@ -261,6 +263,7 @@ footer {
     }
 
     .hero {
+        min-height: 60vh;
         padding: 100px;
     }
 
