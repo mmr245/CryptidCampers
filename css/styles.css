@@ -32,7 +32,11 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
 main {
+    /*TO BE DELETED*/
+    background-color: aqua;
+    /**/
     flex: 1;
 }
 
@@ -42,23 +46,24 @@ header {
     flex-direction: column;
     align-items: flex-start;
     background-color: #1d2429;
-    padding: 10px 20px;
     position: relative;
-    width: 100%;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+    display: block;
 }
 
 .tab-desk {
     display: none;
 }
 
-.logo {
-    height: 50px;
-}
-
+/*Burger menu toggle formatting*/
 .menu-toggle {
     position: absolute;
     top: 15px;
-    right: 65px;
+    right: 25px;
     z-index: 1100;
     background: none;
     border: none;
@@ -92,10 +97,7 @@ header {
     display: none;
     flex-direction: column;
     gap: 20px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    width: 100%;
     background-color: #1d2429;
     padding: 60px 0 20px;
     /* Top padding to give space for the toggle button */
@@ -118,6 +120,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
+    white-space: nowrap;
     color: white;
     font-weight: bold;
 }
@@ -147,8 +150,6 @@ nav ul li a.active {
 
 /* Hero Section */
 .hero {
-    text-align: center;
-    width: auto;
     text-align: center;
     padding: 50px;
     background-color: #77a290;
@@ -197,6 +198,7 @@ button:hover {
 /* Footer */
 footer {
     position: relative;
+    font-size: .8em;
     text-align: center;
     text-decoration: none;
     padding: 10px;
@@ -224,11 +226,11 @@ footer {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding: 20px 40px;
+        padding: 20px 10px;
     }
 
     .hero {
-        min-height: 60vh;
+        min-height: 10vh;
         padding: 80px;
     }
 
@@ -244,7 +246,7 @@ footer {
         display: flex !important;
         flex-direction: row;
         position: static;
-        gap: 30px;
+        gap: 50px;
         background: none;
         padding: 0;
         justify-content: flex-end;
