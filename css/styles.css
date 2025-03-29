@@ -3,7 +3,15 @@
    ======================================================= */
 
 /* ---------- CSS Reset ---------- */
-body, header, nav, main, footer, h1, div, img, ul {
+body,
+header,
+nav,
+main,
+footer,
+h1,
+div,
+img,
+ul {
     margin: 0;
     padding: 0;
     border: 0;
@@ -22,7 +30,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: #1d2429;
     color: #fff;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
 }
 
 /* Container to hold the page and force full viewport height */
@@ -47,13 +56,15 @@ header {
     flex-direction: column;
     align-items: flex-start;
     background-color: #1d2429;
-    position: relative; /* Contains absolute children (menu toggle) */
+    position: relative;
+    /* Contains absolute children (menu toggle) */
     width: 100%;
 }
 
 /* Logo (desktop) */
 .logo {
-    max-width: 200px; /* Adjust as needed */
+    max-width: 200px;
+    /* Adjust as needed */
     height: auto;
     display: block;
 }
@@ -86,13 +97,16 @@ header {
 .open-icon {
     display: block;
 }
+
 .close-icon {
     display: none;
 }
+
 /* When active, swap icons */
 .menu-toggle.active .open-icon {
     display: none;
 }
+
 .menu-toggle.active .close-icon {
     display: block;
 }
@@ -100,18 +114,28 @@ header {
 /* ---------------- Navigation Links (Mobile) ---------------- */
 /* Container for the mobile nav – hidden by default */
 .nav-links {
-    position: fixed;            /* Fixes the menu to the viewport */
+    position: fixed;
+    /* Fixes the menu to the viewport */
     top: 0;
     left: 0;
-    width: 100%;                /* Full viewport width */
-    height: 100%;               /* Full viewport height */
-    display: none;              /* Hidden by default */
-    flex-direction: column;     /* Stack items vertically */
-    align-items: center;        /* Center items horizontally */
-    justify-content: center;    /* Center items vertically */
-    gap: 20px;                  /* Space between nav items */
-    background-color: rgba(29,36,41,0.95); /* Semi-transparent background */
-    z-index: 1500;              /* Ensure it overlays other content */
+    width: 100%;
+    /* Full viewport width */
+    height: 100%;
+    /* Full viewport height */
+    display: none;
+    /* Hidden by default */
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Center items horizontally */
+    justify-content: center;
+    /* Center items vertically */
+    gap: 20px;
+    /* Space between nav items */
+    background-color: rgba(29, 36, 41, 0.95);
+    /* Semi-transparent background */
+    z-index: 1500;
+    /* Ensure it overlays other content */
 }
 
 /* When toggled, show the overlay */
@@ -126,23 +150,31 @@ header {
 
 /* Each nav list item */
 .nav-links li {
-    list-style: none;           /* Remove bullets */
+    list-style: none;
+    /* Remove bullets */
     /* Let li span full width if desired (optional) */
     width: 100%;
 }
 
 /* Nav link styling – center text inside a button-like area */
 .nav-links li a {
-    display: block;             /* Make the anchor fill its li */
-    padding: 10px 20px;         /* Internal spacing */
-    background-color: #333;     /* Optional background for visual button */
-    border-radius: 4px;         /* Rounded corners */
+    display: block;
+    /* Make the anchor fill its li */
+    padding: 10px 20px;
+    /* Internal spacing */
+    background-color: #333;
+    /* Optional background for visual button */
+    border-radius: 4px;
+    /* Rounded corners */
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    max-width: 200px;           /* Limit width for button-like appearance */
-    text-align: center;         /* Center the text */
-    margin: 0 auto;             /* Center the button within its li */
+    max-width: 200px;
+    /* Limit width for button-like appearance */
+    text-align: center;
+    /* Center the text */
+    margin: 0 auto;
+    /* Center the button within its li */
 }
 
 /* ---------- Mobile Branding ---------- */
@@ -217,6 +249,42 @@ button:hover {
     color: #1d2429;
 }
 
+/* ---------- Figures ---------- */
+figure {
+    position: relative;
+    max-width: 275px;
+    margin: 2% auto;
+}
+
+/* ---------- Team About  ---------- */
+#teamgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.team-member {
+    display: block;
+    width: auto;
+    text-overflow: wrap;
+}
+
+.team-member img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.team-member p {
+    overflow-wrap: break-word; /* Ensures long words break to fit the container */
+    word-wrap: break-word;     /* Fallback for older browsers */
+}
+
+.team-member figure {
+    margin: 0;
+}
+
 /* ---------- Footer ---------- */
 footer {
     position: relative;
@@ -234,18 +302,22 @@ footer {
 
 /* ---------------- Tablet Styles (min-width: 768px) ---------------- */
 @media (min-width: 768px) {
+
     /* Hide mobile branding on larger screens */
     .mobile {
         display: none;
     }
+
     /* Show desktop logo */
     .tab-desk {
         display: block;
     }
+
     /* Hide hamburger toggle on larger screens */
     .menu-toggle {
         display: none !important;
     }
+
     /* Header layout changes to a row */
     header {
         flex-direction: row;
@@ -253,17 +325,22 @@ footer {
         justify-content: space-between;
         padding: 20px 10px;
     }
+
     body {
-        overflow-x: scroll; /* Prevent horizontal scrolling */
+        overflow-x: scroll;
+        /* Prevent horizontal scrolling */
     }
+
     /* Adjust hero section spacing */
     .hero {
         min-height: 10vh;
         padding: 80px;
     }
+
     form {
         width: 400px;
     }
+
     /* Navigation for larger screens */
     .nav-links {
         display: flex;
@@ -276,7 +353,13 @@ footer {
     }
 
     .nav-links li a {
-        white-space: nowrap; /*Keeps the menu items from text wrapping*/
+        white-space: nowrap;
+        /*Keeps the menu items from text wrapping*/
+    }
+
+    /*Team for Tablet*/
+    #teamgrid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -286,14 +369,22 @@ footer {
         max-width: 1200px;
         margin: 0 auto;
     }
+
     header {
         padding: 30px 60px;
     }
+
     .hero {
         min-height: 30vh;
         padding: 100px;
     }
+
     form {
         width: 500px;
+    }
+
+    /*Team for Tablet*/
+    #teamgrid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
