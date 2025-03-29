@@ -1,45 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Mystic Campers</title>
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
+
 <body>
-    <header>
-        <img src="../../images/logo.png" alt="Mystic Campers Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="../../index.html" class="active">Home</a></li>
-                <li><a href="../shopping/shopping.html">Shop</a></li>
-                <li><a href="../about-us/aboutus.html">About Us</a></li>
-                <li><a href="../the-hunt/thehunt.html">The Hunt</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="../account/account.html">Account</a></li>
-                <li><a href="../cart/cart.html">Cart</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="contact-form">
-            <h2>Contact Us</h2>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                
-                <button type="submit">Send</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
-    </footer>
+    <div class="page-container" id="wrapper">
+        <header>
+            <!-- Logo and hamburger in a flex row -->
+            <div class="header-top">
+                <img class="tab-desk logo" src="../../images/top-logo.png" alt="Mystic Campers Logo" />
+
+                <!-- Branding text -->
+                <div class="mobile branding">
+                    <h1>Mystic Campers</h1>
+                    <h3>Where the wild meets the weird.</h3>
+                </div>
+
+                <!-- Hamburger menu toggle for mobile -->
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <img src="../../images/icons/burger_menu.png" alt="Menu" class="hamburger-icon open-icon" />
+                    <img src="../../images/icons/close.png" alt="Close Menu" class="hamburger-icon close-icon">
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../../index.html" class="active">Home</a></li>
+                    <li><a href="../shopping/shopping.html">Shop</a></li>
+                    <li><a href="../about-us/aboutus.html">About Us</a></li>
+                    <li><a href="../the-hunt/thehunt.html">The Hunt</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="../account/account.html">Account</a></li>
+                    <li><a href="../cart/cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <main>
+            <!--paste here-->
+            <section class="contact-form">
+                <h2>Contact Us</h2>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Mobile navigation toggle script -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            menuToggle.classList.toggle('active');
+        });
+    </script>
 </body>
+
 </html>
