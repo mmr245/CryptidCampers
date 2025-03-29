@@ -36,8 +36,9 @@ body {
 main {
     padding: 2%;
     flex: 1;
-    /* Example background for testing; remove when not needed */
-    background-color: aqua;
+    /* @TO-DO DELET Example background for testing; remove when not needed
+        background-color: aqua; */
+
 }
 
 /* ---------- Header & Navigation ---------- */
@@ -252,6 +253,9 @@ footer {
         justify-content: space-between;
         padding: 20px 10px;
     }
+    body {
+        overflow-x: scroll; /* Prevent horizontal scrolling */
+    }
     /* Adjust hero section spacing */
     .hero {
         min-height: 10vh;
@@ -286,7 +290,7 @@ footer {
         padding: 30px 60px;
     }
     .hero {
-        min-height: 60vh;
+        min-height: 30vh;
         padding: 100px;
     }
     form {
