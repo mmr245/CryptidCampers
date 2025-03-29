@@ -220,6 +220,12 @@ header {
     border-radius: 5px;
 }
 
+/* --------- Banner ---------- */
+.banner {
+    max-width: 100%;
+    height: auto;
+    opacity: .75;
+}
 /* ---------- Forms ---------- */
 form {
     display: flex;
