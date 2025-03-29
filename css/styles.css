@@ -2,7 +2,15 @@
 /* Mobile first approach */
 
 /* CSS Reset */
-body, header, nav, main, footer, h1, div, img, ul {
+body,
+header,
+nav,
+main,
+footer,
+h1,
+div,
+img,
+ul {
     margin: 0;
     padding: 0;
     border: 0;
@@ -12,7 +20,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: #1d2429;
     color: #fff;
-    overflow-x: hidden; /* No horizontal scrolling in mobile view */
+    overflow-x: hidden;
+    /* No horizontal scrolling in mobile view */
 }
 
 /* Header and Nav */
@@ -36,11 +45,12 @@ header {
     position: absolute;
     top: 15px;
     right: 20px;
+    z-index: 1100;
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
-    z-index: 1100;
+
 }
 
 .hamburger-icon {
@@ -50,19 +60,19 @@ header {
 
 .open-icon {
     display: block;
-  }
-  
-  .close-icon {
+}
+
+.close-icon {
     display: none;
-  }
-  
-  .menu-toggle.active .open-icon {
+}
+
+.menu-toggle.active .open-icon {
     display: none;
-  }
-  
-  .menu-toggle.active .close-icon {
+}
+
+.menu-toggle.active .close-icon {
     display: block;
-  }
+}
 
 .nav-links {
     display: none;
@@ -73,7 +83,8 @@ header {
     left: 0;
     width: 100%;
     background-color: #1d2429;
-    padding: 60px 0 20px; /* Top padding to give space for the toggle button */
+    padding: 60px 0 20px;
+    /* Top padding to give space for the toggle button */
     text-align: center;
     z-index: 1000;
 }
@@ -187,6 +198,10 @@ footer {
 
     .tab-desk {
         display: block;
+    }
+
+    .menu-toggle {
+        display: none !important;
     }
 
     header {
