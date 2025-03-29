@@ -17,12 +17,22 @@ ul {
 }
 
 body {
-    
+    height: 100%;
+    margin: 0;
     font-family: Arial, sans-serif;
     background-color: #1d2429;
     color: #fff;
     overflow-x: hidden;
     /* No horizontal scrolling in mobile view */
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex: 1;
 }
 
 /* Header and Nav */
@@ -182,14 +192,13 @@ button:hover {
 
 /* Footer */
 footer {
+    position: relative;
     text-align: center;
     text-decoration: none;
     padding: 10px;
     background-color: #1d2429;
     color: white;
-    position: absolute;
     width: 100%;
-    bottom: 0;
 }
 
 /* Tablet styles */
