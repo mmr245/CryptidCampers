@@ -90,6 +90,7 @@ nav ul li a.active {
 .mobile h1,
 .mobile h3 {
     font-family: Arial, sans-serif;
+    text-align: center;
 }
 
 .mobile h1 {
@@ -165,6 +166,14 @@ footer {
 
 /* Tablet styles */
 @media (min-width: 768px) {
+    .mobile {
+        display: none;
+    }
+
+    .tab-desk {
+        display: block;
+    }
+
     header {
         flex-direction: row;
         align-items: center;
