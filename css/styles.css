@@ -45,6 +45,22 @@ header {
     height: 30px;
 }
 
+.open-icon {
+    display: block;
+  }
+  
+  .close-icon {
+    display: none;
+  }
+  
+  .menu-toggle.active .open-icon {
+    display: none;
+  }
+  
+  .menu-toggle.active .close-icon {
+    display: block;
+  }
+
 .nav-links {
     display: none;
     flex-direction: column;
