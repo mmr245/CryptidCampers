@@ -24,6 +24,10 @@ header {
     padding: 10px 20px;
 }
 
+.tab-desk {
+    display: none;
+}
+
 .logo {
     height: 50px;
 }
