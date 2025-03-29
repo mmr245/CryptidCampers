@@ -101,10 +101,6 @@ nav ul li a.active {
     font-weight: 700;
 }
 
-.tab-desk {
-    display: none;
-}
-
 /* Hero Section */
 .hero {
     text-align: center;
