@@ -43,6 +43,7 @@ header {
     background-color: #1d2429;
     padding: 10px 20px;
     position: relative;
+    width: 100%;
 }
 
 .tab-desk {
@@ -93,7 +94,7 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0;
     background-color: #1d2429;
     padding: 60px 0 20px;
     /* Top padding to give space for the toggle button */
