@@ -249,6 +249,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 button:hover {
@@ -337,6 +338,14 @@ figure {
 .img-column {
     flex: 25%;
     padding: 10px;
+}
+
+.img-column img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .text-column {
