@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,27 +31,30 @@
             <!-- Navigation -->
             <nav>
                 <ul class="nav-links">
-                <li><a href="../../index.html" class="active">Home</a></li>
-                <li><a href="../shopping/shopping.html">Shop</a></li>
-                <li><a href="../about-us/aboutus.html">About Us</a></li>
-                <li><a href="thehunt.html">The Hunt</a></li>
-                <li><a href="../contact/contact.html">Contact</a></li>
-                <li><a href="../account/account.html">Account</a></li>
-                <li><a href="../cart/cart.html">Cart</a></li>                </ul>
+                    <li><a href="../../index.html" class="active">Home</a></li>
+                    <li><a href="../shopping/shopping.html">Shop</a></li>
+                    <li><a href="../about-us/aboutus.html">About Us</a></li>
+                    <li><a href="thehunt.html">The Hunt</a></li>
+                    <li><a href="../contact/contact.html">Contact</a></li>
+                    <li><a href="../account/account.html">Account</a></li>
+                    <li><a href="../cart/cart.html">Cart</a></li>
+                </ul>
             </nav>
         </header>
 
-
         <main>
-        <aside>Try out <a href="game.html">GAME</a></aside>
-        <section class="scavenger-hunt">
-            <h2>Scavenger Hunt</h2>
-            <p>Join our community adventure...</p>
-        </section>
-        <section class="blog">
-            <h2>Adventure Blog</h2>
-            <p>Read about our latest expeditions...</p>
-        </section>              </main>
+            <!-- Button to start the game -->
+            <button id="startGame">Start Game</button>
+
+            <!-- Container where the mystery word boxes will be displayed -->
+            <div id="gameBoard"></div>
+
+            <!-- Input for the user to enter a letter -->
+            <input id="letterInput" type="text" placeholder="Enter a letter">
+
+            <!-- Include the compiled JavaScript file -->
+            <script src="game.js"></script>
+        </main>
         <footer>
             <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
         </footer>
@@ -67,4 +71,5 @@
         });
     </script>
 </body>
+
 </html>

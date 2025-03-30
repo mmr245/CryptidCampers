@@ -32,18 +32,18 @@ export const products = [
     },
     {
         id: "tent03",
-        name: "Wendigo's Whisper Shelter",
+        name: "Werewolf's Whisper Shelter",
         price: 249.99,
         category: "tents",
-        image: "../../images/catalog_images/wendigos-tent.png",
-        description: "Dare to sleep under the eerie glow of the wilderness with the Wendigo’s Whisper Shelter, a rugged 4-season tent built for those who venture deep into the unknown. Crafted with stealthy dark forest hues and wind-resistant materials, this tent is designed to keep you secure while the shadows move beyond the treeline. The glow-in-the-dark Wendigo claw mark accents and reflective guide ropes ensure you won’t lose your way—unless something finds you first.",
+        image: "../../images/catalog_images/werewolf-tent.png",
+        description: "Dare to sleep under the eerie glow of the wilderness with the Werewolf’s Whisper Shelter, a rugged 4-season tent built for those who venture deep into the unknown. Crafted with stealthy dark forest hues and wind-resistant materials, this tent is designed to keep you secure while the shadows move beyond the treeline. The glow-in-the-dark Werewolf claw mark accents and reflective guide ropes ensure you won’t lose your way—unless something finds you first.",
         includes: [
             "Heavy-duty waterproof, windproof, and insulated fabric for all seasons",
             "Two-person capacity with a reinforced aluminum frame",
-            "Glow-in-the-dark Wendigo claw marks on the rainfly for eerie nighttime aesthetics",
+            "Glow-in-the-dark Werewolf claw marks on the rainfly for eerie nighttime aesthetics",
             "Reflective guide ropes for added visibility",
             "Mesh panels for ventilation and stargazing",
-            "Custom carrying bag with Wendigo emblem",
+            "Custom carrying bag with Werewolf emblem",
             "Sleeping bags"
         ]
     },
