@@ -128,13 +128,6 @@ if (wordDisplay && attemptsDisplay && guessedDisplay && letterBankDisplay) {
 }
 }
 
-function updateHangman(): void {
-const hangmanImage = document.getElementById("hangman-image");
-if (hangmanImage) {
-    hangmanImage.src = `images/hangman-${remainingAttempts}.png`; // Update to the appropriate hangman image
-}
-}
-
 function handleGuess(letter: string): void {
 if (guessedLetters.includes(letter) || remainingAttempts <= 0) {
     return; // Ignore if already guessed or game is over
