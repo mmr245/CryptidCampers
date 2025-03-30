@@ -112,5 +112,5 @@
     "rootDir": "./scripts",
     "outDir": "./dist"
   },
-  "include": ["scripts/**/*.ts"]
+  "include": ["scripts/**/*.ts", "scripts/game.ts"],
 }
