@@ -116,8 +116,10 @@ function updateGameDisplay() {
     const guessedDisplay = document.getElementById("guessed-letters");
 
     if (wordDisplay && attemptsDisplay && guessedDisplay) {
-        wordDisplay.textContent = selectedWord.split("")
+        // Create display with dashes for unguessed letters
+        const displayWord = selectedWord.split("")
             .map(letter => guessedLetters.includes(letter) ? letter : "_").join(" ");
+        wordDisplay.textContent = displayWord; // Show current state of the word
         attemptsDisplay.textContent = `Remaining Attempts: ${remainingAttempts}`;
         guessedDisplay.textContent = `Guessed Letters: ${guessedLetters.join(", ")}`;
     }
@@ -125,27 +127,27 @@ function updateGameDisplay() {
 
 function handleGuess(letter) {
     if (guessedLetters.includes(letter) || remainingAttempts <= 0) {
-        return;
+        return; // Ignore if already guessed or game is over
     }
     guessedLetters.push(letter);
-    
+
     if (!selectedWord.includes(letter)) {
-        remainingAttempts--;
+        remainingAttempts--; // Deduct an attempt if the letter is not in the word
     }
-    updateGameDisplay();
-    checkGameStatus();
+    updateGameDisplay(); // Update the display after the guess
+    checkGameStatus(); // Check if the game has been won or lost
 }
 
 function checkGameStatus() {
     const wordDisplay = document.getElementById("word-display");
     if (wordDisplay) {
-        const currentDisplay = wordDisplay.textContent;
+        const currentDisplay = wordDisplay.textContent || "";
         if (!currentDisplay.includes("_")) {
             alert("Congratulations! You've guessed the word!");
-            startGame();
+            startGame(); // Restart the game
         } else if (remainingAttempts === 0) {
             alert(`Game over! The word was: ${selectedWord}`);
-            startGame();
+            startGame(); // Restart the game
         }
     }
 }
@@ -156,5 +158,9 @@ document.getElementById("guess-button")?.addEventListener("click", () => {
     const input = document.getElementById("guess-input");
     const letter = input.value.toLowerCase();
     input.value = "";
-    handleGuess(letter);
+    if (letter.length === 1 && /^[a-z]$/.test(letter)) { // Check for a single letter
+        handleGuess(letter);
+    } else {
+        alert("Please enter a single letter.");
+    }
 });
