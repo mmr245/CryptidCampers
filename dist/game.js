@@ -117,12 +117,16 @@ function updateGameDisplay() {
     const letterBankDisplay = document.getElementById("letter-bank");
 
     if (wordDisplay && attemptsDisplay && guessedDisplay && letterBankDisplay) {
+        // Create display with dashes for unguessed letters
         const displayWord = selectedWord.split("")
             .map(letter => guessedLetters.includes(letter) ? letter : "_").join(" ");
         wordDisplay.textContent = displayWord; // Show current state of the word
         attemptsDisplay.textContent = `Remaining Attempts: ${remainingAttempts}`;
         guessedDisplay.textContent = `Guessed Letters: ${guessedLetters.join(", ")}`;
-        letterBankDisplay.textContent = `Letter Bank: ${guessedLetters.join(", ")}`; // Update letter bank
+
+        // Create a letter bank from the selected word
+        const uniqueLetters = Array.from(new Set(selectedWord.split(""))); // Get unique letters
+        letterBankDisplay.textContent = `Letter Bank: ${uniqueLetters.join(", ")}`; // Update letter bank
     }
 }
 
@@ -131,7 +135,7 @@ function handleGuess(letter) {
         return; // Ignore if already guessed or game is over
     }
     guessedLetters.push(letter);
-
+    
     if (!selectedWord.includes(letter)) {
         remainingAttempts--; // Deduct an attempt if the letter is not in the word
     }
@@ -165,4 +169,3 @@ document.getElementById("guess-button")?.addEventListener("click", () => {
         alert("Please enter a single letter.");
     }
 });
-
