@@ -313,5 +313,5 @@ const products = [
             "Clips onto gear, belts, or backpacks for hands-free use",
             "20-hour battery life per charge"
         ]
-    },
+    }
 ];
