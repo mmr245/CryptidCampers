@@ -45,13 +45,16 @@
         <main>
             <!-- Button to start the game -->
             <button id="startGame">Start Game</button>
-
-            <!-- Container where the mystery word boxes will be displayed -->
-            <div id="gameBoard"></div>
-
-            <!-- Input for the user to enter a letter -->
-            <input id="letterInput" type="text" placeholder="Enter a letter">
-
+                    <div class="container">
+                        <h2>Hangman Game</h2>
+                        <div id="word-display">Word will be displayed here</div>
+                        <div id="attempts">Remaining Attempts: 6</div>
+                        <div id="guessed-letters">Guessed Letters: </div>
+                        
+                        <input type="text" id="guess-input" maxlength="1" placeholder="Enter a letter" />
+                        <button id="guess-button">Guess</button>
+                        <button id="start-game" class="btn btn-primary">Start New Game</button>
+                    </div>
             <!-- Include the compiled JavaScript file -->
             <script src="game.js"></script>
         </main>
@@ -70,7 +73,7 @@
             menuToggle.classList.toggle('active');
         });
     </script>
-     <script type="module" src="../../dist/wordguess.js"></script>
+     <script type="module" src="../../dist/game.js"></script>
 </body>
 
 </html>
