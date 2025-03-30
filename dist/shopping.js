@@ -1,5 +1,5 @@
 // Import the products array and Product type from products.ts
-import { products } from "./products";
+import { products } from "./products.js";
 // Function to render the products dynamically on the shopping page
 function renderProducts(productList) {
     const grid = document.getElementById("product-grid");

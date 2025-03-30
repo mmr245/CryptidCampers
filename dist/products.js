@@ -6,7 +6,7 @@ export const products = [
         name: "Enchanted Tent",
         price: 209.99,
         category: "tents",
-        image: "../images/enchanted-tents.png",
+        image: "../../images/catalog_images/enchanted-tents.png",
         description: "Campfire tent made with durable materials and design that turns your ambience into an extraordinary and mesmerizing world you’ve never seen before.",
         includes: [
             "Tents with built-in LED lights",
@@ -19,7 +19,7 @@ export const products = [
         name: "Nyx’s Veil Stargazer Tent",
         price: 199.99,
         category: "tents",
-        image: "../images/nyxs-tent.png",
+        image: "../../images/catalog_images/nyxs-tent.png",
         description: "Immerse yourself in the celestial mysteries of the night with Nyx’s Veil Stargazer Tent, inspired by the primordial goddess of the night. Designed for dreamers, mystics, and cosmic explorers, this ultralight, two-person tent features a semi-transparent star map printed on the inner canopy, allowing campers to align with constellations as they rest. The deep indigo fabric shimmers subtly under moonlight, creating an ethereal glow in the dark.",
         includes: [
             "Ultralight yet durable weather-resistant fabric",
@@ -35,7 +35,7 @@ export const products = [
         name: "Wendigo's Whisper Shelter",
         price: 249.99,
         category: "tents",
-        image: "../images/wendigos-tent.png",
+        image: "../../images/catalog_images/wendigos-tent.png",
         description: "Dare to sleep under the eerie glow of the wilderness with the Wendigo’s Whisper Shelter, a rugged 4-season tent built for those who venture deep into the unknown. Crafted with stealthy dark forest hues and wind-resistant materials, this tent is designed to keep you secure while the shadows move beyond the treeline. The glow-in-the-dark Wendigo claw mark accents and reflective guide ropes ensure you won’t lose your way—unless something finds you first.",
         includes: [
             "Heavy-duty waterproof, windproof, and insulated fabric for all seasons",
@@ -53,7 +53,7 @@ export const products = [
         name: "Kraken’s Abyss Sleeping Bag",
         price: 169.99,
         category: "sleepingbags",
-        image: "../images/krakens-sleepingbag.png",
+        image: "../../images/catalog_images/krakens-sleepingbag.png",
         description: "Descend into the depths of comfort with the Kraken’s Abyss Sleeping Bag. Designed for extreme cold-weather camping, this sleeping bag mimics the embrace of the legendary sea monster, with thermal-insulated layers inspired by deep-sea survival. The interior features a soft, bioluminescent-like pattern, while the water-resistant outer shell boasts tentacle-shaped stitching for a cryptid-inspired aesthetic.",
         includes: [
             "Rated for extreme temperatures as low as -20°F (-29°C)",
@@ -68,7 +68,7 @@ export const products = [
         name: "Phoenix Ember Recharge Sleeping Bag",
         price: 129.99,
         category: "sleepingbags",
-        image: "../images/phoenix-sleepingbag.png",
+        image: "../../images/catalog_images/phoenix-sleepingbag.png",
         description: "Rise from the ashes of exhaustion with the Phoenix Ember Recharge Sleeping Bag, an ultralight, heat-retaining sleeping bag designed to keep adventurers warm in any environment. Infused with thermal-reactive technology, the fabric captures and redistributes body heat, creating a self-heating cocoon. The fiery gradient design and embroidered phoenix crest ensure you camp with both warmth and style.",
         includes: [
             "Heat-reflective lining that redistributes warmth for optimal insulation",
@@ -85,7 +85,7 @@ export const products = [
         name: "Will-o’-Wisp Phantom Lantern",
         price: 49.99,
         category: "lighting",
-        image: "../images/willowisp-lantern.png",
+        image: "../../images/catalog_images/willowisp-lantern.png",
         description: "Step into the realm of the supernatural with the Will-o’-Wisp Phantom Lantern, a mystical light source inspired by the ghostly orbs that lure travelers through the marshlands. This eerie yet functional lantern emits an ethereal blue glow, with a flickering flame effect that mimics the mysterious Will-o'-Wisps. Designed for both campsite ambiance and practical illumination, it offers multiple light settings and a rechargeable battery for long-lasting use.",
         includes: [
             "Adjustable brightness with flickering wisp mode",
@@ -100,7 +100,7 @@ export const products = [
         name: "Cerberus Tri-Flame Tactical Flashlight",
         price: 59.99,
         category: "lighting",
-        image: "../images/cerberus-flashlight.png",
+        image: "../../images/catalog_images/cerberus-flashlight.png",
         description: "Unleash the power of the underworld with the Cerberus Tri-Flame Tactical Flashlight, a beastly tool built for the most rugged adventures. Featuring three adjustable LED heads resembling the three heads of Cerberus, this flashlight provides an intense, directional beam that adapts to any environment. Switch between spotlight, floodlight, and red night vision modes for ultimate control in the dark.",
         includes: [
             "Three adjustable LED heads for customizable lighting",
@@ -115,7 +115,7 @@ export const products = [
         name: "Selene’s Moonbeam Glow Stick",
         price: 34.99,
         category: "lighting",
-        image: "../images/selenes-flashlight.png",
+        image: "../../images/catalog_images/selenes-flashlight.png",
         description: "Channel the goddess of the moon with Selene’s Moonbeam Glow Stick, an enchanting, rechargeable glow stick that provides soft, lunar-inspired illumination. Perfect for night hikes, tent lighting, or creating a mystical camp ambiance, this glow stick features a moon-phase cycle mode that gradually shifts through soft white, silver-blue, and pale violet hues.",
         includes: [
             "Three lighting modes: soft white, silver-blue, and moon-phase cycle",
@@ -131,7 +131,7 @@ export const products = [
         name: "Yeti’s Frostbound Expedition Jacket",
         price: 229.99,
         category: "jackets",
-        image: "../images/yetis-jacket.png",
+        image: "../../images/catalog_images/yetis-jacket.png",
         description: "Brave the cold with the Yeti’s Frostbound Expedition Jacket, designed to withstand the harshest winter conditions while keeping you warm and agile. Inspired by the legendary Himalayan cryptid, this insulated jacket features a rugged, snow-resistant shell and a plush yeti-fur-lined interior for maximum heat retention. Subtle claw-mark stitching and frost-like reflective accents make this jacket both stylish and functional.",
         includes: [
             "Thermal-insulated shell rated for -40°F (-40°C)",
@@ -147,7 +147,7 @@ export const products = [
         name: "Shadow Stalker Wraith Cloak",
         price: 199.99,
         category: "jackets",
-        image: "../images/shadow-jacket.png",
+        image: "../../images/catalog_images/shadow-jacket.png",
         description: "Move unseen through the night with the Shadow Stalker Wraith Cloak, a lightweight, windproof jacket designed for stealth and versatility. This modern take on the legendary wraith’s shroud features an ultra-light, ripstop fabric that blends into the darkness while providing superior protection from the elements. The hood’s high collar and subtle rune-etched patterns enhance its cryptic, ghostly aesthetic.",
         includes: [
             "Lightweight, water-resistant, and windproof construction",
@@ -164,7 +164,7 @@ export const products = [
         name: "Mystic Campfire Cooking Set",
         price: 87.99,
         category: "cookware",
-        image: "../images/mystic-campfire-cook-set1.png",
+        image: "../../images/catalog_images/mystic-campfire-cook-set1.png",
         description: "Bring a new experience to cooking—enjoy your meal with a touch of mystery using high-quality cookware.",
         includes: [
             "Pots and grill",
@@ -180,7 +180,7 @@ export const products = [
         name: "Baba Yaga’s Iron Cauldron Cookware Set",
         price: 89.99,
         category: "cookware",
-        image: "../images/baba-yaga-cookset.png",
+        image: "../../images/catalog_images/baba-yaga-cookset.png",
         description: "Summon the magic of ancient hearths with Baba Yaga’s Iron Cauldron Cookware Set, a rugged, multi-purpose cooking system designed for the wild. This cast-iron pot is perfect for stews, soups, and boiling water, featuring a triple-legged design for stability over open flames. A mystical engraving of Baba Yaga’s hut and runes enhances its rustic, enchanted aesthetic.",
         includes: [
             "2.5-quart cast-iron cauldron with a lid",
@@ -196,7 +196,7 @@ export const products = [
         name: "Selkie’s Seaside First Aid Kit",
         price: 39.99,
         category: "firstaid",
-        image: "../images/sea-firstaid-kit.png",
+        image: "../../images/catalog_images/sea-firstaid-kit.png",
         description: "Inspired by the mythical selkies of the sea, this first aid kit is designed for water-based adventures. Whether you’re kayaking, fishing, or camping near the coast, this compact and waterproof kit has all the essentials to handle minor injuries, cuts, and stings.",
         includes: [
             "Waterproof, floatable carrying case",
@@ -212,7 +212,7 @@ export const products = [
         name: "Nessie’s Guardian First Aid Kit",
         price: 42.99,
         category: "firstaid",
-        image: "../images/nessie-firstaid-kit.png",
+        image: "../../images/catalog_images/nessie-firstaid-kit.png",
         description: "Inspired by the legendary Loch Ness Monster, this first aid kit is designed to keep adventurers safe whether exploring misty lakes or rugged highlands. The sleek, waterproof case features a deep green, scale-like texture with a shimmering, holographic silhouette of Nessie.",
         includes: [
             "Waterproof, floating, and impact-resistant case",
@@ -230,7 +230,7 @@ export const products = [
         name: "Jörmungandr's Ember Coil",
         price: 14.99,
         category: "firestarters",
-        image: "../images/ember-coil.png",
+        image: "../../images/catalog_images/jorm-firestarter.png",
         description: "Unleash the ancient fire of the Midgard Serpent with Jörmungandr’s Ember Coil—a fire starter infused with Norse legend. This coiled fire rope ignites easily and burns steadily, ensuring your campsite remains warm, even in the most treacherous conditions.",
         includes: [
             "6-ft wax-infused fire-starting rope designed to unravel and ignite easily",
@@ -244,7 +244,7 @@ export const products = [
         name: "Mothman’s Shadow Spark",
         price: 15.99,
         category: "firestarters",
-        image: "../images/moth-firestarter.png",
+        image: "../../images/catalog_images/moth-firestarter.png",
         description: "Harness the eerie glow of Mothman’s Shadow Spark, a cryptid-themed fire starter designed for adventurers who thrive in the unknown. Whether you're trekking through dense forests or setting up camp under a full moon, this kit ensures a quick, reliable blaze.",
         includes: [
             "Compact ferro rod with glow-in-the-dark handle",
@@ -258,7 +258,7 @@ export const products = [
         name: "Mystic Campfire Kit",
         price: 55.99,
         category: "firestarters",
-        image: "../images/mystic-campfire-kit1.png",
+        image: "../../images/catalog_images/mystic-campfire-kit1.png",
         description: "A campfire kit that will transform an ordinary campfire into a supernatural experience.",
         includes: [
             "Color-Changing Flame Packets",
@@ -273,7 +273,7 @@ export const products = [
         name: "Mothman’s Nocturnal Guard Bug Spray",
         price: 12.99,
         category: "repellent",
-        image: "../images/moth-repel.png",
+        image: "../../images/catalog_images/moth-repel.png",
         description: "Stay bite-free in the dark with Mothman’s Nocturnal Guard Bug Spray, a powerful insect repellent inspired by the enigmatic cryptid. Infused with natural essential oils, this DEET-free formula provides long-lasting protection against mosquitoes, ticks, and other pests.",
         includes: [
             "All-natural, DEET-free formula with citronella, eucalyptus, and peppermint oils",
@@ -288,7 +288,7 @@ export const products = [
         name: "Chupacabra Venom Mosquito Repellent Balm",
         price: 9.99,
         category: "repellent",
-        image: "../images/chup-repel.png",
+        image: "../../images/catalog_images/chup-repel.png",
         description: "Harness the power of legend with Chupacabra Venom Mosquito Repellent Balm, a potent, skin-friendly insect deterrent that keeps bugs at bay with a fierce herbal blend.",
         includes: [
             "Compact, easy-to-apply solid balm formula",
@@ -303,7 +303,7 @@ export const products = [
         name: "Banshee’s Wail Ultrasonic Pest Repeller",
         price: 24.99,
         category: "repellent",
-        image: "../images/banshee-repel.png",
+        image: "../../images/catalog_images/banshee-repel.png",
         description: "Drive bugs away with Banshee’s Wail Ultrasonic Pest Repeller, an advanced, rechargeable device that emits high-frequency sound waves inaudible to humans but unbearable for mosquitoes, gnats, and other pests. The device is shaped like a ghostly wisp and glows faintly in the dark.",
         includes: [
             "Portable, USB-rechargeable design",
