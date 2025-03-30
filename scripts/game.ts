@@ -131,7 +131,7 @@ function handleGuess(letter: string): void {
         return; // Ignore if already guessed or game is over
     }
     guessedLetters.push(letter);
-
+    
     if (!selectedWord.includes(letter)) {
         remainingAttempts--; // Deduct an attempt if the letter is not in the word
     }
