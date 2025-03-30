@@ -105,68 +105,68 @@ let guessedLetters: string[] = [];
 let remainingAttempts: number = 6;
 
 function startGame(): void {
-    selectedWord = words[Math.floor(Math.random() * words.length)].toLowerCase();
-    guessedLetters = [];
-    remainingAttempts = 6;
-    updateGameDisplay();
+selectedWord = words[Math.floor(Math.random() * words.length)].toLowerCase();
+guessedLetters = [];
+remainingAttempts = 6;
+updateGameDisplay();
 }
 
 function updateGameDisplay(): void {
-    const wordDisplay = document.getElementById("word-display");
-    const attemptsDisplay = document.getElementById("attempts");
-    const guessedDisplay = document.getElementById("guessed-letters");
-    const letterBankDisplay = document.getElementById("letter-bank");
+const wordDisplay = document.getElementById("word-display");
+const attemptsDisplay = document.getElementById("attempts");
+const guessedDisplay = document.getElementById("guessed-letters");
+const letterBankDisplay = document.getElementById("letter-bank");
 
-    if (wordDisplay && attemptsDisplay && guessedDisplay && letterBankDisplay) {
-        // Create display with dashes for unguessed letters
-        const displayWord = selectedWord.split("")
-            .map(letter => guessedLetters.includes(letter) ? letter : "_").join(" ");
-        wordDisplay.textContent = displayWord; // Show current state of the word
-        attemptsDisplay.textContent = `Remaining Attempts: ${remainingAttempts}`;
-        guessedDisplay.textContent = `Guessed Letters: ${guessedLetters.join(", ")}`;
-
-        // Create a letter bank from the selected word
-        const uniqueLetters = Array.from(new Set(selectedWord.split(""))); // Get unique letters
-        letterBankDisplay.textContent = `Letter Bank: ${uniqueLetters.join(", ")}`; // Update letter bank
-    }
+if (wordDisplay && attemptsDisplay && guessedDisplay && letterBankDisplay) {
+    // Create display with dashes for unguessed letters
+    const displayWord = selectedWord.split("")
+        .map(letter => guessedLetters.includes(letter) ? letter : "_").join(" ");
+    wordDisplay.textContent = displayWord; // Show current state of the word
+    attemptsDisplay.textContent = `Remaining Attempts: ${remainingAttempts}`;
+    guessedDisplay.textContent = `Guessed Letters: ${guessedLetters.join(", ")}`;
+    
+    // Show all letters of the alphabet for reference
+    const alphabet = "abcdefghijklmnopqrstuvwxyz";
+    letterBankDisplay.textContent = `Letter Bank: ${alphabet.split("").join(", ")}`; // Display available letters
+}
 }
 
 function handleGuess(letter: string): void {
-    if (guessedLetters.includes(letter) || remainingAttempts <= 0) {
-        return; // Ignore if already guessed or game is over
-    }
-    guessedLetters.push(letter);
-    
-    if (!selectedWord.includes(letter)) {
-        remainingAttempts--; // Deduct an attempt if the letter is not in the word
-    }
-    updateGameDisplay(); // Update the display after the guess
-    checkGameStatus(); // Check if the game has been won or lost
+if (guessedLetters.includes(letter) || remainingAttempts <= 0) {
+    return; // Ignore if already guessed or game is over
+}
+guessedLetters.push(letter);
+
+if (!selectedWord.includes(letter)) {
+    remainingAttempts--; // Deduct an attempt if the letter is not in the word
+}
+updateGameDisplay(); // Update the display after the guess
+checkGameStatus(); // Check if the game has been won or lost
 }
 
 function checkGameStatus(): void {
-    const wordDisplay = document.getElementById("word-display");
-    if (wordDisplay) {
-        const currentDisplay = wordDisplay.textContent || "";
-        if (!currentDisplay.includes("_")) {
-            alert("Congratulations! You've guessed the word!");
-            startGame(); // Restart the game
-        } else if (remainingAttempts === 0) {
-            alert(`Game over! The word was: ${selectedWord}`);
-            startGame(); // Restart the game
-        }
+const wordDisplay = document.getElementById("word-display");
+if (wordDisplay) {
+    const currentDisplay = wordDisplay.textContent || "";
+    if (!currentDisplay.includes("_")) {
+        alert("Congratulations! You've guessed the word!");
+        startGame(); // Restart the game
+    } else if (remainingAttempts === 0) {
+        alert(`Game over! The word was: ${selectedWord}`);
+        startGame(); // Restart the game
     }
+}
 }
 
 // Set up event listeners
 document.getElementById("start-game")?.addEventListener("click", startGame);
 document.getElementById("guess-button")?.addEventListener("click", () => {
-    const input = document.getElementById("guess-input") as HTMLInputElement;
-    const letter = input.value.toLowerCase();
-    input.value = "";
-    if (letter.length === 1 && /^[a-z]$/.test(letter)) { // Check for a single letter
-        handleGuess(letter);
-    } else {
-        alert("Please enter a single letter.");
-    }
+const input = document.getElementById("guess-input") as HTMLInputElement;
+const letter = input.value.toLowerCase();
+input.value = "";
+if (letter.length === 1 && /^[a-z]$/.test(letter)) { // Check for a single letter
+    handleGuess(letter);
+} else {
+    alert("Please enter a single letter.");
+}
 });

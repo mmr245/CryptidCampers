@@ -124,9 +124,9 @@ function updateGameDisplay() {
         attemptsDisplay.textContent = `Remaining Attempts: ${remainingAttempts}`;
         guessedDisplay.textContent = `Guessed Letters: ${guessedLetters.join(", ")}`;
 
-        // Create a letter bank from the selected word
-        const uniqueLetters = Array.from(new Set(selectedWord.split(""))); // Get unique letters
-        letterBankDisplay.textContent = `Letter Bank: ${uniqueLetters.join(", ")}`; // Update letter bank
+        // Display all letters of the alphabet for reference
+        const alphabet = "abcdefghijklmnopqrstuvwxyz";
+        letterBankDisplay.textContent = `Letter Bank: ${alphabet.split("").join(", ")}`; // Display available letters
     }
 }
 
