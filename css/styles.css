@@ -329,6 +329,21 @@ figure {
     margin: 0;
 }
 
+/* ----- Scavenger Hunt ----- */
+.row {
+    display: flex;
+}
+  
+.img-column {
+    flex: 25%;
+    padding: 10px;
+}
+
+.text-column {
+    flex: 75%;
+    padding: 10px;
+}
+
 /* ---------- Footer ---------- */
 footer {
     position: relative;
