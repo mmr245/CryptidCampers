@@ -9,6 +9,7 @@ function renderProducts(productList) {
         console.error("Product grid element not found!");
         return;
     }
+    console.log("Rendering ".concat(productList.length, " products..."));
     grid.innerHTML = ""; // Clear any existing content
     productList.forEach(function (product) {
         grid.innerHTML += "\n      <div class=\"product\">\n        <img src=\"".concat(product.image, "\" alt=\"").concat(product.name, "\" />\n        <h3>").concat(product.name, "</h3>\n        <p>$").concat(product.price.toFixed(2), "</p>\n        <button class=\"add-to-cart\" data-id=\"").concat(product.id, "\" data-name=\"").concat(product.name, "\" data-price=\"").concat(product.price, "\">\n          Add to Cart\n        </button>\n      </div>\n    ");

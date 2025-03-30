@@ -9,8 +9,9 @@ function renderProducts(productList: Product[]): void {
     return;
   }
   
-  grid.innerHTML = ""; // Clear any existing content
 
+  console.log(`Rendering ${productList.length} products...`);
+  grid.innerHTML = ""; // Clear any existing content
   productList.forEach(product => {
     grid.innerHTML += `
       <div class="product">
