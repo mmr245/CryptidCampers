@@ -249,12 +249,15 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    text-decoration: none;
 }
 
 button:hover {
     background-color: #fdd059;
     color: #1d2429;
+}
+
+.btn {
+    text-decoration: none;
 }
 
 /* ---------- Figures ---------- */
@@ -335,12 +338,12 @@ figure {
     display: flex;
 }
   
-.img-column {
+.column1 {
     flex: 25%;
     padding: 10px;
 }
 
-.img-column img {
+.column1 img {
     width: 25%;
     height: auto;
     display: block;
@@ -348,7 +351,7 @@ figure {
     margin-right: auto;
 }
 
-.text-column {
+.column2 {
     flex: 75%;
     padding: 10px;
 }
