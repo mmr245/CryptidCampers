@@ -223,7 +223,7 @@ header {
 
 /* --------- Banner ---------- */
 .banner {
-    max-width: 100%;
+    width: auto;
     height: auto;
 }
 
@@ -342,6 +342,14 @@ figure {
 .column1 {
     flex: 25%;
     padding: 10px;
+}
+
+.column1 img {
+    width: 75%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .column2 {
@@ -471,6 +479,10 @@ footer {
 
     form {
         width: 500px;
+    }
+
+    .banner {
+        max-width: 100%;
     }
 
     /*Team for Tablet*/
