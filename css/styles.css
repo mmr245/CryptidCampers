@@ -278,12 +278,12 @@ figure {
 }
 
 .about img {
-    width: 50%;
+    width: 60%;
     height: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border: 10px solid #fdd059;
+    border: 7px solid #fdd059;
     border-radius: 50%;
 }
 
