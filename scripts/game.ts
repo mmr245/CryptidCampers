@@ -109,6 +109,7 @@ selectedWord = words[Math.floor(Math.random() * words.length)].toLowerCase();
 guessedLetters = [];
 remainingAttempts = 6;
 updateGameDisplay();
+updateHangman();
 }
 
 function updateGameDisplay(): void {
@@ -124,10 +125,13 @@ if (wordDisplay && attemptsDisplay && guessedDisplay && letterBankDisplay) {
     wordDisplay.textContent = displayWord; // Show current state of the word
     attemptsDisplay.textContent = `Remaining Attempts: ${remainingAttempts}`;
     guessedDisplay.textContent = `Guessed Letters: ${guessedLetters.join(", ")}`;
-    
-    // Show all letters of the alphabet for reference
-    const alphabet = "abcdefghijklmnopqrstuvwxyz";
-    letterBankDisplay.textContent = `Letter Bank: ${alphabet.split("").join(", ")}`; // Display available letters
+}
+}
+
+function updateHangman(): void {
+const hangmanImage = document.getElementById("hangman-image");
+if (hangmanImage) {
+    hangmanImage.src = `images/hangman-${remainingAttempts}.png`; // Update to the appropriate hangman image
 }
 }
 
@@ -141,6 +145,7 @@ if (!selectedWord.includes(letter)) {
     remainingAttempts--; // Deduct an attempt if the letter is not in the word
 }
 updateGameDisplay(); // Update the display after the guess
+updateHangman(); // Update the hangman image
 checkGameStatus(); // Check if the game has been won or lost
 }
 

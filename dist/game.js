@@ -123,8 +123,8 @@ function updateGameDisplay() {
         wordDisplay.textContent = displayWord; // Show current state of the word
         attemptsDisplay.textContent = `Remaining Attempts: ${remainingAttempts}`;
         guessedDisplay.textContent = `Guessed Letters: ${guessedLetters.join(", ")}`;
-
-        // Display all letters of the alphabet for reference
+        
+        // Show all letters of the alphabet for reference (optional)
         const alphabet = "abcdefghijklmnopqrstuvwxyz";
         letterBankDisplay.textContent = `Letter Bank: ${alphabet.split("").join(", ")}`; // Display available letters
     }
