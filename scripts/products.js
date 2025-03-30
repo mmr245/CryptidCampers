@@ -1,5 +1,8 @@
+"use strict";
 /* Catalog of all products */
-var products = [
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.products = void 0;
+exports.products = [
     /* ---- Tents ---- */
     {
         id: "tent01",
