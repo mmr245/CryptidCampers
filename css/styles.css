@@ -278,11 +278,16 @@ figure {
 }
 
 .about img {
-    width: 30%;
+    width: 50%;
     height: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    border: 10px solid #fdd059;
+}
+
+.about h2 {
+    text-align: center;
 }
 
 .about p {
