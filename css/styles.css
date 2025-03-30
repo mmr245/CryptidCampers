@@ -302,6 +302,32 @@ footer {
     width: 100%;
 }
 
+/**/
+/*  ---------- Responsive product grid ---------- */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Style each product card */
+  .product {
+    padding: 10px;
+    background: #fdd1590e;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  /* Make images responsive and smaller */
+  .product img {
+    width: 100%;
+    height: auto;
+    max-width: 150px;  /* Adjust this value to make images smaller */
+    display: block;
+    margin: 0 auto 10px;
+  }
+
 /* =======================================================
    Media Queries for Tablet and Desktop
    ======================================================= */
