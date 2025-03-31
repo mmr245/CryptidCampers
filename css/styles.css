@@ -355,6 +355,7 @@ color: #fdd059;
     background-color: #333;
     padding: 20px;
     margin-top: 20px;
+    border-radius: 10px;
 }
 
 .leftcolumn, .rightcolumn {
@@ -365,7 +366,7 @@ color: #fdd059;
 /* Blog image */
 .cardimg {
     width: 100%;
-    padding: 20px;
+    padding: 10px;
 }
 
 .btn {
