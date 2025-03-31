@@ -35,26 +35,6 @@ body {
     /* Prevent horizontal scrolling */
 }
 
-/* unvisited link */
-a:link {
-    color: #fff;
-}
-  
-/* visited link */
-a:visited {
-    color: #77a290;
-}
-  
-/* mouse over link */
-a:hover {
-    color: #fdd059;
-}
-  
-/* selected link */
-a:active {
-    color: #fdd059;
-}
-
 /* Container to hold the page and force full viewport height */
 .page-container {
     display: flex;
@@ -246,7 +226,6 @@ header {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width: 100%;
 }
 
 /* ---------- Forms ---------- */
@@ -320,6 +299,26 @@ figure {
 
 .about figure {
     margin: 0;
+}
+
+/* unvisited link */
+#aboutgrid a:link {
+    color: #fff;
+  }
+  
+/* visited link */
+#aboutgrid a:visited {
+color: #77a290;
+}
+
+/* mouse over link */
+#aboutgrid a:hover {
+color: #fdd059;
+}
+
+/* selected link */
+#aboutgrid a:active {
+color: #fdd059;
 }
 
 /* ---------- Team About  ---------- */
