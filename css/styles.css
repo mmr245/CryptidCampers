@@ -224,7 +224,6 @@ header {
 /* --------- Banner ---------- */
 .banner {
     width: 100%;
-    max-width: 1200px;
     height: auto;
 }
 
@@ -356,7 +355,7 @@ color: #fdd059;
     padding: 0;
 }
 
-/* Fake image */
+/* Blog image */
 .cardimg {
     width: 100%;
     padding: 20px;
