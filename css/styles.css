@@ -35,6 +35,26 @@ body {
     /* Prevent horizontal scrolling */
 }
 
+/* unvisited link */
+a:link {
+    color: #fff;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: #77a290;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: #fdd059;
+  }
+  
+  /* selected link */
+  a:active {
+    color: #fdd059;
+  }
+
 /* Container to hold the page and force full viewport height */
 .page-container {
     display: flex;
@@ -223,8 +243,10 @@ header {
 
 /* --------- Banner ---------- */
 .banner {
-    width: auto;
-    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
 }
 
 /* ---------- Forms ---------- */
@@ -283,7 +305,7 @@ figure {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border: 7px solid #fdd059;
+    border: 5px solid #fdd059;
     border-radius: 50%;
 }
 
