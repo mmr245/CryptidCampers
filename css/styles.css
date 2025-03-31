@@ -223,9 +223,9 @@ header {
 
 /* --------- Banner ---------- */
 .banner {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
 }
 
 /* ---------- Forms ---------- */
@@ -375,12 +375,12 @@ color: #fdd059;
 }
   
 .column1 {
-    flex: 25%;
+    flex: 10%;
     padding: 10px;
 }
 
 .column1 img {
-    width: 75%;
+    width: 85%;
     height: auto;
     display: block;
     margin-left: auto;
@@ -514,10 +514,6 @@ footer {
 
     form {
         width: 500px;
-    }
-
-    .banner {
-        max-width: 100%;
     }
 
     /*Team for Tablet*/
