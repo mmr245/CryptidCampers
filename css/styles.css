@@ -368,6 +368,26 @@ color: #fdd059;
     width: 100%;
 }
 
+/* unvisited link */
+.card a:link {
+    color: #fff;
+  }
+  
+/* visited link */
+.card a:visited {
+color: #77a290;
+}
+
+/* mouse over link */
+.card a:hover {
+color: #fdd059;
+}
+
+/* selected link */
+.card a:active {
+color: #fdd059;
+}
+
 .btn {
     display: inline-block;
     padding: 10px 20px;
