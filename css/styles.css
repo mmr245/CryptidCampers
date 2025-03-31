@@ -222,8 +222,8 @@ header {
 }
 
 /* --------- Banner ---------- */
-.banner {
-    width: 100%;
+.banner img {
+    max-width: 100%;
     height: auto;
 }
 
@@ -350,6 +350,13 @@ color: #fdd059;
 }
 
 /*------- The Hunt ------- */
+/* Add a card effect for articles */
+.card {
+    background-color: #333;
+    padding: 20px;
+    margin-top: 20px;
+}
+
 .leftcolumn, .rightcolumn {
     width: 100%;
     padding: 0;
@@ -400,6 +407,10 @@ color: #fdd059;
 .column2 {
     flex: 75%;
     padding: 10px;
+}
+
+.yellow h3{
+    color: #fdd059;
 }
 
 /* ---------- Footer ---------- */
@@ -517,13 +528,6 @@ footer {
         float: left;
         width: 50%;
         padding-left: 20px;
-    }
-    
-    /* Add a card effect for articles */
-    .card {
-        background-color: white;
-        padding: 20px;
-        margin-top: 20px;
     }
     
     /* Clear floats after the columns */
