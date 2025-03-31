@@ -1,3 +1,105 @@
+const words: string[] = [
+  "Cryptid",
+  "Mystic",
+  "Campfire",
+  "Tentacle",
+  "Sasquatch",
+  "Bigfoot",
+  "Nessie",
+  "Yeti",
+  "Chupacabra",
+  "Moonlit",
+  "Enchanted",
+  "Whispering",
+  "Mysterious",
+  "Legendary",
+  "Wilderness",
+  "Outlandish",
+  "Haunted",
+  "Paranormal",
+  "Uncanny",
+  "Foggy",
+  "Ethereal",
+  "Fabled",
+  "Spectral",
+  "Eldritch",
+  "Shadowy",
+  "Ghoulish",
+  "Arcane",
+  "Eerie",
+  "Phantom",
+  "Enigma",
+  "Whimsical",
+  "Serpentine",
+  "Twilight",
+  "Glimmering",
+  "Hidden",
+  "Shrouded",
+  "Unseen",
+  "Mythic",
+  "Roving",
+  "Adventurous",
+  "Expedition",
+  "Quest",
+  "Trailblazing",
+  "Nightfall",
+  "Forested",
+  "Overgrown",
+  "Wildwood",
+  "Moonshine",
+  "Stardust",
+  "Celestial",
+  "Conjured",
+  "Bewitched",
+  "Intriguing",
+  "Spooky",
+  "Cursed",
+  "Mirage",
+  "Cryptic",
+  "Phantomlike",
+  "Feral",
+  "Quirky",
+  "Weird",
+  "Uncharted",
+  "Expanse",
+  "Abyss",
+  "Arcadia",
+  "Nomadic",
+  "Campground",
+  "Hideaway",
+  "Roaming",
+  "Vagabond",
+  "Wanderlust",
+  "Expeditionary",
+  "Outpost",
+  "Basecamp",
+  "Stargazing",
+  "Dreamscape",
+  "Nebulous",
+  "Shimmering",
+  "Spellbound",
+  "Fogbound",
+  "Gossamer",
+  "Intricate",
+  "Timeless",
+  "Lore",
+  "Mythos",
+  "Rune",
+  "Totem",
+  "Potion",
+  "Fable",
+  "Saga",
+  "Chronicle",
+  "Questing",
+  "Spellcraft",
+  "Wandering",
+  "Labyrinth",
+  "Underbrush",
+  "Nightshade",
+  "Boondock",
+  "Enchantment",
+  "Firefly"
+];
 interface WordHint {
     word: string;
     hint: string;
@@ -58,7 +160,14 @@ function updateGameDisplay(): void {
     }
 }
 
-function handleGuess(letter: string): void {
+function updateHangman() {
+    const hangmanImage = document.getElementById("hangman-image");
+    if (hangmanImage) {
+        hangmanImage.src = `images/hangman-${remainingAttempts}.png`; // Update hangman image based on remaining attempts
+    }
+}
+
+function handleGuess(letter) {
     if (guessedLetters.includes(letter) || remainingAttempts <= 0) {
         return; // Ignore if already guessed or game is over
     }
@@ -68,10 +177,11 @@ function handleGuess(letter: string): void {
         remainingAttempts--; // Deduct an attempt if the letter is not in the word
     }
     updateGameDisplay(); // Update the display after the guess
+    updateHangman(); // Update the hangman image
     checkGameStatus(); // Check if the game has been won or lost
 }
 
-function checkGameStatus(): void {
+function checkGameStatus() {
     const wordDisplay = document.getElementById("word-display");
     if (wordDisplay) {
         const currentDisplay = wordDisplay.textContent || "";
@@ -88,7 +198,7 @@ function checkGameStatus(): void {
 // Set up event listeners
 document.getElementById("start-game")?.addEventListener("click", startGame);
 document.getElementById("guess-button")?.addEventListener("click", () => {
-    const input = document.getElementById("guess-input") as HTMLInputElement;
+    const input = document.getElementById("guess-input");
     const letter = input.value.toLowerCase();
     input.value = "";
     if (letter.length === 1 && /^[a-z]$/.test(letter)) { // Check for a single letter
