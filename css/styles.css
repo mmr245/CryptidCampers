@@ -38,22 +38,22 @@ body {
 /* unvisited link */
 a:link {
     color: #fff;
-  }
+}
   
-  /* visited link */
-  a:visited {
+/* visited link */
+a:visited {
     color: #77a290;
-  }
+}
   
-  /* mouse over link */
-  a:hover {
+/* mouse over link */
+a:hover {
     color: #fdd059;
-  }
+}
   
-  /* selected link */
-  a:active {
+/* selected link */
+a:active {
     color: #fdd059;
-  }
+}
 
 /* Container to hold the page and force full viewport height */
 .page-container {
