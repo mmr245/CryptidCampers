@@ -356,9 +356,12 @@ color: #fdd059;
     padding: 10px 20px;
     background-color: #77a290;
     color: #1d2429;
-    text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
+}
+
+.btn a {
+    text-decoration: none;
 }
 
 .btn:hover {
