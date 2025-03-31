@@ -131,7 +131,7 @@ if (wordDisplay && attemptsDisplay && guessedDisplay && letterBankDisplay) {
 function updateHangman():void {
 const hangmanImage = document.getElementById("hangman-image") as HTMLImageElement;
 if (hangmanImage) {
-    hangmanImage.src = `images/hangman-${remainingAttempts}.png`; // Update to the appropriate hangman image
+    hangmanImage.src ="images/hangman-${remainingAttempts}.png"; // Update to the appropriate hangman image
 }
 }
 
