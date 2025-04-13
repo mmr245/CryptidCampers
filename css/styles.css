@@ -51,12 +51,18 @@ main {
 
 }
 
+/* Increase spacing for Paragraph Text to improve legibility */
+p {
+    line-height: 1.5;
+}
+
 /* ---------- Header & Navigation ---------- */
 header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     background-color: #1d2429;
+    border-bottom: 5px solid #B8A454;
     position: relative;
     /* Contains absolute children (menu toggle) */
     width: 100%;
@@ -263,11 +269,17 @@ figure {
     margin: 2% auto;
 }
 
+/* ------------ Rows ------------- */
+.row { /* Styles The Hunt, Scavenger Hunt, Blog Article rows */
+    display: block;
+}
+
 /* ---------- About Us  ---------- */
 #aboutgrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    padding-top: 20px;
 }
 
 .about {
@@ -283,7 +295,7 @@ figure {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border: 5px solid #fdd059;
+    border: 2px solid #B8A454;
     border-radius: 50%;
 }
 
@@ -350,12 +362,11 @@ color: #fdd059;
 }
 
 /*------- The Hunt ------- */
-/* Add a card effect for articles */
-.card {
-    background-color: #333;
-    padding: 20px;
-    margin-top: 20px;
+.card { /* Add a card effect for blog articles, Hangman and Scavenger Hunt */
+    padding: 15px;
+    margin-top: 10px;
     border-radius: 10px;
+    border: 1px solid #B8A454;
 }
 
 .leftcolumn, .rightcolumn {
@@ -364,8 +375,10 @@ color: #fdd059;
 }
 
 /* Blog image */
-.cardimg {
+#cardimg {
     width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
 /* unvisited link */
@@ -373,44 +386,49 @@ color: #fdd059;
     color: #fff;
   }
   
-/* visited link */
-.card a:visited {
-color: #77a290;
-}
-
 /* mouse over link */
 .card a:hover {
 color: #fdd059;
 }
 
-/* selected link */
-.card a:active {
-color: #fdd059;
+.card h3 {
+    color: #fff;
 }
 
-.btn {
-    display: inline-block;
+.card h5 {
+    color: #fff;
+}
+
+.card p {
+    color: #fff;
+}
+
+#hunt-button {
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
     padding: 10px 20px;
     background-color: #77a290;
     color: #1d2429;
+    border: 1px solid rgba(29, 36, 41, 0.1);
     font-weight: bold;
     border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
-.btn a {
+#hunt-button a {
+    color: #1d2429;
     text-decoration: none;
 }
 
-.btn:hover {
+#hunt-button:hover {
     background-color: #fdd059;
     color: #1d2429;
 }
 
 /* ----- Scavenger Hunt ----- */
-.row {
-    display: flex;
-}
-  
 .column1 {
     flex: 10%;
     padding: 10px;
@@ -427,10 +445,83 @@ color: #fdd059;
 .column2 {
     flex: 75%;
     padding: 10px;
+    border-bottom: 1px solid #B8A454;
 }
 
-.yellow h3{
+.column2 h3 {
     color: #fdd059;
+}
+
+#scvgr-button {
+    display: block;
+    margin: auto;
+    width: auto;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #77a290;
+    color: #1d2429;
+    border: 1px solid rgba(29, 36, 41, 0.1);
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#scvgr-button a {
+    color: #1d2429;
+    text-decoration: none;
+}
+
+#scvgr-button:hover {
+    background-color: #fdd059;
+    color: #1d2429;
+}
+
+/* -------- How To Play ------- */
+.bullet-list li {
+    margin-left: 50px;
+    padding: 7px;
+}
+
+/* ---------- Blog -------------- */
+.imgcolumn, .txtcolumn {
+    width: 100%;
+    padding: 15px 0 5px;
+}
+
+.txtcolumn {
+    border-bottom: 1px solid #B8A454;
+}
+/* unvisited link */
+.txtcolumn a:link {
+    color: #fff;
+  }
+  
+/* mouse over link */
+.txtcolumn a:hover {
+color: #fdd059;
+}
+
+/* ---------- Blog Articles ----------- */
+.arrow {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    padding: 20px 16px;
+}
+
+.arrow:hover {
+    color: #fdd059;
+}
+  
+.blogleftcolumn, .blogrightcolumn {
+    width: 100%;
+    padding: 0;
+}
+
+.blogleftcolumn img {
+    border: 1px solid #B8A454;
+    padding: 5px;
 }
 
 /* ---------- Footer ---------- */
@@ -536,25 +627,40 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* The Hunt for Tablet */
-    /* Left column */
-    .leftcolumn {
-        float: left;
-        width: 75%;
+    /* The Hunt, Scavenger Hunt, Blog Articles for Tablet */
+    .row {
+        display: flex; /* Switch to flexbox for tablets and desktops */
+        gap: 20px;
     }
-  
-    /* Right column */
-    .rightcolumn {
-        float: left;
-        width: 25%;
-        padding-left: 20px;
+
+    .leftcolumn {
+        flex: 3;
     }
     
-    /* Clear floats after the columns */
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
+    .rightcolumn {
+        flex: 1; /* 25% width */
+    }
+
+    /* Blog Articles */
+    .blogleftcolumn {
+        flex: 33.33%;
+    }
+    
+    .blogrightcolumn {
+       flex: 66.66%;
+    }
+
+    /* Blog (All) */
+    .imgcolumn {
+        flex: 1;
+    }
+
+    .txtcolumn {
+        flex: 3;
+    }
+    
+    main {
+        max-width: 1200px; /* Expand content width */
     }
 }
 
