@@ -231,6 +231,7 @@ header {
 .banner img {
     max-width: 100%;
     height: auto;
+    border-bottom: 5px solid #B8A454;
 }
 
 /* ---------- Forms ---------- */
@@ -391,6 +392,11 @@ color: #fdd059;
 color: #fdd059;
 }
 
+/* visited link */
+.card a:visited {
+    color: #77a290;
+}
+
 .card h3 {
     color: #fff;
 }
@@ -492,6 +498,7 @@ color: #fdd059;
 .txtcolumn {
     border-bottom: 1px solid #B8A454;
 }
+
 /* unvisited link */
 .txtcolumn a:link {
     color: #fff;
@@ -500,6 +507,11 @@ color: #fdd059;
 /* mouse over link */
 .txtcolumn a:hover {
 color: #fdd059;
+}
+
+/* visited link */
+.txtcolumn a:visited {
+    color: #77a290;
 }
 
 /* ---------- Blog Articles ----------- */
