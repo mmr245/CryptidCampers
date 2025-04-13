@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | The Night It All Started - Mystic Campers</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+
+<body>
+    <div class="page-container" id="wrapper">
+        <header>
+            <!-- Logo and hamburger in a flex row -->
+            <div class="header-top">
+                <img class="tab-desk logo" src="../../../images/top-logo.png" alt="Mystic Campers Logo" />
+
+                <!-- Branding text -->
+                <div class="mobile branding">
+                    <h1>Mystic Campers</h1>
+                    <h3>Where the wild meets the weird.</h3>
+                </div>
+
+                <!-- Hamburger menu toggle for mobile -->
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <img src="../../../images/icons/burger_menu.png" alt="Menu" class="hamburger-icon open-icon" />
+                    <img src="../../../images/icons/close.png" alt="Close Menu" class="hamburger-icon close-icon">
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav>
+                <ul class="nav-links">
+                <li><a href="../../../index.html" class="active">Home</a></li>
+                <li><a href="../../shopping/shopping.html">Shop</a></li>
+                <li><a href="../../about-us/aboutus.html">About Us</a></li>
+                <li><a href="../../the-hunt/thehunt.html">The Hunt</a></li>
+                <li><a href="../../contact/contact.html">Contact</a></li>
+                <li><a href="../../account/account.html">Account</a></li>
+                <li><a href="../../cart/cart.html">Cart</a></li></ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Blog Navigation -->
+            <a href="../blog.html" class="arrow">Blog (All)</a>
+            <a href="../blog/intotheunknown.html" class="arrow">Next Post &#8250;</a>
+    
+            <section>
+                <div class="row">
+                    <div class="blogleftcolumn">  
+                        <img src="../../../images/blog/wallowa500x500.jpg" id="cardimg" style="width:100%;" alt="a lake under a star lit sky">
+                    </div>
+                    <div class="blogrightcolumn">
+                        <h2>The Night That Started It All: The Mystic Campers Origin Story</h2>
+                        <h5>By Lena Carter, Co-Founder & President of Mystic Campers</h5>
+                        <p>Every great adventure starts with a mystery, and ours began on a cold autumn night at Wallowa Lake, Oregon—the night we saw something impossible.</p> 
+
+                        <h3>The Legend That Lured Us In</h3>
+                        <p>It all started as a joke. We had heard the local legends about a massive, shadowy creature lurking in the depths of Wallowa Lake—some called it “Wally,” others swore it was a prehistoric holdover. Skeptics dismissed it as drunken fishermen’s tales, but for us? It was an irresistible challenge.</p>
+                  </div>
+                </div>
+
+                <p>Jake, Sam, and I had always been the kind of people who ran toward the unknown, not away from it. Armed with our best camping gear, a couple of thermal drones, and an old hand-drawn map from a local shop owner who claimed his grandfather had “seen the beast,” we set out for a weekend of monster hunting.</p>
+
+                <h3>Strange Signs in the Night</h3>
+                <p>The first day was uneventful—just a classic Oregon camping trip with crisp mountain air, towering pines, and the glassy lake stretching out before us. We paddled out into the water, scanning the water, but nothing. Just fish, a few birds, and the occasional ripple from a distant boat.</p>
+                <p>But everything changed that night.</p>
+                <p>As we sat by the fire, the lake became eerily still. The usual sounds of the wilderness—chirping crickets, rustling leaves—went silent. The air felt thick, electric, like the moment before a thunderstorm. Then, the water moved.</p>
+                <p>Not like a fish breaking the surface. Not like a breeze disturbing the lake. Something massive shifted beneath the waves, sending a slow, deliberate ripple outward. We scrambled for our gear. Thermal cameras picked up nothing, but Jake’s drone, flying overhead, suddenly lost connection and plummeted into the water. Sam and I rushed to the shoreline, straining our eyes into the dark mist rolling over the surface.</p>
+                <p>Then, we saw it.</p>
+                <p>A dark silhouette, long and serpentine, gliding just below the surface. Two faintly glowing eyes locked onto us for the briefest second—then it vanished. The water erupted in a massive splash, nearly knocking Sam off balance.</p>
+
+                <h3>The Moment That Changed Everything</h3>
+                <p>We sat in stunned silence for what felt like an eternity. Had we really seen it? Could it have been a trick of the light? A drifting log? A mass hallucination?</p>
+                <p>But deep down, we knew.</p>
+                <p>That night, huddled around our dying campfire, Mystic Campers was born. We realized that adventure wasn’t just about hiking trails or setting up the perfect tent—it was about embracing the mystery of the world around us.</p>
+
+                <h3>Why We Created Mystic Campers</h3>
+                <p>From that night on, we made it our mission to design gear for true adventurers—for the ones who dare to explore the unknown, the ones who believe in stories, in myths, in the possibility that there’s more to this world than we can explain.</p>
+                <p>Today, Mystic Campers isn’t just a gear company. It’s a community of explorers, thrill-seekers, and believers. Whether you’re tracking Bigfoot in the Pacific Northwest, scanning the skies for the Mothman, or just telling ghost stories by the fire, we’re here to fuel your adventure.</p>
+                <p>So, the question is: What mysteries will you chase?</p>
+
+                <p>Gear up, follow the clues, and embrace the unknown.</p>
+                <p>- Lena</p>
+              
+            </section>
+
+                 
+        </main>
+        <footer>
+            <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Mobile navigation toggle script -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            menuToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

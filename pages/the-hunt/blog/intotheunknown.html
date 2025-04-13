@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Into The Unknown - Mystic Campers</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+
+<body>
+    <div class="page-container" id="wrapper">
+        <header>
+            <!-- Logo and hamburger in a flex row -->
+            <div class="header-top">
+                <img class="tab-desk logo" src="../../../images/top-logo.png" alt="Mystic Campers Logo" />
+
+                <!-- Branding text -->
+                <div class="mobile branding">
+                    <h1>Mystic Campers</h1>
+                    <h3>Where the wild meets the weird.</h3>
+                </div>
+
+                <!-- Hamburger menu toggle for mobile -->
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <img src="../../../images/icons/burger_menu.png" alt="Menu" class="hamburger-icon open-icon" />
+                    <img src="../../../images/icons/close.png" alt="Close Menu" class="hamburger-icon close-icon">
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav>
+                <ul class="nav-links">
+                <li><a href="../../../index.html" class="active">Home</a></li>
+                <li><a href="../../shopping/shopping.html">Shop</a></li>
+                <li><a href="../../about-us/aboutus.html">About Us</a></li>
+                <li><a href="../../the-hunt/thehunt.html">The Hunt</a></li>
+                <li><a href="../../contact/contact.html">Contact</a></li>
+                <li><a href="../../account/account.html">Account</a></li>
+                <li><a href="../../cart/cart.html">Cart</a></li></ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Blog Navigation -->
+            <a href="../blog.html" class="arrow">Blog (All)</a>
+            <a href="../blog/thenightitstarted.html" class="arrow">&#8249; Previous Post</a>
+            <a href="../blog/brushwiththewendingo.html" class="arrow">Next Post &#8250;</a>
+    
+            <section>
+                <div class="row">
+                    <div class="blogleftcolumn">  
+                        <img src="../../../images/blog/fairyring500x500.jpg" id="cardimg" style="width:100%;" alt="a tree in a forest surrounded by a ring of mushrooms">
+                    </div>
+                    <div class="blogrightcolumn">
+                        <h2>Into the Unknown: The Fairy Ring of Siuslaw National Forest</h2>
+                        <h5>By Jake Reynolds, Co-Founder & Head of Marketing, Mystic Campers</h5>
+                        <p>There are places in this world that feel… different. Places where the air is heavier, where the silence rings louder, where the forest itself seems to be watching.</p> 
+                        <p>We found one of those places deep in Siuslaw National Forest—a place where the trees formed a perfect circle, the ground pulsed with an eerie glow, and time itself seemed to slip away. This is the story of The Fairy Ring</p>
+                  </div>
+                </div>
+
+                <h3>The Hike That Led Us There</h3>
+                <p>It started as a normal weekend expedition. Sam, Lena, and I had set out to explore one of Siuslaw’s lesser-known trails, a rugged and overgrown path that wound through thick moss-covered trees, misty ravines, and babbling creeks. The Pacific Northwest has always been home to strange tales—ghost lights, disappearing hikers, eerie whispers in the fog—but we weren’t expecting anything other than a solid day of hiking.</p>
+                <p>Until we found the ring.</p>
+
+                <h3>A Circle Out of Place</h3>
+                <p>We almost missed it. Tucked away just off the main path, hidden beneath a canopy of towering Sitka spruce, was a **perfect circle of mushrooms**—a **fairy ring**. The caps were an unnatural shade of red, speckled with white like something straight out of a storybook. The ground inside the ring was **too smooth, too untouched**, as if nothing had ever grown there.</p>
+                <p>“Do you feel that?” Lena whispered.</p>
+                <p>I did. The air inside the circle felt… heavier. Like stepping through a veil. The usual sounds of the forest—chirping birds, rustling leaves—vanished the moment we stepped inside.</p>
+                <p>Then came the humming.</p>
+
+                <h3>The Sound That Had No Source</h3>
+                <p>It wasn’t coming from the trees. It wasn’t the wind. It was a low, vibrating hum, almost like a voice whispering just beneath the threshold of understanding. Sam pulled out their phone to record it, but the moment they hit “record,” the sound stopped.</p>
+                <p>And then—a shadow moved.</p>
+                <p>It wasn’t an animal. It wasn’t the wind shifting the trees. It was a humanoid figure, just beyond the tree line, standing still. Watching.</p>
+
+                <h3>The Time Slip</h3>
+                <p>We bolted. We weren’t about to stick around and see what that thing was. But when we got back to the trailhead, something was… off.</p>
+                <p>Our watches were wrong.</p>
+                <p>We had started our hike at 10 AM. It should’ve been mid-afternoon when we returned.</p>
+                <p>But according to our watches? It was still 11:30 AM.</p>
+                <p>We checked our phones—no signal, no GPS history of our hike, nothing. It was as if the last few hours had been… erased.</p>
+
+                <h3>What Did We Find?</h3>
+                <p>Fairy rings have long been linked to folklore, myths, and the supernatural. Some say they’re portals, places where the veil between worlds is thin. Others claim they’re natural, formed by underground fungi—though that explanation does nothing to explain the humming, the shadow, or the missing time.</p>
+                <p>Did we stumble into something ancient? Did we cross into a place we weren’t supposed to find?</p>
+                <p>I don’t have answers. But what I do know is this: Siuslaw National Forest holds secrets. And some trails lead to more than just breathtaking views.</p>
+
+                <h3>The Challenge: Find It for Yourself</h3>
+                <p>If you’re the kind of explorer who thrives on mystery, the kind of camper who isn’t afraid of the unknown—then maybe you’ll find the Fairy Ring of Siuslaw. If you do, pay attention. Listen for the hum. Watch for the shadows. And whatever you do—keep track of time. Because if you step inside… you might not get it back.  </p>
+
+                <p>Stay curious. Stay cautious. And always embrace the unknown.</p>
+                <p>- Jake</p>
+              
+            </section>
+
+                 
+        </main>
+        <footer>
+            <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Mobile navigation toggle script -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            menuToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

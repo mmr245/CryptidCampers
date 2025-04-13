@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scavenger Hunt | How to Play - Mystic Campers</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+
+<body>
+    <div class="page-container" id="wrapper">
+        <header>
+            <!-- Logo and hamburger in a flex row -->
+            <div class="header-top">
+                <img class="tab-desk logo" src="../../../images/top-logo.png" alt="Mystic Campers Logo" />
+
+                <!-- Branding text -->
+                <div class="mobile branding">
+                    <h1>Mystic Campers</h1>
+                    <h3>Where the wild meets the weird.</h3>
+                </div>
+
+                <!-- Hamburger menu toggle for mobile -->
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <img src="../../../images/icons/burger_menu.png" alt="Menu" class="hamburger-icon open-icon">
+                    <img src="../../../images/icons/close.png" alt="Close Menu" class="hamburger-icon close-icon">
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../../../index.html" class="active">Home</a></li>
+                    <li><a href="../../shopping/shopping.html">Shop</a></li>
+                    <li><a href="../../about-us/aboutus.html">About Us</a></li>
+                    <li><a href="../../the-hunt/thehunt.html">The Hunt</a></li>
+                    <li><a href="../../contact/contact.html">Contact</a></li>
+                    <li><a href="../../account/account.html">Account</a></li>
+                    <li><a href="../../cart/cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="banner">
+            <img src="../../../images/banner/wendingo-banner.jpg" alt="silhouette of wendingo walking through forest">
+        </div>
+
+        <main>
+            <!--paste here-->
+            <h1>Mystic Campers Cryptid Scavenger Hunt: How To Play</h1>
+            <br>
+            <ul class="bullet-list">
+                <li>Visit the locations and complete the objectives.</li>
+                <li>Document your findings with photos, notes, and sketches.</li>
+                <li>Share your discoveries on social media with #MysticCampersCryptidHunt.</li>
+                <li>Complete 3 or more challenges to earn a limited-edition Mystic Campers Cryptid Explorer Patch!</li>
+            </ul>
+            <p>Will you be the one to finally prove these legends are real? Gear up, follow the clues, and embrace the unknown!</p>
+            <br>
+
+            <h2>Guidelines</h2>
+            <ul class="bullet-list">
+                <li>Research: Familiarize yourself with the history and folklore of each cryptid before embarking on your journey.</li>
+                <li>Documentation: Keep a detailed journal of your findings, including photographs, sketches, and personal observations.</li>
+                <li>Respect: Always respect private property, local communities, and the natural environment during your hunt.</li>
+                <li>Safety: Ensure you are well-prepared for outdoor activities, including appropriate gear and knowledge of the terrain.</li>
+            </ul>
+            <button id="scvgr-button"><a href="../scavenger_hunt.html">Join the Hunt</a></button>
+
+
+        </main>
+        <footer>
+            <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Mobile navigation toggle script -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            menuToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

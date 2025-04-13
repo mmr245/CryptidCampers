@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | A Brush With The Wendingo - Mystic Campers</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+
+<body>
+    <div class="page-container" id="wrapper">
+        <header>
+            <!-- Logo and hamburger in a flex row -->
+
+            <div class="header-top">
+                <img class="tab-desk logo" src="../../../images/top-logo.png" alt="Mystic Campers Logo" />
+
+                <!-- Branding text -->
+                <div class="mobile branding">
+                    <h1>Mystic Campers</h1>
+                    <h3>Where the wild meets the weird.</h3>
+                </div>
+
+                <!-- Hamburger menu toggle for mobile -->
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <img src="../../../images/icons/burger_menu.png" alt="Menu" class="hamburger-icon open-icon" />
+                    <img src="../../../images/icons/close.png" alt="Close Menu" class="hamburger-icon close-icon">
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav>
+                <ul class="nav-links">
+                <li><a href="../../../index.html" class="active">Home</a></li>
+                <li><a href="../../shopping/shopping.html">Shop</a></li>
+                <li><a href="../../about-us/aboutus.html">About Us</a></li>
+                <li><a href="../../the-hunt/thehunt.html">The Hunt</a></li>
+                <li><a href="../../contact/contact.html">Contact</a></li>
+                <li><a href="../../account/account.html">Account</a></li>
+                <li><a href="../../cart/cart.html">Cart</a></li></ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Blog Navigation -->
+            <a href="../blog.html" class="arrow">Blog (All)</a>
+            <a href="../blog/intotheunknown.html" class="arrow">&#8249; Previous Post</a>
+    
+            <section>
+                <div class="row">
+                    <div class="blogleftcolumn">  
+                        <img src="../../../images/blog/eerie500x500.jpg" id="cardimg" style="width:100%;" alt="a trail through a forest with a lake buff in the distance">
+                    </div>
+                    <div class="blogrightcolumn">
+                        <h2>A Brush with the Wendigo: My Night at Erie Bluffs State Park </h2>
+                        <h5>By Alex R., Mystic Campers Community Member</h5>
+                        <p>I’ve always been a skeptic when it comes to cryptid stories. Sure, I love a good ghost tale around the campfire, but I never thought I’d be the one telling a story that defies logic. That changed last weekend when I saw something I can’t explain at Erie Bluffs State Park.</p> 
+                        <p>I think I saw a Wendigo.</p>
+                  </div>
+                </div>
+
+                <h3>A Solo Camping Trip Turns Strange</h3>
+                <p>I planned the trip as a solo retreat—just me, my tent, and the sound of Lake Erie’s waves crashing against the bluffs. Erie Bluffs is the kind of place that feels untouched, its dense forests and rugged trails giving off a quiet, almost eerie beauty.</p>
+                <p>The first day was peaceful. I hiked along the bluff trails, took some photos of the lake at sunset, and settled in by the fire with my book. Everything was normal… until the woods went silent.</p>
+                <p>I don’t mean the usual nighttime quiet. I mean dead silence. No crickets. No wind. No distant rustling. Just… nothing.</p>
+                <p>Then came the smell.</p>
+
+                <h3>The Rot in the Air</h3>
+                <p>At first, I thought maybe something had died nearby—a deer carcass, maybe. But this was different. It was thick, overwhelming, like rotting meat left out in the summer heat. I grabbed my flashlight and scanned the tree line, expecting to see a raccoon or maybe even a coyote.</p>
+                <p>But what I saw wasn’t an animal.</p>
+                <p>It was tall—unnaturally tall. At least seven or eight feet, with skeletal limbs and stretched, pale skin. Its eyes reflected the light in an unnatural way, not like an animal’s but as if they were absorbing it. It stood just beyond the trees, motionless, watching. I couldn’t move. I couldn’t breathe. My body screamed at me to run, but I just stood there, locked in place.</p>
+                <p>Then, it spoke.</p>
+                <p>Not out loud, but inside my head—a voice that was distorted, overlapping, wrong. It whispered my name.</p>
+
+                <h3>The Escape</h3>
+                <p>That was enough. I grabbed my keys, abandoned my campfire, and sprinted to my car, my heart pounding louder than my footsteps. I didn’t look back. I didn’t stop. When I reached my car and locked the doors, I forced myself to look at the tree line one last time. It was gone. No shadow. No figure. Just the silent, empty woods.</p>
+                <p>I sped out of there and didn’t stop until I reached a gas station an hour away.</p>
+
+                <h3>What Did I See?</h3>
+                <p>I’ve read the legends of the Wendigo—an emaciated creature of folklore, tied to the Great Lakes region and Native American mythology. It’s said to be a spirit of endless hunger, luring people into the woods, mimicking voices to trap its victims.</p>
+                <p>I don’t know if that’s what I saw. Maybe my mind was playing tricks on me. Maybe it was a trick of the light.</p>
+                <p>Or maybe… Erie Bluffs hides something ancient.</p>
+                <p>I haven’t gone back. Not yet. But if anyone else has had an encounter near Lake Erie’s forests, I need to know—am I the only one?</p>
+
+                <p>Stay safe out there, campers. And if the woods go silent… run.</p>
+                <p>- Alex</p>
+            </section>
+                 
+        </main>
+        <footer>
+            <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Mobile navigation toggle script -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            menuToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
