@@ -1,4 +1,4 @@
-"usestrict";
+"use strict";
 const words: string[] = [
     "Cryptid",
     "Mystic",
