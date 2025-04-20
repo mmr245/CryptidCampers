@@ -51,12 +51,12 @@ function updateDisplay() {
   updateImage();
   updateLetterBank();
 }
-
 // Update the image based on wrong guesses
 function updateImage() {
-  var index = 6 - remainingAttempts; // 0 to 6
+  const index = 6 - remainingAttempts; // 0 to 6
   if (mysticImage) mysticImage.src = "images/hangman" + index + ".png";
 }
+
 
 // Generate the alphabet letter bank
 function updateLetterBank() {
