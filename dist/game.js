@@ -19,21 +19,58 @@ const words = [
     "Nightshade", "Boondock", "Enchantment", "Firefly"
   ];
   
-  var selectedWord;
-  var currentHint;
-  var guessedLetters = [];
-  var remainingAttempts = 6;
+  const wordHints = {
+    cryptid: "A creature whose existence is not substantiated by evidence.",
+    mystic: "Related to supernatural phenomena.",
+    campfire: "A fire used for cooking and warmth while camping.",
+    tentacle: "A long, flexible limb found on certain animals.",
+    sasquatch: "A large, hairy humanoid creature said to inhabit North America.",
+    bigfoot: "Another name for Sasquatch.",
+    nessie: "A legendary creature said to inhabit Loch Ness in Scotland.",
+    yeti: "A mythical ape-like creature said to inhabit the Himalayas.",
+    chupacabra: "A creature in folklore that drinks the blood of livestock.",
+    moonlit: "Illuminated by the light of the moon.",
+    enchanted: "Under a spell or magic.",
+    whispering: "Speaking softly or quietly.",
+    mysterious: "Something that is difficult or impossible to understand.",
+    legendary: "Famous and well-known, often in folklore.",
+    wilderness: "A natural environment that has not been significantly modified by human activity.",
+    outlandish: "Strange or unusual.",
+    haunted: "Visited by ghosts or spirits.",
+    paranormal: "Events or phenomena that are beyond the scope of normal scientific understanding.",
+    uncanny: "Strange or mysterious, especially in an unsettling way.",
+    foggy: "Filled with thick mist or low clouds.",
+    ethereal: "Extremely delicate and light in a way that seems not of this world.",
+    fabled: "Famous, especially by reputation.",
+    spectral: "Relating to or resembling a ghost.",
+    eldritch: "Weird and sinister or ghostly.",
+    shadowy: "Full of shadows or not clearly seen.",
+    ghoulish: "Strangely diabolical or cruel; monstrous.",
+    arcane: "Understood by few; mysterious or secret.",
+    eerie: "Strange and frightening.",
+    phantom: "A ghost.",
+    enigma: "A person or thing that is mysterious or difficult to understand."
+    // Add more hints if needed
+  };
   
+  let selectedWord = "";
+  let currentHint = "";
+  let guessedLetters = [];
+  let remainingAttempts = 6;
+  
+  // Function to start or restart the game
   function startGame() {
-    const randomIndex = Math.floor(Math.random() * words.length);
-    selectedWord = words[randomIndex].toLowerCase();
-    // Assign the hint based on the selected word
-    currentHint = getHint(selectedWord);
+    // Pick a random word
+    const wordsArray = Object.keys(wordHints);
+    const randomIndex = Math.floor(Math.random() * wordsArray.length);
+    selectedWord = wordsArray[randomIndex];
+    currentHint = wordHints[selectedWord];
     guessedLetters = [];
     remainingAttempts = 6;
     updateGameDisplay();
   }
   
+  // Function to update the display based on game state
   function updateGameDisplay() {
     const wordDisplay = document.getElementById("word-display");
     const attemptsDisplay = document.getElementById("attempts");
@@ -41,53 +78,28 @@ const words = [
     const hintDisplay = document.getElementById("hint");
     const hangmanImage = document.getElementById("hangman-image");
   
-    if (wordDisplay && attemptsDisplay && guessedDisplay && hintDisplay && hangmanImage) {
-      const displayWord = selectedWord.split("")
-        .map(letter => guessedLetters.includes(letter) ? letter : "_").join(" ");
+    if (
+      wordDisplay &&
+      attemptsDisplay &&
+      guessedDisplay &&
+      hintDisplay &&
+      hangmanImage
+    ) {
+      const displayWord = selectedWord
+        .split("")
+        .map((letter) =>
+          guessedLetters.includes(letter) ? letter : "_"
+        )
+        .join(" ");
       wordDisplay.textContent = displayWord;
       attemptsDisplay.textContent = "Remaining Attempts: " + remainingAttempts;
       guessedDisplay.textContent = "Guessed Letters: " + guessedLetters.join(", ");
-      hintDisplay.textContent = "Hint: " + getHint(selectedWord);
+      hintDisplay.textContent = "Hint: " + currentHint;
       updateHangman();
     }
   }
   
-  function getHint(word) {
-    const hintsMap = {
-      "cryptid": "A creature whose existence is not substantiated by evidence.",
-      "mystic": "Related to supernatural phenomena.",
-      "campfire": "A fire used for cooking and warmth while camping.",
-      "tentacle": "A long, flexible limb found on certain animals.",
-      "sasquatch": "A large, hairy humanoid creature said to inhabit North America.",
-      "bigfoot": "Another name for Sasquatch.",
-      "nessie": "A legendary creature said to inhabit Loch Ness in Scotland.",
-      "yeti": "A mythical ape-like creature said to inhabit the Himalayas.",
-      "chupacabra": "A creature in folklore that drinks the blood of livestock.",
-      "moonlit": "Illuminated by the light of the moon.",
-      "enchanted": "Under a spell or magic.",
-      "whispering": "Speaking softly or quietly.",
-      "mysterious": "Something that is difficult or impossible to understand.",
-      "legendary": "Famous and well-known, often in folklore.",
-      "wilderness": "A natural environment that has not been significantly modified by human activity.",
-      "outlandish": "Strange or unusual.",
-      "haunted": "Visited by ghosts or spirits.",
-      "paranormal": "Events or phenomena that are beyond the scope of normal scientific understanding.",
-      "uncanny": "Strange or mysterious, especially in an unsettling way.",
-      "foggy": "Filled with thick mist or low clouds.",
-      "ethereal": "Extremely delicate and light in a way that seems not of this world.",
-      "fabled": "Famous, especially by reputation.",
-      "spectral": "Relating to or resembling a ghost.",
-      "eldritch": "Weird and sinister or ghostly.",
-      "shadowy": "Full of shadows or not clearly seen.",
-      "ghoulish": "Strangely diabolical or cruel; monstrous.",
-      "arcane": "Understood by few; mysterious or secret.",
-      "eerie": "Strange and frightening.",
-      "phantom": "A ghost.",
-      "enigma": "A person or thing that is mysterious or difficult to understand."
-    };
-    return hintsMap[word] || "No hint available.";
-  }
-  
+  // Function to update hangman image based on remaining attempts
   function updateHangman() {
     const hangmanImage = document.getElementById("hangman-image");
     if (hangmanImage) {
@@ -95,6 +107,7 @@ const words = [
     }
   }
   
+  // Function to handle a guessed letter
   function handleGuess(letter) {
     letter = letter.toLowerCase();
     if (guessedLetters.includes(letter) || remainingAttempts <= 0) {
@@ -108,6 +121,7 @@ const words = [
     checkGameStatus();
   }
   
+  // Function to check if game is won or lost
   function checkGameStatus() {
     const wordDisplay = document.getElementById("word-display");
     if (wordDisplay) {
@@ -128,24 +142,34 @@ const words = [
   }
   
   // Initialize game on page load
-  window.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener("DOMContentLoaded", () => {
     startGame();
   });
   
-  // Event listeners for buttons
-  document.getElementById("start-game")?.addEventListener("click", () => {
-    startGame();
-  });
-  document.getElementById("guess-button")?.addEventListener("click", () => {
-    const input = document.getElementById("guess-input");
-    if (input instanceof HTMLInputElement) {
-      const letter = input.value.trim();
-      input.value = "";
-      if (letter.length === 1 && /^[a-zA-Z]$/.test(letter)) {
-        handleGuess(letter);
-      } else {
-        alert("Please enter a single letter.");
+  // Handle "Start New Game" button click
+  const startBtn = document.getElementById("start-game");
+  if (startBtn) {
+    startBtn.addEventListener("click", () => {
+      if (window.startGame) {
+        window.startGame();
       }
-    }
-  });
+    });
+  }
+  
+  // Handle "Guess" button click
+  const guessBtn = document.getElementById("guess-button");
+  if (guessBtn) {
+    guessBtn.addEventListener("click", () => {
+      const input = document.getElementById("guess-input");
+      if (input instanceof HTMLInputElement) {
+        const letter = input.value.trim();
+        input.value = "";
+        if (letter.length === 1 && /^[a-zA-Z]$/.test(letter)) {
+          handleGuess(letter);
+        } else {
+          alert("Please enter a single letter.");
+        }
+      }
+    });
+  }
   
