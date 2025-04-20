@@ -1,5 +1,4 @@
-"use strict";
-// List of words and hints
+"use scrict";
 const wordHints = [
   { word: "cryptid", hint: "A creature whose existence is not substantiated by evidence." },
   { word: "mystic", hint: "Related to supernatural phenomena." },
@@ -22,12 +21,19 @@ const wordHints = [
   { word: "uncanny", hint: "Strange or mysterious, especially in an unsettling way." }
 ];
 
-let selectedWord = "";
-let currentHint = "";
-let guessedLetters = [];
-let remainingAttempts = 6;
+interface WordHint {
+  word: string;
+  hint: string;
+}
 
-function startGame() {
+// Game state variables
+let selectedWord: string = "";
+let currentHint: string = "";
+let guessedLetters: string[] = [];
+let remainingAttempts: number = 6;
+
+// Function to start a new game
+function startGame(): void {
   const randomIndex = Math.floor(Math.random() * wordHints.length);
   selectedWord = wordHints[randomIndex].word.toLowerCase();
   currentHint = wordHints[randomIndex].hint;
@@ -37,8 +43,8 @@ function startGame() {
   updateHangman();
 }
 
-// Updates the display: word, attempts, guessed, hint, letter bank
-function updateGameDisplay() {
+// Update the display: word, attempts, guessed, hint, letter bank
+function updateGameDisplay(): void {
   const wordDisplay = document.getElementById("word-display");
   const attemptsDisplay = document.getElementById("attempts");
   const guessedDisplay = document.getElementById("guessed-letters");
@@ -54,7 +60,7 @@ function updateGameDisplay() {
     letterBankDiv &&
     hangmanImg
   ) {
-    // Show guessed letters or underscores for the word
+    // Show underscores for unguessed letters
     const displayWord = selectedWord
       .split("")
       .map((letter) => (guessedLetters.includes(letter) ? letter : "_"))
@@ -73,21 +79,21 @@ function updateGameDisplay() {
     letterBankDiv.textContent =
       "Letter Bank: " + remainingLetters.join(", ").toUpperCase();
 
-    // Show initial scaffold (no tick marks)
-    hangmanImg.src = "../../images/hangman-6.png";
+    // Show only the scaffold (no tick marks)
+    (hangmanImg as HTMLImageElement).src = "../../images/hangman-6.png";
   }
 }
 
 // Update hangman image based on remaining attempts
-function updateHangman() {
+function updateHangman(): void {
   const hangmanImg = document.getElementById("hangman-image");
   if (hangmanImg) {
-    hangmanImg.src = `../../images/hangman-${remainingAttempts}.png`;
+    (hangmanImg as HTMLImageElement).src = `../../images/hangman-${remainingAttempts}.png`;
   }
 }
 
 // Handle user's guess
-function handleGuess(letter) {
+function handleGuess(letter: string): void {
   if (remainingAttempts <= 0) return; // Game over
   if (guessedLetters.includes(letter)) return; // Already guessed
 
@@ -102,21 +108,19 @@ function handleGuess(letter) {
 }
 
 // Check if game is won or lost
-function checkGameStatus() {
+function checkGameStatus(): void {
   const wordDisplay = document.getElementById("word-display");
   if (wordDisplay) {
     const currentDisplay = wordDisplay.textContent || "";
     if (!currentDisplay.includes("_")) {
       alert("Congratulations! You've guessed the word!");
-      // Game ends, wait for next start
     } else if (remainingAttempts === 0) {
       alert(`Game over! The word was: ${selectedWord}`);
-      // Game ends, wait for next start
     }
   }
 }
 
-// Initialize event listeners and set initial state
+// Set up event listeners and initialize
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("start-game")?.addEventListener("click", () => {
     startGame();
@@ -126,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("guess-input");
     if (input && input.value) {
       const letter = input.value.toLowerCase();
-      input.value = "";
+      (input as HTMLInputElement).value = "";
       if (letter.length === 1 && /^[a-z]$/.test(letter)) {
         handleGuess(letter);
       } else {
@@ -134,5 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-  // Set initial hangman scaffold only
-  const hangmanImg = document.getElementById("
+
+  // Set initial scaffold only (no guesses yet)
+  const hangmanImg = document.getElementById("hangman-image");
+  if (hangmanImg) {
+    (hangmanImg as HTMLImageElement).src = "../../images/hangman-6.png";
+  }
+});
