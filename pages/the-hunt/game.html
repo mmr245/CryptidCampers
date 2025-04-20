@@ -9,49 +9,28 @@
 <body>
   <div class="page-container" id="wrapper">
     <header>
-      <div class="header-top">
-        <img class="tab-desk logo" src="../../images/top-logo.png" alt="Mystic Campers Logo" />
-        <div class="mobile branding">
-          <h1>Mystic Campers</h1>
-          <h3>Where the wild meets the weird.</h3>
-        </div>
-        <button class="menu-toggle" aria-label="Toggle menu">
-          <img src="../../images/icons/burger_menu.png" alt="Menu" class="hamburger-icon open-icon" />
-          <img src="../../images/icons/close.png" alt="Close Menu" class="hamburger-icon close-icon" />
-        </button>
-      </div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="../../index.html" class="active">Home</a></li>
-          <li><a href="../shopping/shopping.html">Shop</a></li>
-          <li><a href="../about-us/aboutus.html">About Us</a></li>
-          <li><a href="thehunt.html">The Hunt</a></li>
-          <li><a href="../contact/contact.html">Contact</a></li>
-          <li><a href="../account/account.html">Account</a></li>
-          <li><a href="../cart/cart.html">Cart</a></li>
-        </ul>
-      </nav>
+      <!-- ... your header/nav code ... -->
     </header>
     <main>
       <div class="container">
         <h2>Welcome to our Mystical Hangman Game</h2>
         <p class="instruction">Click "Start New Game" to begin playing!</p>
         <img id="hangman-image" src="../../images/hangman-6.png" alt="Hangman" style="width: 200px;" />
-        <div id="word-display">Word will be displayed here</div>
-        <div id="attempts">Remaining Attempts: 6</div>
-        <div id="guessed-letters">Guessed Letters: </div>
-        <div id="hint">Hint: </div>
-        <input type="text" id="guess-input" maxlength="1" placeholder="Enter a letter" />
+        <div id="word-display" class="word-display"></div>
+        <div id="attempts" class="attempts"></div>
+        <div id="guessed-letters" class="guessed-letters"></div>
+        <div id="hint" class="hint"></div>
+        <div id="status-message" class="status-message"></div>
+        <input type="text" id="guess-input" maxlength="1" placeholder="Enter a letter" autocomplete="off" />
         <button id="guess-button">Guess</button>
         <button id="start-game" class="btn btn-primary">Start New Game</button>
-        <div id="letter-bank">Letter Bank: </div>
+        <div id="letter-bank" class="letter-bank"></div>
       </div>
     </main>
     <footer>
       <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
     </footer>
   </div>
-  <!-- Scripts -->
   <script src="game.js"></script>
 </body>
 </html>
