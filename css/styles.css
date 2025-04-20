@@ -275,6 +275,12 @@ figure {
     display: block;
 }
 
+/* ---------- Game  ---------- */
+#letter-bank { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; }
+input { font-size: 1em; padding: 5px; margin: 10px; width: 50px; text-align: center; }
+button { font-size: 1em; padding: 5px 10px; margin: 10px; cursor: pointer; border-radius: 8px; background-color: #4CAF50; color: white; border: none; }
+#message { margin: 15px 0; font-weight: bold; font-size: 1.4em; }
+
 /* ---------- About Us  ---------- */
 #aboutgrid {
     display: grid;
