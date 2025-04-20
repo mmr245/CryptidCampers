@@ -1,112 +1,4 @@
 "usestrict";
-const words: string[] = [
-  "Cryptid",
-  "Mystic",
-  "Campfire",
-  "Tentacle",
-  "Sasquatch",
-  "Bigfoot",
-  "Nessie",
-  "Yeti",
-  "Chupacabra",
-  "Moonlit",
-  "Enchanted",
-  "Whispering",
-  "Mysterious",
-  "Legendary",
-  "Wilderness",
-  "Outlandish",
-  "Haunted",
-  "Paranormal",
-  "Uncanny",
-  "Foggy",
-  "Ethereal",
-  "Fabled",
-  "Spectral",
-  "Eldritch",
-  "Shadowy",
-  "Ghoulish",
-  "Arcane",
-  "Eerie",
-  "Phantom",
-  "Enigma",
-  "Whimsical",
-  "Serpentine",
-  "Twilight",
-  "Glimmering",
-  "Hidden",
-  "Shrouded",
-  "Unseen",
-  "Mythic",
-  "Roving",
-  "Adventurous",
-  "Expedition",
-  "Quest",
-  "Trailblazing",
-  "Nightfall",
-  "Forested",
-  "Overgrown",
-  "Wildwood",
-  "Moonshine",
-  "Stardust",
-  "Celestial",
-  "Conjured",
-  "Bewitched",
-  "Intriguing",
-  "Spooky",
-  "Cursed",
-  "Mirage",
-  "Cryptic",
-  "Phantomlike",
-  "Feral",
-  "Quirky",
-  "Weird",
-  "Uncharted",
-  "Expanse",
-  "Abyss",
-  "Arcadia",
-  "Nomadic",
-  "Campground",
-  "Hideaway",
-  "Roaming",
-  "Vagabond",
-  "Wanderlust",
-  "Expeditionary",
-  "Outpost",
-  "Basecamp",
-  "Stargazing",
-  "Dreamscape",
-  "Nebulous",
-  "Shimmering",
-  "Spellbound",
-  "Fogbound",
-  "Gossamer",
-  "Intricate",
-  "Timeless",
-  "Lore",
-  "Mythos",
-  "Rune",
-  "Totem",
-  "Potion",
-  "Fable",
-  "Saga",
-  "Chronicle",
-  "Questing",
-  "Spellcraft",
-  "Wandering",
-  "Labyrinth",
-  "Underbrush",
-  "Nightshade",
-  "Boondock",
-  "Enchantment",
-  "Firefly"
-];
-interface WordHint {
-    word: string;
-    hint: string;
-}
-
-const wordHints: WordHint[] = [
     { word: "cryptid", hint: "A creature whose existence is not substantiated by evidence." },
     { word: "mystic", hint: "Related to supernatural phenomena." },
     { word: "campfire", hint: "A fire used for cooking and warmth while camping." },
@@ -126,114 +18,123 @@ const wordHints: WordHint[] = [
     { word: "haunted", hint: "Visited by ghosts or spirits." },
     { word: "paranormal", hint: "Events or phenomena that are beyond the scope of normal scientific understanding." },
     { word: "uncanny", hint: "Strange or mysterious, especially in an unsettling way." },
-    // Add more words and hints as needed
+    { word: "foggy", hint: "Filled with thick mist or low clouds." },
+    { word: "ethereal", hint: "Extremely delicate and light in a way that seems not of this world." },
+    { word: "fabled", hint: "Famous, especially by reputation." },
+    { word: "spectral", hint: "Relating to or resembling a ghost." },
+    { word: "eldritch", hint: "Weird and sinister or ghostly." },
+    { word: "shadowy", hint: "Full of shadows or not clearly seen." },
+    { word: "ghoulish", hint: "Strangely diabolical or cruel; monstrous." },
+    { word: "arcane", hint: "Understood by few; mysterious or secret." },
+    { word: "eerie", hint: "Strange and frightening." },
+    { word: "phantom", hint: "A ghost." },
+    { word: "enigma", hint: "A person or thing that is mysterious or difficult to understand." },
 ];
+
+const ALPHABET = "abcdefghijklmnopqrstuvwxyz".split("");
 
 let selectedWord = "";
 let currentHint = "";
 let guessedLetters = [];
 let remainingAttempts = 6;
+let gameActive = false;
+
+function pickRandomWordHint() {
+    const index = Math.floor(Math.random() * wordHints.length);
+    return wordHints[index];
+}
+
+function updateHangmanImage() {
+    const img = document.getElementById("hangman-image");
+    if (img) {
+        // Clamp to valid images
+        let imgNum = remainingAttempts;
+        if (imgNum < 0) imgNum = 0;
+        if (imgNum > 6) imgNum = 6;
+        img.src = `../../images/hangman-${imgNum}.png`;
+    }
+}
+
+function updateWordDisplay() {
+    const display = document.getElementById("word-display");
+    if (display) {
+        let html = "";
+        for (let letter of selectedWord) {
+            if (guessedLetters.includes(letter)) {
+                html += `<span class="letter">${letter.toUpperCase()}</span> `;
+            } else {
+                html += `<span class="underscore">_</span> `;
+            }
+        }
+        display.innerHTML = html.trim();
+    }
+}
+
+function updateGuessedLetters() {
+    const g = document.getElementById("guessed-letters");
+    if (g) {
+        g.textContent = "Guessed Letters: " + guessedLetters.map(l => l.toUpperCase()).join(" ");
+    }
+}
+
+function updateAttempts() {
+    const a = document.getElementById("attempts");
+    if (a) {
+        a.textContent = `Remaining Attempts: ${remainingAttempts}`;
+    }
+}
+
+function updateHint() {
+    const h = document.getElementById("hint");
+    if (h) {
+        h.textContent = `Hint: ${currentHint}`;
+    }
+}
+
+function updateLetterBank() {
+    const lb = document.getElementById("letter-bank");
+    if (lb) {
+        // Show clickable letter buttons, disabled if already guessed or game over
+        lb.innerHTML = "";
+        ALPHABET.forEach(letter => {
+            const btn = document.createElement("button");
+            btn.textContent = letter.toUpperCase();
+            btn.className = "letter-btn";
+            btn.disabled = guessedLetters.includes(letter) || !gameActive;
+            btn.addEventListener("click", () => {
+                if (gameActive) handleGuess(letter);
+            });
+            lb.appendChild(btn);
+        });
+    }
+}
+
+function updateStatusMessage(message, win=false) {
+    const s = document.getElementById("status-message");
+    if (s) {
+        s.textContent = message;
+        s.style.color = win ? "#2e8b57" : "#b22222";
+    }
+}
+
+function resetStatusMessage() {
+    const s = document.getElementById("status-message");
+    if (s) s.textContent = "";
+}
+
+function setInputEnabled(enabled) {
+    document.getElementById("guess-input").disabled = !enabled;
+    document.getElementById("guess-button").disabled = !enabled;
+}
 
 function startGame() {
-  const randIndex = Math.floor(Math.random() * wordHints.length);
-  selectedWord = wordHints[randIndex].word.toLowerCase();
-  currentHint = wordHints[randIndex].hint;
-  guessedLetters = [];
-  remainingAttempts = 6;
-  updateGameDisplay();
-  updateHangman();
-}
+    const { word, hint } = pickRandomWordHint();
+    selectedWord = word.toLowerCase();
+    currentHint = hint;
+    guessedLetters = [];
+    remainingAttempts = 6;
+    gameActive = true;
+    resetStatusMessage();
+    setInputEnabled(true);
+    document.getElementById
 
-// Show underscores and initialize everything
-function updateGameDisplay() {
-  const wordDisplay = document.getElementById("word-display");
-  const attemptsDiv = document.getElementById("attempts");
-  const guessedDiv = document.getElementById("guessed-letters");
-  const hintDiv = document.getElementById("hint");
-  const letterBankDiv = document.getElementById("letter-bank");
-  const hangmanImg = document.getElementById("hangman-image");
-
-  if (
-    wordDisplay &&
-    attemptsDiv &&
-    guessedDiv &&
-    hintDiv &&
-    letterBankDiv &&
-    hangmanImg
-  ) {
-    // Display underscores for unguessed
-    const displayWord = selectedWord
-      .split("")
-      .map((letter) => (guessedLetters.includes(letter) ? letter : "_"))
-      .join(" ");
-    wordDisplay.textContent = displayWord;
-
-    attemptsDiv.textContent = `Remaining Attempts: ${remainingAttempts}`;
-    guessedDiv.textContent = `Guessed Letters: ${guessedLetters.join(", ")}`;
-    hintDiv.textContent = `Hint: ${currentHint}`;
-
-    // Show only the letters in the word
-    const uniqueLetters = Array.from(new Set(selectedWord.split("")));
-    const remainingLetters = uniqueLetters.filter(
-      (letter) => !guessedLetters.includes(letter)
-    );
-    letterBankDiv.textContent =
-      "Letter Bank: " + remainingLetters.join(", ").toUpperCase();
-
-    // Show scaffold (no tick marks)
-    (hangmanImg).src = "../../images/hangman-6.png";
-  }
-}
-
-function updateHangman() {
-  const hangmanImg = document.getElementById("hangman-image");
-  if (hangmanImg) {
-    (hangmanImg).src = `../../images/hangman-${remainingAttempts}.png`;
-  }
-}
-
-function handleGuess(letter) {
-  if (remainingAttempts <= 0 || guessedLetters.includes(letter)) return;
-  guessedLetters.push(letter);
-  if (!selectedWord.includes(letter)) {
-    remainingAttempts--;
-  }
-  updateGameDisplay();
-  checkGameStatus();
-}
-
-function checkGameStatus() {
-  const wordDisplay = document.getElementById("word-display");
-  if (wordDisplay) {
-    const displayText = wordDisplay.textContent || "";
-    if (!displayText.includes("_")) {
-      alert("Congratulations! You guessed the word!");
-    } else if (remainingAttempts === 0) {
-      alert(`Game over! The word was: ${selectedWord}`);
-    }
-  }
-}
-
-// Setup event handlers after DOM loaded
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("start-game")?.addEventListener("click", () => {
-    startGame();
-  });
-  document.getElementById("guess-button")?.addEventListener("click", () => {
-    const input = document.getElementById("guess-input");
-    if (input && input.value) {
-      const letter = input.value.toLowerCase();
-      input.value = "";
-      if (letter.length === 1 && /^[a-z]$/.test(letter)) {
-        handleGuess(letter);
-      } else {
-        alert("Please enter a single letter");
-      }
-    }
-  });
-  // Set initial scaffold image
-  const hangmanImg = document.getElementById("hangman-image");
-  if (hangmanImg) {
-    (hangmanImg).src = "../../images/hangman-6.png";
-  }
-});
