@@ -105,7 +105,7 @@ const words: string[] = [
   let guessedLetters = [];
   let remainingAttempts = 6;
   
-  function startGame() {
+  function initializeGame() {
       selectedWord = words[Math.floor(Math.random() * words.length)].toLowerCase();
       guessedLetters = [];
       remainingAttempts = 6;
