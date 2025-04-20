@@ -55,7 +55,7 @@ function updateDisplay() {
 // Update the image based on wrong guesses
 function updateImage() {
   const index = 6 - remainingAttempts; // 0 to 6
-  if (Image) Image.src = "images/hangman" + index + ".png";
+  if (mysticImage) mysticImage.src = "images/hangman" + index + ".png";
 }
 
 
