@@ -143,7 +143,7 @@ let currentHint: string;
 let guessedLetters: string[] = [];
 let remainingAttempts: number = 6;
 
-function startGame(): void {
+function initializeGame(): void {
     const randomIndex = Math.floor(Math.random() * wordHints.length);
     selectedWord = wordHints[randomIndex].word.toLowerCase();
     currentHint = wordHints[randomIndex].hint;
