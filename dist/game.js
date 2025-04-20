@@ -134,37 +134,28 @@ const words: string[] = [
   
   function getHint(word) {
       const hints = {
-    { word: "cryptid", hint: "A creature whose existence is not substantiated by evidence." },
-    { word: "mystic", hint: "Related to supernatural phenomena." },
-    { word: "campfire", hint: "A fire used for cooking and warmth while camping." },
-    { word: "tentacle", hint: "A long, flexible limb found on certain animals." },
-    { word: "sasquatch", hint: "A large, hairy humanoid creature said to inhabit North America." },
-    { word: "bigfoot", hint: "Another name for Sasquatch." },
-    { word: "nessie", hint: "A legendary creature said to inhabit Loch Ness in Scotland." },
-    { word: "yeti", hint: "A mythical ape-like creature said to inhabit the Himalayas." },
-    { word: "chupacabra", hint: "A creature in folklore that drinks the blood of livestock." },
-    { word: "moonlit", hint: "Illuminated by the light of the moon." },
-    { word: "enchanted", hint: "Under a spell or magic." },
-    { word: "whispering", hint: "Speaking softly or quietly." },
-    { word: "mysterious", hint: "Something that is difficult or impossible to understand." },
-    { word: "legendary", hint: "Famous and well-known, often in folklore." },
-    { word: "wilderness", hint: "A natural environment that has not been significantly modified by human activity." },
-    { word: "outlandish", hint: "Strange or unusual." },
-    { word: "haunted", hint: "Visited by ghosts or spirits." },
-    { word: "paranormal", hint: "Events or phenomena that are beyond the scope of normal scientific understanding." },
-    { word: "uncanny", hint: "Strange or mysterious, especially in an unsettling way." },
-    { word: "foggy", hint: "Filled with thick mist or low clouds." },
-    { word: "ethereal", hint: "Extremely delicate and light in a way that seems not of this world." },
-    { word: "fabled", hint: "Famous, especially by reputation." },
-    { word: "spectral", hint: "Relating to or resembling a ghost." },
-    { word: "eldritch", hint: "Weird and sinister or ghostly." },
-    { word: "shadowy", hint: "Full of shadows or not clearly seen." },
-    { word: "ghoulish", hint: "Strangely diabolical or cruel; monstrous." },
-    { word: "arcane", hint: "Understood by few; mysterious or secret." },
-    { word: "eerie", hint: "Strange and frightening." },
-    { word: "phantom", hint: "A ghost." },
-    { word: "enigma", hint: "A person or thing that is mysterious or difficult to understand." },
-];
+          cryptid: "A creature whose existence is not substantiated by evidence.",
+          mystic: "Related to supernatural phenomena.",
+          campfire: "A fire used for cooking and warmth while camping.",
+          tentacle: "A long, flexible limb found on certain animals.",
+          sasquatch: "A large, hairy humanoid creature said to inhabit North America.",
+          bigfoot: "Another name for Sasquatch.",
+          nessie: "A legendary creature said to inhabit Loch Ness in Scotland.",
+          yeti: "A mythical ape-like creature said to inhabit the Himalayas.",
+          chupacabra: "A creature in folklore that drinks the blood of livestock.",
+          moonlit: "Illuminated by the light of the moon.",
+          enchanted: "Under a spell or magic.",
+          whispering: "Speaking softly or quietly.",
+          mysterious: "Something that is difficult or impossible to understand.",
+          legendary: "Famous and well-known, often in folklore.",
+          wilderness: "A natural environment that has not been significantly modified by human activity.",
+          outlandish: "Strange or unusual.",
+          haunted: "Visited by ghosts or spirits.",
+          paranormal: "Events or phenomena that are beyond the scope of normal scientific understanding.",
+          uncanny: "Strange or mysterious, especially in an unsettling way.",
+          foggy: "Full of fog; unclear.",
+          ethereal: "Extremely delicate and light in a way that seems too perfect for this world."
+          // Add more words and hints as needed
       };
       return hints[word] || "No hint available.";
   }
@@ -215,4 +206,5 @@ const words: string[] = [
           alert("Please enter a single letter.");
       }
   });
+  
   
