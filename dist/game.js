@@ -1,4 +1,5 @@
 "usestrict";
+const wordHints = [
     { word: "cryptid", hint: "A creature whose existence is not substantiated by evidence." },
     { word: "mystic", hint: "Related to supernatural phenomena." },
     { word: "campfire", hint: "A fire used for cooking and warmth while camping." },
