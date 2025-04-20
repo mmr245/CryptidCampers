@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,20 +43,20 @@
         </header>
 
         <main>
-      <div class="container">
-        <h2>Welcome to our Mystical Hangman Game</h2>
-        <p class="instruction">Click "Start New Game" to begin playing!</p>
-        <img id="hangman-image" src="../../images/hangman-6.png" alt="Hangman" />
-        <div id="word-display" class="word-display"></div>
-        <div id="attempts" class="attempts"></div>
-        <div id="guessed-letters" class="guessed-letters"></div>
-        <div id="hint" class="hint"></div>
-        <div id="status-message" class="status-message"></div>
-        <input type="text" id="guess-input" maxlength="1" placeholder="Enter a letter" autocomplete="off" />
-        <button id="guess-button">Guess</button>
-        <button id="start-game" class="btn btn-primary">Start New Game</button>
-        <div id="letter-bank" class="letter-bank"></div>
-      </div>
+            <!-- Button to start the game -->
+            <div class="container">
+                <h2>Welcome to our Mystical Hangman Game</h2>
+                <p class="instruction">Click "Start New Game" to begin playing!</p>
+                <img id="hangman-image" src="../../images/hangman-6.png" alt="Hangman" style="width: 200px;" />
+                <div id="word-display">Word will be displayed here</div>
+                <div id="attempts">Remaining Attempts: 6</div>
+                <div id="guessed-letters">Guessed Letters: </div>
+                <div id="hint">Hint: </div> <!-- Display the hint here -->
+                <input type="text" id="guess-input" maxlength="1" placeholder="Enter a letter" />
+                <button id="guess-button">Guess</button>
+                <button id="start-game" class="btn btn-primary">Start New Game</button>
+                <div id="letter-bank">Letter Bank: </div>
+            </div>
             <!-- Include the compiled JavaScript file -->
             <script src="game.js"></script>
         </main>
