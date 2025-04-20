@@ -1,5 +1,139 @@
 "usestrict";
-const wordHints = [
+const words: string[] = [
+    "Cryptid",
+    "Mystic",
+    "Campfire",
+    "Tentacle",
+    "Sasquatch",
+    "Bigfoot",
+    "Nessie",
+    "Yeti",
+    "Chupacabra",
+    "Moonlit",
+    "Enchanted",
+    "Whispering",
+    "Mysterious",
+    "Legendary",
+    "Wilderness",
+    "Outlandish",
+    "Haunted",
+    "Paranormal",
+    "Uncanny",
+    "Foggy",
+    "Ethereal",
+    "Fabled",
+    "Spectral",
+    "Eldritch",
+    "Shadowy",
+    "Ghoulish",
+    "Arcane",
+    "Eerie",
+    "Phantom",
+    "Enigma",
+    "Whimsical",
+    "Serpentine",
+    "Twilight",
+    "Glimmering",
+    "Hidden",
+    "Shrouded",
+    "Unseen",
+    "Mythic",
+    "Roving",
+    "Adventurous",
+    "Expedition",
+    "Quest",
+    "Trailblazing",
+    "Nightfall",
+    "Forested",
+    "Overgrown",
+    "Wildwood",
+    "Moonshine",
+    "Stardust",
+    "Celestial",
+    "Conjured",
+    "Bewitched",
+    "Intriguing",
+    "Spooky",
+    "Cursed",
+    "Mirage",
+    "Cryptic",
+    "Phantomlike",
+    "Feral",
+    "Quirky",
+    "Weird",
+    "Uncharted",
+    "Expanse",
+    "Abyss",
+    "Arcadia",
+    "Nomadic",
+    "Campground",
+    "Hideaway",
+    "Roaming",
+    "Vagabond",
+    "Wanderlust",
+    "Expeditionary",
+    "Outpost",
+    "Basecamp",
+    "Stargazing",
+    "Dreamscape",
+    "Nebulous",
+    "Shimmering",
+    "Spellbound",
+    "Fogbound",
+    "Gossamer",
+    "Intricate",
+    "Timeless",
+    "Lore",
+    "Mythos",
+    "Rune",
+    "Totem",
+    "Potion",
+    "Fable",
+    "Saga",
+    "Chronicle",
+    "Questing",
+    "Spellcraft",
+    "Wandering",
+    "Labyrinth",
+    "Underbrush",
+    "Nightshade",
+    "Boondock",
+    "Enchantment",
+    "Firefly"
+  ];
+  let selectedWord;
+  let guessedLetters = [];
+  let remainingAttempts = 6;
+  
+  function startGame() {
+      selectedWord = words[Math.floor(Math.random() * words.length)].toLowerCase();
+      guessedLetters = [];
+      remainingAttempts = 6;
+      updateGameDisplay();
+  }
+  
+  function updateGameDisplay() {
+      const wordDisplay = document.getElementById("word-display");
+      const attemptsDisplay = document.getElementById("attempts");
+      const guessedDisplay = document.getElementById("guessed-letters");
+      const letterBankDisplay = document.getElementById("letter-bank");
+      const hintDisplay = document.getElementById("hint");
+  
+      if (wordDisplay && attemptsDisplay && guessedDisplay && letterBankDisplay && hintDisplay) {
+          // Create display with dashes for unguessed letters
+          const displayWord = selectedWord.split("")
+              .map(letter => guessedLetters.includes(letter) ? letter : "_").join(" ");
+          wordDisplay.textContent = displayWord; // Show current state of the word
+          attemptsDisplay.textContent = `Remaining Attempts: ${remainingAttempts}`;
+          guessedDisplay.textContent = `Guessed Letters: ${guessedLetters.join(", ")}`;
+          
+          // Display the hint for the selected word
+          hintDisplay.textContent = `Hint: ${getHint(selectedWord)}`; // Replace with your hint logic
+      }
+  }
+  
+  function getHint(word) {
+      const hints = {
     { word: "cryptid", hint: "A creature whose existence is not substantiated by evidence." },
     { word: "mystic", hint: "Related to supernatural phenomena." },
     { word: "campfire", hint: "A fire used for cooking and warmth while camping." },
@@ -31,111 +165,54 @@ const wordHints = [
     { word: "phantom", hint: "A ghost." },
     { word: "enigma", hint: "A person or thing that is mysterious or difficult to understand." },
 ];
-
-const ALPHABET = "abcdefghijklmnopqrstuvwxyz".split("");
-
-let selectedWord = "";
-let currentHint = "";
-let guessedLetters = [];
-let remainingAttempts = 6;
-let gameActive = false;
-
-function pickRandomWordHint() {
-    const index = Math.floor(Math.random() * wordHints.length);
-    return wordHints[index];
-}
-
-function updateHangmanImage() {
-    const img = document.getElementById("hangman-image");
-    if (img) {
-        // Clamp to valid images
-        let imgNum = remainingAttempts;
-        if (imgNum < 0) imgNum = 0;
-        if (imgNum > 6) imgNum = 6;
-        img.src = `../../images/hangman-${imgNum}.png`;
-    }
-}
-
-function updateWordDisplay() {
-    const display = document.getElementById("word-display");
-    if (display) {
-        let html = "";
-        for (let letter of selectedWord) {
-            if (guessedLetters.includes(letter)) {
-                html += `<span class="letter">${letter.toUpperCase()}</span> `;
-            } else {
-                html += `<span class="underscore">_</span> `;
-            }
-        }
-        display.innerHTML = html.trim();
-    }
-}
-
-function updateGuessedLetters() {
-    const g = document.getElementById("guessed-letters");
-    if (g) {
-        g.textContent = "Guessed Letters: " + guessedLetters.map(l => l.toUpperCase()).join(" ");
-    }
-}
-
-function updateAttempts() {
-    const a = document.getElementById("attempts");
-    if (a) {
-        a.textContent = `Remaining Attempts: ${remainingAttempts}`;
-    }
-}
-
-function updateHint() {
-    const h = document.getElementById("hint");
-    if (h) {
-        h.textContent = `Hint: ${currentHint}`;
-    }
-}
-
-function updateLetterBank() {
-    const lb = document.getElementById("letter-bank");
-    if (lb) {
-        // Show clickable letter buttons, disabled if already guessed or game over
-        lb.innerHTML = "";
-        ALPHABET.forEach(letter => {
-            const btn = document.createElement("button");
-            btn.textContent = letter.toUpperCase();
-            btn.className = "letter-btn";
-            btn.disabled = guessedLetters.includes(letter) || !gameActive;
-            btn.addEventListener("click", () => {
-                if (gameActive) handleGuess(letter);
-            });
-            lb.appendChild(btn);
-        });
-    }
-}
-
-function updateStatusMessage(message, win=false) {
-    const s = document.getElementById("status-message");
-    if (s) {
-        s.textContent = message;
-        s.style.color = win ? "#2e8b57" : "#b22222";
-    }
-}
-
-function resetStatusMessage() {
-    const s = document.getElementById("status-message");
-    if (s) s.textContent = "";
-}
-
-function setInputEnabled(enabled) {
-    document.getElementById("guess-input").disabled = !enabled;
-    document.getElementById("guess-button").disabled = !enabled;
-}
-
-function startGame() {
-    const { word, hint } = pickRandomWordHint();
-    selectedWord = word.toLowerCase();
-    currentHint = hint;
-    guessedLetters = [];
-    remainingAttempts = 6;
-    gameActive = true;
-    resetStatusMessage();
-    setInputEnabled(true);
-    document.getElementById
-
+      };
+      return hints[word] || "No hint available.";
+  }
+  function updateHangman() {
+      const hangmanImage = document.getElementById("hangman-image");
+      if (hangmanImage) {
+          hangmanImage.src = `images/hangman-${remainingAttempts}.png`; // Update hangman image based on remaining attempts
+      }
+  }
+  
+  function handleGuess(letter) {
+      if (guessedLetters.includes(letter) || remainingAttempts <= 0) {
+          return; // Ignore if already guessed or game is over
+      }
+      guessedLetters.push(letter);
+      
+      if (!selectedWord.includes(letter)) {
+          remainingAttempts--; // Deduct an attempt if the letter is not in the word
+      }
+      updateGameDisplay(); // Update the display after the guess
+      updateHangman(); // Update the hangman image
+      checkGameStatus(); // Check if the game has been won or lost
+  }
+  
+  function checkGameStatus() {
+      const wordDisplay = document.getElementById("word-display");
+      if (wordDisplay) {
+          const currentDisplay = wordDisplay.textContent || "";
+          if (!currentDisplay.includes("_")) {
+              alert("Congratulations! You've guessed the word!");
+              startGame(); // Restart the game
+          } else if (remainingAttempts === 0) {
+              alert(`Game over! The word was: ${selectedWord}`);
+              startGame(); // Restart the game
+          }
+      }
+  }
+  
+  // Set up event listeners
+  document.getElementById("start-game")?.addEventListener("click", startGame);
+  document.getElementById("guess-button")?.addEventListener("click", () => {
+      const input = document.getElementById("guess-input");
+      const letter = input.value.toLowerCase();
+      input.value = "";
+      if (letter.length === 1 && /^[a-z]$/.test(letter)) { // Check for a single letter
+          handleGuess(letter);
+      } else {
+          alert("Please enter a single letter.");
+      }
+  });
+  
