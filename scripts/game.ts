@@ -57,22 +57,26 @@ const words: string[] = [
   }
   
   function updateGameDisplay(): void {
-      const wordDisplay = document.getElementById("word-display");
-      const attemptsDisplay = document.getElementById("attempts");
-      const guessedDisplay = document.getElementById("guessed-letters");
-      const hintDisplay = document.getElementById("hint");
-  
-      if (wordDisplay && attemptsDisplay && guessedDisplay && hintDisplay) {
-          const displayWord = selectedWord
-              .split("")
-              .map(letter => guessedLetters.includes(letter) ? letter : "_")
-              .join(" ");
-          wordDisplay.textContent = displayWord;
-          attemptsDisplay.textContent = `Remaining Attempts: ${remainingAttempts}`;
-          guessedDisplay.textContent = `Guessed Letters: ${guessedLetters.join(", ")}`;
-          hintDisplay.textContent = `Hint: ${currentHint}`;
-      }
-  }
+    const wordDisplay = document.getElementById("word-display");
+    const attemptsDisplay = document.getElementById("attempts");
+    const guessedDisplay = document.getElementById("guessed-letters");
+    const hintDisplay = document.getElementById("hint");
+    const letterBankDiv = document.getElementById("letter-bank");
+    if (wordDisplay && attemptsDisplay && guessedDisplay && hintDisplay && letterBankDiv) {
+        const displayWord = selectedWord
+            .split("")
+            .map(letter => guessedLetters.includes(letter) ? letter : "_")
+            .join(" ");
+        wordDisplay.textContent = displayWord;
+        attemptsDisplay.textContent = `Remaining Attempts: ${remainingAttempts}`;
+        guessedDisplay.textContent = `Guessed Letters: ${guessedLetters.join(", ")}`;
+        hintDisplay.textContent = `Hint: ${currentHint}`;
+        // Update letter bank
+        const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+        const remainingLetters = alphabet.filter(letter => !guessedLetters.includes(letter));
+        letterBankDiv.textContent = "Letter Bank: " + remainingLetters.join(", ").toUpperCase();
+    }
+}
   
   function updateHangman() {
       const hangmanImage = document.getElementById("hangman-image");
