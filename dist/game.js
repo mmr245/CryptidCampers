@@ -1,4 +1,5 @@
 "use strict";
+// List of words and hints
 const wordHints = [
   { word: "cryptid", hint: "A creature whose existence is not substantiated by evidence." },
   { word: "mystic", hint: "Related to supernatural phenomena." },
@@ -18,7 +19,7 @@ const wordHints = [
   { word: "outlandish", hint: "Strange or unusual." },
   { word: "haunted", hint: "Visited by ghosts or spirits." },
   { word: "paranormal", hint: "Events or phenomena that are beyond the scope of normal scientific understanding." },
-  { word: "uncanny", hint: "Strange or mysterious, especially in an unsettling way." },
+  { word: "uncanny", hint: "Strange or mysterious, especially in an unsettling way." }
   // Add more as needed
 ];
 
@@ -37,7 +38,7 @@ function startGame() {
   updateHangman();
 }
 
-// Update display: word, attempts, guessed, hint, letter bank
+// Updates the display: word, attempts, guessed, hint, letter bank
 function updateGameDisplay() {
   const wordDisplay = document.getElementById("word-display");
   const attemptsDisplay = document.getElementById("attempts");
@@ -54,7 +55,7 @@ function updateGameDisplay() {
     letterBankDiv &&
     hangmanImg
   ) {
-    // Show guessed letters or underscores
+    // Show guessed letters or underscores for the word
     const displayWord = selectedWord
       .split("")
       .map((letter) => (guessedLetters.includes(letter) ? letter : "_"))
@@ -73,7 +74,7 @@ function updateGameDisplay() {
     letterBankDiv.textContent =
       "Letter Bank: " + remainingLetters.join(", ").toUpperCase();
 
-    // Show scaffold (no tick marks)
+    // Show initial scaffold (no tick marks)
     hangmanImg.src = "../../images/hangman-6.png";
   }
 }
@@ -135,9 +136,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   // Set initial hangman scaffold only
-  const hangmanImg = document.getElementById("hangman-image");
-  if (hangmanImg) {
-    hangmanImg.src = "../../images/hangman-6.png";
-  }
-  // Don't start game automatically
-});
+  const hangmanImg = document.getElementById("
