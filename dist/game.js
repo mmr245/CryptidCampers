@@ -133,29 +133,37 @@ const words: string[] = [
   }
   
   function getHint(word) {
-      const hints = {
-          cryptid: "A creature whose existence is not substantiated by evidence.",
-          mystic: "Related to supernatural phenomena.",
-          campfire: "A fire used for cooking and warmth while camping.",
-          tentacle: "A long, flexible limb found on certain animals.",
-          sasquatch: "A large, hairy humanoid creature said to inhabit North America.",
-          bigfoot: "Another name for Sasquatch.",
-          nessie: "A legendary creature said to inhabit Loch Ness in Scotland.",
-          yeti: "A mythical ape-like creature said to inhabit the Himalayas.",
-          chupacabra: "A creature in folklore that drinks the blood of livestock.",
-          moonlit: "Illuminated by the light of the moon.",
-          enchanted: "Under a spell or magic.",
-          whispering: "Speaking softly or quietly.",
-          mysterious: "Something that is difficult or impossible to understand.",
-          legendary: "Famous and well-known, often in folklore.",
-          wilderness: "A natural environment that has not been significantly modified by human activity.",
-          outlandish: "Strange or unusual.",
-          haunted: "Visited by ghosts or spirits.",
-          paranormal: "Events or phenomena that are beyond the scope of normal scientific understanding.",
-          uncanny: "Strange or mysterious, especially in an unsettling way.",
-          foggy: "Full of fog; unclear.",
-          ethereal: "Extremely delicate and light in a way that seems too perfect for this world."
-          // Add more words and hints as needed
+    const hints = {
+    cryptid: "A creature whose existence is not substantiated by evidence.",
+    mystic: "Related to supernatural phenomena.",
+   campfire: "A fire used for cooking and warmth while camping.",
+   tentacle: "A long, flexible limb found on certain animals.",
+   sasquatch: "A large, hairy humanoid creature said to inhabit North America.",
+    bigfoot: "Another name for Sasquatch.",
+    nessie: "A legendary creature said to inhabit Loch Ness in Scotland.",
+   yeti: "A mythical ape-like creature said to inhabit the Himalayas.",
+    chupacabra: "A creature in folklore that drinks the blood of livestock.",
+   moonlit: "Illuminated by the light of the moon.",
+   enchanted: "Under a spell or magic.",
+   whispering: "Speaking softly or quietly.",
+   mysterious: "Something that is difficult or impossible to understand.",
+    legendary: "Famous and well-known, often in folklore.",
+    wilderness: "A natural environment that has not been significantly modified by human activity.",
+    outlandish: "Strange or unusual.",
+    haunted: "Visited by ghosts or spirits.",
+    paranormal: "Events or phenomena that are beyond the scope of normal scientific understanding.",
+    uncanny: "Strange or mysterious, especially in an unsettling way.",
+    foggy: "Filled with thick mist or low clouds.",
+   ethereal: "Extremely delicate and light in a way that seems not of this world.",
+    fabled: "Famous, especially by reputation.",
+    spectral: "Relating to or resembling a ghost.",
+   eldritch: "Weird and sinister or ghostly.",
+   shadowy: "Full of shadows or not clearly seen.",
+   ghoulish: "Strangely diabolical or cruel; monstrous.",
+    arcane: "Understood by few; mysterious or secret.",
+   eerie: "Strange and frightening.",
+   phantom: "A ghost.",
+  enigma: "A person or thing that is mysterious or difficult to understand.".
       };
       return hints[word] || "No hint available.";
   }
