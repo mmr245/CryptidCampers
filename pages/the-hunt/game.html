@@ -9,24 +9,17 @@
 <body>
   <div class="page-container" id="wrapper">
     <header>
-      <!-- Logo and hamburger in a flex row -->
       <div class="header-top">
         <img class="tab-desk logo" src="../../images/top-logo.png" alt="Mystic Campers Logo" />
-
-        <!-- Branding text -->
         <div class="mobile branding">
           <h1>Mystic Campers</h1>
           <h3>Where the wild meets the weird.</h3>
         </div>
-
-        <!-- Hamburger menu toggle for mobile -->
         <button class="menu-toggle" aria-label="Toggle menu">
           <img src="../../images/icons/burger_menu.png" alt="Menu" class="hamburger-icon open-icon" />
           <img src="../../images/icons/close.png" alt="Close Menu" class="hamburger-icon close-icon" />
         </button>
       </div>
-
-      <!-- Navigation -->
       <nav>
         <ul class="nav-links">
           <li><a href="../../index.html" class="active">Home</a></li>
@@ -39,16 +32,11 @@
         </ul>
       </nav>
     </header>
-
     <main>
-      <!-- Game container -->
       <div class="container">
         <h2>Welcome to our Mystical Hangman Game</h2>
         <p class="instruction">Click "Start New Game" to begin playing!</p>
-        <!-- Hangman image -->
-        <img src="mmr245/CryptidCampers/images/hangman-6.png" alt="Hangman" style="width: 200px;" />
-
-        <!-- Game display elements -->
+        <img id="hangman-image" src="../../images/hangman-6.png" alt="Hangman" style="width: 200px;" />
         <div id="word-display">Word will be displayed here</div>
         <div id="attempts">Remaining Attempts: 6</div>
         <div id="guessed-letters">Guessed Letters: </div>
@@ -59,26 +47,11 @@
         <div id="letter-bank">Letter Bank: </div>
       </div>
     </main>
-
     <footer>
       <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
     </footer>
   </div>
-
-  <!-- Mobile nav toggle script -->
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
-        menuToggle.classList.toggle('active');
-      });
-    }
-  </script>
-
-  <!-- Load JavaScript as a module -->
-  <script type="module" src="../../dist/game.js"></script>
+  <!-- Scripts -->
+  <script src="game.js"></script>
 </body>
 </html>
