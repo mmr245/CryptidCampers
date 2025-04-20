@@ -18,7 +18,6 @@ const wordHints = [
     { word: "haunted", hint: "Visited by ghosts or spirits." },
     { word: "paranormal", hint: "Events or phenomena that are beyond the scope of normal scientific understanding." },
     { word: "uncanny", hint: "Strange or mysterious, especially in an unsettling way." }
-    // Add more as needed
   ];
   
   interface WordHint {
