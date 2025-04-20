@@ -214,5 +214,3 @@ const words: string[] = [
           alert("Please enter a single letter.");
       }
   });
-  
-  
