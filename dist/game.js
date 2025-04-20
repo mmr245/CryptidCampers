@@ -1,4 +1,4 @@
-"usestrict";
+"use strict";
 const words = [
     // your list
     "Cryptid", "Mystic", "Campfire", "Tentacle", "Sasquatch", "Bigfoot", "Nessie", "Yeti", "Chupacabra",
