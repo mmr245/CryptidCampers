@@ -77,7 +77,7 @@ function updateGameDisplay(): void {
       (letter) => !guessedLetters.includes(letter)
     );
     letterBankDiv.textContent =
-      "Letter Bank: " + remainingLetters.join(", ").toUpperCase();
+      "Letter Bank: " + remainingLetters.map((letter) => letter.toUpperCase()).join(", ");
 
     // Show only the scaffold (no tick marks)
     (hangmanImg as HTMLImageElement).src = "../../images/hangman-6.png";
