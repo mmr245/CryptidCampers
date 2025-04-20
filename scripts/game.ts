@@ -128,54 +128,112 @@ const words: string[] = [
       // Add more words and hints as needed
   ];
   
-  let selectedWord: string;
-  let currentHint: string;
-  let guessedLetters: string[] = [];
-  let remainingAttempts: number = 6;
+  let selectedWord = "";
+  let currentHint = "";
+  let guessedLetters = [];
+  let remainingAttempts = 6;
   
-  function startGame(): void {
-      const randomIndex = Math.floor(Math.random() * wordHints.length);
-      selectedWord = wordHints[randomIndex].word.toLowerCase();
-      currentHint = wordHints[randomIndex].hint;
-      guessedLetters = [];
-      remainingAttempts = 6;
-      updateGameDisplay();
+  function startGame() {
+    const randIndex = Math.floor(Math.random() * wordHints.length);
+    selectedWord = wordHints[randIndex].word.toLowerCase();
+    currentHint = wordHints[randIndex].hint;
+    guessedLetters = [];
+    remainingAttempts = 6;
+    updateGameDisplay();
+    updateHangman();
   }
   
-  function updateGameDisplay(): void {
-      const wordDisplay = document.getElementById("word-display");
-      const attemptsDisplay = document.getElementById("attempts");
-      const guessedDisplay = document.getElementById("guessed-letters");
-      const letterBankDisplay = document.getElementById("letter-bank");
-      const hintDisplay = document.getElementById("hint");
+  // Show underscores and initialize everything
+  function updateGameDisplay() {
+    const wordDisplay = document.getElementById("word-display");
+    const attemptsDiv = document.getElementById("attempts");
+    const guessedDiv = document.getElementById("guessed-letters");
+    const hintDiv = document.getElementById("hint");
+    const letterBankDiv = document.getElementById("letter-bank");
+    const hangmanImg = document.getElementById("hangman-image");
   
-      if (wordDisplay && attemptsDisplay && guessedDisplay && letterBankDisplay && hintDisplay) {
-          // Create display with dashes for unguessed letters
-          const displayWord = selectedWord.split("")
-              .map(letter => guessedLetters.includes(letter) ? letter : "_").join(" ");
-          wordDisplay.textContent = displayWord; // Show current state of the word
-          attemptsDisplay.textContent = Remaining Attempts: ${remainingAttempts};
-          guessedDisplay.textContent = Guessed Letters: ${guessedLetters.join(", ")};
-          hintDisplay.textContent = Hint: ${currentHint}; // Show the hint
-      }
+    if (
+      wordDisplay &&
+      attemptsDiv &&
+      guessedDiv &&
+      hintDiv &&
+      letterBankDiv &&
+      hangmanImg
+    ) {
+      // Display underscores for unguessed
+      const displayWord = selectedWord
+        .split("")
+        .map((letter) => (guessedLetters.includes(letter) ? letter : "_"))
+        .join(" ");
+      wordDisplay.textContent = displayWord;
+  
+      attemptsDiv.textContent = `Remaining Attempts: ${remainingAttempts}`;
+      guessedDiv.textContent = `Guessed Letters: ${guessedLetters.join(", ")}`;
+      hintDiv.textContent = `Hint: ${currentHint}`;
+  
+      // Show only the letters in the word
+      const uniqueLetters = Array.from(new Set(selectedWord.split("")));
+      const remainingLetters = uniqueLetters.filter(
+        (letter) => !guessedLetters.includes(letter)
+      );
+      letterBankDiv.textContent =
+        "Letter Bank: " + remainingLetters.join(", ").toUpperCase();
+  
+      // Show scaffold (no tick marks)
+      (hangmanImg).src = "../../images/hangman-6.png";
+    }
   }
   
   function updateHangman() {
-      const hangmanImage = document.getElementById("hangman-image");
-      if (hangmanImage) {
-          hangmanImage.src = images/hangman-${remainingAttempts}.png; // Update hangman image based on remaining attempts
-      }
+    const hangmanImg = document.getElementById("hangman-image");
+    if (hangmanImg) {
+      (hangmanImg).src = `../../images/hangman-${remainingAttempts}.png`;
+    }
   }
   
   function handleGuess(letter) {
-      if (guessedLetters.includes(letter) || remainingAttempts  {
-      const input = document.getElementById("guess-input");
-      const letter = input.value.toLowerCase();
-      input.value = "";
-      if (letter.length === 1 && /^[a-z]$/.test(letter)) { // Check for a single letter
-          handleGuess(letter);
-      } else {
-          alert("Please enter a single letter.");
+    if (remainingAttempts <= 0 || guessedLetters.includes(letter)) return;
+    guessedLetters.push(letter);
+    if (!selectedWord.includes(letter)) {
+      remainingAttempts--;
+    }
+    updateGameDisplay();
+    checkGameStatus();
+  }
+  
+  function checkGameStatus() {
+    const wordDisplay = document.getElementById("word-display");
+    if (wordDisplay) {
+      const displayText = wordDisplay.textContent || "";
+      if (!displayText.includes("_")) {
+        alert("Congratulations! You guessed the word!");
+      } else if (remainingAttempts === 0) {
+        alert(`Game over! The word was: ${selectedWord}`);
       }
+    }
+  }
+  
+  // Setup event handlers after DOM loaded
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("start-game")?.addEventListener("click", () => {
+      startGame();
+    });
+    document.getElementById("guess-button")?.addEventListener("click", () => {
+      const input = document.getElementById("guess-input");
+      if (input && input.value) {
+        const letter = input.value.toLowerCase();
+        input.value = "";
+        if (letter.length === 1 && /^[a-z]$/.test(letter)) {
+          handleGuess(letter);
+        } else {
+          alert("Please enter a single letter");
+        }
+      }
+    });
+    // Set initial scaffold image
+    const hangmanImg = document.getElementById("hangman-image");
+    if (hangmanImg) {
+      (hangmanImg).src = "../../images/hangman-6.png";
+    }
   });
   
