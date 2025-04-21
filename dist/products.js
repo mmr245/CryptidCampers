@@ -1,5 +1,16 @@
 /* Catalog of all products */
-export const products = [
+
+export interface Product {
+    id: string;
+    name: string;
+    price: number;
+    category: string;
+    image: string;
+    description?: string;
+    includes?: string[];
+}
+
+export const products: Product[] = [
     /* ---- Tents ---- */
     {
         id: "tent01",
