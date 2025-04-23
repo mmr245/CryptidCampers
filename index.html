@@ -48,30 +48,12 @@
                 <p>Explore the unknown with our top-tier camping gear.</p>
                 <a href="pages/shopping/shopping.html" class="cta-button">Shop Now</a>
             </div>
-        <section class="product-grid">
-        <h1>Our picks for you</h1>
-        <div class="product-grid">
-            <div class="product">
-                <img src="images/catalog_images/enchanted-tents.png" alt="Enhanted Tent">
-                <h3>Enhanted Tent</h3>
-                <p>$209.99</p>
-                <button>Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="images/catalog_images/phoenix-sleepingbag.png" alt="Phoenix Ember Recharge Sleeping Bag">
-                <h3>Phoenix Ember Recharge Sleeping Bag</h3>
-                <p>$129.99</p>
-                <button>Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="images/catalog_images/yetis-jacket.png" alt="Yeti’s Frostbound Expedition Jacket">
-                <h3>Yeti’s Frostbound Expedition Jacket</h3>
-                <p>$229.99</p>
-                <button>Add to Cart</button>
-            </div>
-        </div>
-        </section>
-    </main>
+            <section class="product-grid">
+                <h1>Our picks for you</h1>
+                <div id="product-grid" class="products">
+                </div>
+            </section>
+        </main>
         <footer>
             <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
         </footer>
@@ -86,7 +68,9 @@
           navLinks.classList.toggle('show');
           menuToggle.classList.toggle('active');
         });
-      </script>
+    </script>
+    <script type="module" src="dist/shopping.js"></script>
+    <script type="module" src="dist/products.js"></script>
 </body>
 
 </html>
