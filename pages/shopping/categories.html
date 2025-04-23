@@ -41,35 +41,37 @@
                 </ul>
             </nav>
         </header>
-
         <main>
-            <section class="categories">
-                <h1>Shop by Category</h1>
-                <div class="category-grid">
-                    <div class="category"><a href="product.html?category=tents">Tents</a></div>
-                    <div class="category"><a href="product.html?category=backpacks">Backpacks</a></div>
-                    <div class="category"><a href="product.html?category=lanterns">Lanterns</a></div>
-                    <div class="category"><a href="product.html?category=accessories">Accessories</a></div>
-                </div>
+            <section class="shop-filters">
+                <label>
+                    Category:
+                    <select id="category-filter">
+                        <option value="">All</option>
+                        <option value="tents">Tents</option>
+                        <option value="backpacks">Backpacks</option>
+                        <option value="lanterns">Lanterns</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                </label>
+                <label>
+                    Min Price:
+                    <input type="number" id="min-price" placeholder="0" />
+                </label>
+                <label>
+                    Max Price:
+                    <input type="number" id="max-price" placeholder="999" />
+                </label>
+                <button id="apply-filters">Apply Filters</button>
+            </section>
+
+            <section class="product-grid">
+                <h2>Products</h2>
+                <div id="product-grid" class="products"></div>
             </section>
         </main>
-        <footer>
-            <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
-        </footer>
-    </div>
+        <footer>…</footer>
 
-    <!-- Mobile navigation toggle script -->
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
-            menuToggle.classList.toggle('active');
-        });
-    </script>
-     <!-- the shopping module for rendering products on the shopping page -->
-     <script type="module" src="../../dist/shopping.js"></script>
+        <script type="module" src="../../dist/shop.js"></script>
 </body>
 
 </html>
