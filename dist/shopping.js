@@ -2,7 +2,7 @@
 import { products } from "./products.js";
 
 // Function to render the products dynamically on the shopping page
-function renderProducts(productList) {
+export function renderProducts(productList) {
   const grid = document.getElementById("product-grid");
   grid.innerHTML = ""; // clear any old items
 
@@ -20,7 +20,7 @@ function renderProducts(productList) {
   });
 }
 
-function addToCart(product) {
+export function addToCart(product) {
   // get existing cart or start fresh
   const cart = JSON.parse(localStorage.getItem("cart") || "[]");
   cart.push(product);
@@ -46,9 +46,11 @@ function getRandomFeatured(arr, n) {
     .slice(0, n)
     .map(o => o.value);
 }
-  
+
 document.addEventListener("DOMContentLoaded", () => {
+  // if there's a filter panel, skip the random-featured logic
+  if (document.getElementById("apply-filters")) return;
+
   const featured = getRandomFeatured(products, 4);
   renderProducts(featured);
-
 });
