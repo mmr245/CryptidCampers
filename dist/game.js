@@ -1,176 +1,239 @@
 "use strict";
-var words = [
-  { word: "oracle", hint: "A mystical prophet who foresees the future." },
-  { word: "crystal", hint: "A gemstone often used in mystical practices." },
-  { word: "spirit", hint: "An unseen mystical essence or ghost." },
-  { word: "moon", hint: "A celestial body associated with magic and mystery." },
-  { word: "enchant", hint: "To cast a spell or charm." },
-  { word: "amulet", hint: "A magical charm worn for protection." },
-  { word: "alchemy", hint: "Ancient mystical science of transforming matter." },
-  { word: "spell", hint: "A magical word or phrase." }
+const words = [
+    { word: "oracle", hint: "A mystical prophet who foresees the future." },
+    { word: "crystal", hint: "A gemstone often used in mystical practices." },
+    { word: "spirit", hint: "An unseen mystical essence or ghost." },
+    { word: "moon", hint: "A celestial body associated with magic and mystery." },
+    { word: "enchant", hint: "To cast a spell or charm." },
+    { word: "amulet", hint: "A magical charm worn for protection." },
+    { word: "alchemy", hint: "Ancient mystical science of transforming matter." },
+    { word: "spell", hint: "A magical word or phrase." },
+    { word: "conjuration", hint: "The act or process of summoning a spirit by magic." },
+    { word: "incantation", hint: "A chant or formula of words spoken or sung as a magical charm." },
+    { word: "necromancy", hint: "The practice of communicating with the dead to predict the future." },
+    { word: "clairvoyance", hint: "The ability to perceive events beyond normal sensory contact." },
+    { word: "divination", hint: "The art of foretelling future events by interpreting omens." },
+    { word: "telekinesis", hint: "The supposed psychic power to move objects at a distance." },
+    { word: "enchantment", hint: "A magical spell that captivates or bewitches the mind." },
+    { word: "transmutation", hint: "The alchemical process of changing one substance into another." },
+    { word: "transfiguration", hint: "The act of magically changing one’s form or appearance." },
+    { word: "manifestation", hint: "The act of something materializing or appearing in reality." },
+    { word: "rune", hint: "A symbol believed to hold magical power." },
+    { word: "potion", hint: "A liquid mixture used in magical rituals." },
+    { word: "talisman", hint: "An object believed to bring good luck or protection." },
+    { word: "phoenix", hint: "A mythical bird that is reborn from its ashes." },
+    { word: "dragon", hint: "A legendary fire-breathing reptile." },
+    { word: "coven", hint: "A gathering of witches." },
+    { word: "wizard", hint: "A practitioner of magic, often wise and old." },
+    { word: "cauldron", hint: "A large pot used by witches to brew potions." },
+    { word: "sigil", hint: "A magical symbol believed to attract power." },
+    { word: "arcane", hint: "Known or understood by only a few; mysterious." },
+    { word: "mystic", hint: "Someone who seeks hidden spiritual truths." },
+    { word: "astral", hint: "Relating to the stars or spiritual realms." }
 ];
-
-var selectedWord = "";
-var currentHint = "";
-var guessedLetters = [];
-var remainingAttempts = 6;
-
-var wordDiv = document.getElementById("word");
-var attemptsDiv = document.getElementById("attempts");
-var guessedDiv = document.getElementById("letters-guessed");
-var hintDiv = document.getElementById("hint");
-var messageDiv = document.getElementById("message");
-var guessInput = document.getElementById("guess-input");
-var guessBtn = document.getElementById("guess-btn");
-var newGameBtn = document.getElementById("new-game-btn");
-var mysticImage = document.getElementById("mystic-image");
-var letterBankDiv = document.getElementById("letter-bank");
-var fullWordInput = document.getElementById("full-word-input");
-var guessWordBtn = document.getElementById("guess-word-btn");
-
-// Start new game
+let selectedWord = "";
+let currentHint = "";
+let guessedLetters = [];
+let remainingAttempts = 6;
+const wordDiv = document.getElementById("word");
+const attemptsDiv = document.getElementById("attempts");
+const guessedDiv = document.getElementById("letters-guessed");
+const hintDiv = document.getElementById("hint");
+const messageDiv = document.getElementById("message");
+const guessInput = document.getElementById("guess-input");
+const guessBtn = document.getElementById("guess-btn");
+const newGameBtn = document.getElementById("new-game-btn");
+const guessWordBtn = document.getElementById("guess-word-btn");
+const mysticImage = document.getElementById("hangman-image");
+const letterBankDiv = document.getElementById("letter-bank");
+const fullWordInput = document.getElementById("full-word-input");
 function startGame() {
-  var index = Math.floor(Math.random() * words.length);
-  selectedWord = words[index].word;
-  currentHint = words[index].hint;
-  guessedLetters = [];
-  remainingAttempts = 6;
-  if (messageDiv) messageDiv.textContent = "";
-  updateDisplay();
+    const index = Math.floor(Math.random() * words.length);
+    selectedWord = words[index].word;
+    currentHint = words[index].hint;
+    guessedLetters = [];
+    remainingAttempts = 6;
+    if (messageDiv)
+        messageDiv.textContent = "";
+    //hides hint upon starting
+    hintDiv.style.display = 'none';
+    hintDiv.textContent = '';
+    hintBtn.disabled = false;
+    fullWordInput.value = "";
+    guessWordBtn.disabled = false;
+    updateDisplay();
 }
-
-// Update game display
+const hintBtn = document.getElementById('hint-btn');
+hintBtn.addEventListener('click', () => {
+    hintDiv.style.display = 'block';
+    hintDiv.textContent = "Hint: " + currentHint;
+    hintBtn.disabled = true;
+});
+// Update display
 function updateDisplay() {
-  var displayWord = "";
-  for (var _i = 0, _a = selectedWord.split(""); _i < _a.length; _i++) {
-    var ch = _a[_i];
-    displayWord += guessedLetters.includes(ch) ? ch + " " : "_ ";
-  }
-  if (wordDiv) wordDiv.textContent = displayWord.trim();
-  if (attemptsDiv) attemptsDiv.textContent = "Attempts left: " + remainingAttempts;
-  if (guessedDiv) guessedDiv.textContent = "Letters guessed: " + guessedLetters.join(", ");
-  if (hintDiv) hintDiv.textContent = "Hint: " + currentHint;
-  updateImage();
-  updateLetterBank();
+    let displayWord = "";
+    for (let ch of selectedWord) {
+        displayWord += guessedLetters.includes(ch) ? ch + " " : "_ ";
+    }
+    if (wordDiv)
+        wordDiv.textContent = displayWord.trim();
+    if (attemptsDiv)
+        attemptsDiv.textContent = "Attempts left: " + remainingAttempts;
+    if (guessedDiv)
+        guessedDiv.textContent = "Letters guessed: " + guessedLetters.join(", ");
+    updateImage();
+    updateLetterBank();
 }
-
-// Update the image based on remaining attempts
+// Update image based on remaining attempts
 function updateImage() {
-  if (mysticImage) {
-    mysticImage.src = "images/hangman-" + remainingAttempts + ".png";
-  }
+    if (mysticImage) {
+        // if remainingAttempts goes 6 → 0, but your files go 0 → 6:
+        const stage = 6 - remainingAttempts;
+        mysticImage.src = `/images/game/hangman-${stage}.png`;
+    }
 }
-
 // Generate the alphabet letter bank
 function updateLetterBank() {
-  var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
-  var html = "";
-  for (var _b = 0, alphabet_1 = alphabet; _b < alphabet_1.length; _b++) {
-    var ch = alphabet_1[_b];
-    var lowerCh = ch.toLowerCase();
-    if (guessedLetters.includes(lowerCh)) {
-      html += "<span style=\"color: gray; margin: 4px; padding: 4px 8px; border: 1px solid #ccc; border-radius: 4px; background-color: #222;\">" + ch + "</span>";
-    } else {
-      html += "<span style=\"color: #fff; margin: 4px; padding: 4px 8px; border: 1px solid #ccc; border-radius: 4px; background-color: #444; cursor: pointer;\" onclick=\"guessLetter('" + lowerCh + "')\">" + ch + "</span>";
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+    let html = "";
+    for (let ch of alphabet) {
+        const lowerCh = ch.toLowerCase();
+        if (guessedLetters.includes(lowerCh)) {
+            html += `<span style="color: gray; margin: 4px; padding: 4px 8px; border: 1px solid #ccc; border-radius: 4px; background-color: #222;">${ch}</span>`;
+        }
+        else {
+            html += `<span style="color: #fff; margin: 4px; padding: 4px 8px; border: 1px solid #ccc; border-radius: 4px; background-color: #444; cursor: pointer;" onclick="guessLetter('${lowerCh}')">${ch}</span>`;
+        }
     }
-  }
-  if (letterBankDiv) letterBankDiv.innerHTML = html;
+    if (letterBankDiv)
+        letterBankDiv.innerHTML = html;
 }
-
 // Function to handle clicking on a letter in the letter bank
 function guessLetter(letter) {
-  if (!guessedLetters.includes(letter)) {
-    guessedLetters.push(letter);
-    if (!selectedWord.includes(letter)) {
-      remainingAttempts--;
+    if (remainingAttempts <= 0 || isWin())
+        return; //bail out if they win or run out of guesses
+    if (!guessedLetters.includes(letter)) {
+        guessedLetters.push(letter);
+        if (!selectedWord.includes(letter)) {
+            remainingAttempts--;
+        }
+        updateDisplay();
+        checkGameStatus();
     }
-    updateDisplay();
-    checkGameStatus();
-  }
 }
 // Make guessLetter globally accessible for inline HTML onclick
 if (typeof window !== "undefined") {
-  window.guessLetter = guessLetter;
+    window.guessLetter = guessLetter;
 }
-
 // Handle full word guess
 function handleFullWordGuess() {
-  var guess = fullWordInput.value.toLowerCase().trim();
-  fullWordInput.value = "";
-  if (!guess) {
-    alert("Please enter your full word guess.");
-    return;
-  }
-  if (guess === selectedWord) {
-    // Player guessed correctly!
-    guessedLetters = Array.from(new Set(selectedWord.split())); // reveal all
-    updateDisplay();
-    if (messageDiv) messageDiv.textContent = "✨ Correct! You guessed the full word! ✨";
-  } else {
-    // Wrong guess: penalize attempts
-    remainingAttempts--;
-    updateDisplay();
-    if (remainingAttempts === 0) {
-      if (messageDiv) messageDiv.textContent = "☠️ Wrong! The word was: " + selectedWord;
+    const guess = fullWordInput.value.trim().toLowerCase();
+    fullWordInput.value = "";
+    if (!guess) {
+        alert("Please enter your full word guess.");
+        return;
     }
-  }
+    if (guess === selectedWord) {
+        // Reveal entire word & win
+        guessedLetters = selectedWord.split("");
+        updateDisplay();
+        messageDiv.textContent = "✨ You guessed the word! ✨";
+        endGameCleanup();
+    }
+    else {
+        // Wrong full-word guess: immediate loss
+        remainingAttempts = 0;
+        updateDisplay();
+        messageDiv.textContent = `☠️ Wrong! The word was: ${selectedWord}`;
+        endGameCleanup();
+    }
 }
-
 // Check game over
 function checkGameStatus() {
-  if (isWin()) {
-    if (messageDiv) messageDiv.textContent = "✨ You found the mystic word! ✨";
-  } else if (remainingAttempts === 0) {
-    if (messageDiv) messageDiv.textContent = "☠️ The spirits have forsaken you! Word was: " + selectedWord;
-  }
+    if (isWin()) {
+        if (messageDiv)
+            messageDiv.textContent = "✨ You found the mystic word! ✨";
+    }
+    else if (remainingAttempts === 0) {
+        if (messageDiv)
+            messageDiv.textContent = "☠️ The spirits have forsaken you! Word was: " + selectedWord;
+    }
 }
-
 // Win condition
 function isWin() {
-  return selectedWord.split("").every((ch) => guessedLetters.includes(ch));
+    return selectedWord.split("").every((ch) => guessedLetters.includes(ch));
 }
-
 // Event listeners
-if (guessBtn) guessBtn.addEventListener("click", handleGuess);
-if (document.getElementById("guess-input")) {
-  document.getElementById("guess-input").addEventListener("keydown", (e) => {
-    if (e.key === "Enter") handleGuess();
-  });
+if (guessBtn)
+    guessBtn.addEventListener("click", handleGuess);
+if (guessInput) {
+    guessInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter")
+            handleGuess();
+    });
 }
-if (newGameBtn) newGameBtn.addEventListener("click", startGame);
-if (guessWordBtn) guessWordBtn.addEventListener("click", handleFullWordGuess);
-if (fullWordInput) fullWordInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") handleFullWordGuess();
+if (newGameBtn)
+    newGameBtn.addEventListener("click", startGame);
+guessWordBtn.addEventListener("click", handleFullWordGuess);
+fullWordInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter")
+        handleFullWordGuess();
 });
-
-// Handle guess input via the input box
+if (fullWordInput)
+    fullWordInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter")
+            handleFullWordGuess();
+    });
+// Handle letter guesses via clicking in the letter bank
+// (exposed globally above)
+// Handle letter guess input
 function handleGuess() {
-  const input = document.getElementById("guess-input");
-  if (input instanceof HTMLInputElement) {
-    const val = input.value.toLowerCase();
-    input.value = "";
-    if (!val || val.length !== 1 || !/[a-z]/.test(val)) {
-      alert("Enter a single letter");
-      return;
+    const input = document.getElementById("guess-input");
+    if (remainingAttempts <= 0 || isWin())
+        return; //bail out if they win or run out of guesses
+    if (input instanceof HTMLInputElement) {
+        const val = input.value.toLowerCase();
+        input.value = "";
+        if (!val || val.length !== 1 || !/[a-z]/.test(val)) {
+            alert("Enter a single letter");
+            return;
+        }
+        if (guessedLetters.includes(val)) {
+            alert("Letter already guessed");
+            return;
+        }
+        guessedLetters.push(val);
+        if (selectedWord.includes(val)) {
+            if (isWin()) {
+                if (messageDiv)
+                    messageDiv.textContent = "✨ You found the mystic word! ✨";
+            }
+        }
+        else {
+            remainingAttempts--;
+            if (remainingAttempts === 0) {
+                if (messageDiv)
+                    messageDiv.textContent = "☠️ The spirits have forsaken you! Word was: " + selectedWord;
+            }
+        }
+        updateDisplay();
     }
-    if (guessedLetters.includes(val)) {
-      alert("Letter already guessed");
-      return;
-    }
-    guessedLetters.push(val);
-    if (selectedWord.includes(val)) {
-      if (isWin()) {
-        if (messageDiv) messageDiv.textContent = "✨ You found the mystic word! ✨";
-      }
-    } else {
-      remainingAttempts--;
-      if (remainingAttempts === 0) {
-        if (messageDiv) messageDiv.textContent = "☠️ The spirits have forsaken you! Word was: " + selectedWord;
-      }
-    }
-    updateDisplay();
-  }
 }
-
-// Start game on load
+// ends the game and disables further input
+function endGameCleanup() {
+    guessBtn.disabled = true;
+    guessInput.disabled = true;
+    guessWordBtn.disabled = true;
+    fullWordInput.disabled = true;
+    // gray-out letter bank:
+    letterBankDiv.querySelectorAll('span').forEach(el => {
+        el.style.pointerEvents = 'none';
+        el.style.opacity = '0.5';
+    });
+}
+// then after you detect zero attempts or a win:
+if (remainingAttempts === 0 || isWin()) {
+    endGameCleanup();
+}
+// Start a new game on load
 startGame();

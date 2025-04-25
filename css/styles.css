@@ -281,6 +281,12 @@ input { font-size: 1em; padding: 5px; margin: 10px; width: 50px; text-align: cen
 button { font-size: 1em; padding: 5px 10px; margin: 10px; cursor: pointer; border-radius: 8px; background-color: #4CAF50; color: white; border: none; }
 #message { margin: 15px 0; font-weight: bold; font-size: 1.4em; }
 
+#hint { /*hides the hint by default*/
+    display: none;
+    margin-top: 1em;
+    font-style: italic;
+}
+
 /* ---------- About Us  ---------- */
 #aboutgrid {
     display: grid;
