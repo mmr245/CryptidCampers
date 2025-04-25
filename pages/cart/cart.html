@@ -97,54 +97,8 @@
             menuToggle.classList.toggle('active');
         });
     </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const cartItems = JSON.parse(localStorage.getItem("cart") || "[]");
-            const container = document.getElementById("cart-items");
-
-            if (!cartItems.length) {
-                container.innerHTML = "<p>Your cart is empty.</p>";
-                return;
-            }
-
-            // render each product
-            cartItems.forEach(item => {
-                const div = document.createElement("div");
-                div.className = "product";
-                div.innerHTML = `
-        <img src="${item.image}" alt="${item.name}" />
-        <h3>${item.name}</h3>
-        <p>$${item.price.toFixed(2)}</p>
-      `;
-                container.appendChild(div);
-            });
-        });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const cartItems = JSON.parse(localStorage.getItem("cart") || "[]");
-            const container = document.getElementById("cart-items");
-
-            if (!cartItems.length) {
-                container.innerHTML = "<p>Your cart is empty.</p>";
-                return;
-            }
-
-            // render each product
-            cartItems.forEach(item => {
-                const div = document.createElement("div");
-                div.className = "product";
-                div.innerHTML = `
-          <img src="${item.image}" alt="${item.name}" />
-          <h3>${item.name}</h3>
-          <p>$${item.price.toFixed(2)}</p>
-        `;
-                container.appendChild(div);
-            });
-        });
-    </script>
+    <script type="module" src="cart.js"></script>
+    
 </body>
 
 </html>
