@@ -616,6 +616,42 @@ footer {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   }
   
+/*----------------Cart Page-------------------*/
+/* Make all text/number inputs stretch full-width, with a bit of padding */
+section.order-summary,
+section.shipping,
+section.payment, 
+section.confirmation {
+  max-width: 500px;        /* whatever width you like */
+  margin: 2rem auto;       /* center it */
+  padding: 0 1rem;         /* small side gutter on mobile */
+}
+
+/* 2) Make the form a left-aligned flex column */
+section.shipping form,
+section.payment form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* everything starts at the same left edge */
+  margin-top: 1rem;        /* some space below the <h2> */
+}
+
+/* 3) Labels and inputs fill the column */
+section.shipping form label,
+section.payment form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+section.shipping form input,
+section.payment form input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
 
 /* =======================================================
    Media Queries for Tablet and Desktop
