@@ -579,6 +579,44 @@ footer {
     margin: 0 auto 10px;
   }
 
+  /** -------------------Shopping Page Categories -------------------*/
+  .category h1 {
+    margin-bottom: 1rem;
+  }
+  .category-grid {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .category {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 0.5rem 0.5rem;
+    transition: 
+      background-color 0.3s ease, 
+      transform 0.3s ease, 
+      box-shadow 0.3s ease;
+  }
+  
+  .category a {
+    color: #fdd059;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    display: block;
+  }
+  
+  .category:hover {
+    background-color: rgba(255,255,255,0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+  
+
 /* =======================================================
    Media Queries for Tablet and Desktop
    ======================================================= */
