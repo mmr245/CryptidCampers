@@ -271,20 +271,197 @@ figure {
 }
 
 /* ------------ Rows ------------- */
-.row { /* Styles The Hunt, Scavenger Hunt, Blog Article rows */
+.row {
+    /* Styles The Hunt, Scavenger Hunt, Blog Article rows */
     display: block;
 }
 
-/* ---------- Game  ---------- */
-#letter-bank { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; }
-input { font-size: 1em; padding: 5px; margin: 10px; width: 50px; text-align: center; }
-button { font-size: 1em; padding: 5px 10px; margin: 10px; cursor: pointer; border-radius: 8px; background-color: #4CAF50; color: white; border: none; }
-#message { margin: 15px 0; font-weight: bold; font-size: 1.4em; }
+/* ---------- Game prvious css ---------- 
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-#hint { /*hides the hint by default*/
+input {
+    font-size: 1em;
+    padding: 5px;
+    margin: 10px;
+    width: 50px;
+    text-align: center;
+}
+
+button {
+    font-size: 1em;
+    padding: 5px 10px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+#message {
+    margin: 15px 0;
+    font-weight: bold;
+    font-size: 1.4em;
+} */
+
+/* ─── Mystic Hangman Game Styles ─────────────────────────────────────── */
+.container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #666;
+    border-radius: 8px;
+    text-align: center;
+    color: #eee;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.container h2 {
+    font-size: 2rem;
+    color: #f0e68c;
+    text-shadow: 1px 1px 2px #000;
+    margin-bottom: 0.5rem;
+}
+
+.instruction {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+}
+
+#hangman-image {
+    display: block;
+    margin: 0 auto 1rem;
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 5px #000);
+}
+
+#word {
+    font-family: 'Courier New', monospace;
+    font-size: 1.8rem;
+    letter-spacing: 0.6rem;
+    margin: 1rem 0;
+    color: #fff;
+    text-shadow: 0 0 4px #000;
+}
+
+button {
+    background: linear-gradient(145deg, #444, #222);
+    border: none;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    margin: 0.3rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.1s;
+}
+
+button:hover:not(:disabled) {
+    background: linear-gradient(145deg, #666, #333);
+}
+
+button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#letter-bank {
+    margin: 1.5rem 0;
+    line-height: 0;
+    /* collapse inline-block gaps */
+}
+
+#letter-bank span {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    margin: 0.2rem;
+    background: #333;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    user-select: none;
+}
+
+#letter-bank span:hover {
+    background: #555;
+}
+
+#letter-bank span.disabled {
+    background: #111;
+    color: #555;
+    cursor: default;
+}
+
+#attempts,
+#letters-guessed,
+#message {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+#hint {
     display: none;
-    margin-top: 1em;
+    /* hidden until revealed */
     font-style: italic;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.full-word-guess {
+    margin: 1rem 0;
+}
+
+.full-word-guess input[type="text"] {
+    padding: 0.4rem;
+    font-size: 1rem;
+    width: 60%;
+    max-width: 200px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    background: #222;
+    color: #fff;
+}
+
+.full-word-guess button {
+    padding: 0.4rem 0.8rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    #word {
+        font-size: 1.4rem;
+        letter-spacing: 0.4rem;
+    }
+
+    #letter-bank span {
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        margin: 0.15rem;
+    }
 }
 
 /* ---------- About Us  ---------- */
@@ -317,8 +494,10 @@ button { font-size: 1em; padding: 5px 10px; margin: 10px; cursor: pointer; borde
 }
 
 .about p {
-    overflow-wrap: break-word; /* Ensures long words break to fit the container */
-    word-wrap: break-word;     /* Fallback for older browsers */
+    overflow-wrap: break-word;
+    /* Ensures long words break to fit the container */
+    word-wrap: break-word;
+    /* Fallback for older browsers */
 }
 
 .about figure {
@@ -328,21 +507,21 @@ button { font-size: 1em; padding: 5px 10px; margin: 10px; cursor: pointer; borde
 /* unvisited link */
 #aboutgrid a:link {
     color: #fff;
-  }
-  
+}
+
 /* visited link */
 #aboutgrid a:visited {
-color: #77a290;
+    color: #77a290;
 }
 
 /* mouse over link */
 #aboutgrid a:hover {
-color: #fdd059;
+    color: #fdd059;
 }
 
 /* selected link */
 #aboutgrid a:active {
-color: #fdd059;
+    color: #fdd059;
 }
 
 /* ---------- Team About  ---------- */
@@ -366,8 +545,10 @@ color: #fdd059;
 }
 
 .team-member p {
-    overflow-wrap: break-word; /* Ensures long words break to fit the container */
-    word-wrap: break-word;     /* Fallback for older browsers */
+    overflow-wrap: break-word;
+    /* Ensures long words break to fit the container */
+    word-wrap: break-word;
+    /* Fallback for older browsers */
 }
 
 .team-member figure {
@@ -375,14 +556,16 @@ color: #fdd059;
 }
 
 /*------- The Hunt ------- */
-.card { /* Add a card effect for blog articles, Hangman and Scavenger Hunt */
+.card {
+    /* Add a card effect for blog articles, Hangman and Scavenger Hunt */
     padding: 15px;
     margin-top: 10px;
     border-radius: 10px;
     border: 1px solid #B8A454;
 }
 
-.leftcolumn, .rightcolumn {
+.leftcolumn,
+.rightcolumn {
     width: 100%;
     padding: 0;
 }
@@ -397,11 +580,11 @@ color: #fdd059;
 /* unvisited link */
 .card a:link {
     color: #fff;
-  }
-  
+}
+
 /* mouse over link */
 .card a:hover {
-color: #fdd059;
+    color: #fdd059;
 }
 
 /* visited link */
@@ -502,7 +685,8 @@ color: #fdd059;
 }
 
 /* ---------- Blog -------------- */
-.imgcolumn, .txtcolumn {
+.imgcolumn,
+.txtcolumn {
     width: 100%;
     padding: 15px 0 5px;
 }
@@ -514,11 +698,11 @@ color: #fdd059;
 /* unvisited link */
 .txtcolumn a:link {
     color: #fff;
-  }
-  
+}
+
 /* mouse over link */
 .txtcolumn a:hover {
-color: #fdd059;
+    color: #fdd059;
 }
 
 /* visited link */
@@ -537,8 +721,9 @@ color: #fdd059;
 .arrow:hover {
     color: #fdd059;
 }
-  
-.blogleftcolumn, .blogrightcolumn {
+
+.blogleftcolumn,
+.blogrightcolumn {
     width: 100%;
     padding: 0;
 }
@@ -566,97 +751,104 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     padding: 20px;
-  }
-  
-  /* Style each product card */
-  .product {
+}
+
+/* Style each product card */
+.product {
     padding: 10px;
     background: #fdd1590e;
     text-align: center;
     border-radius: 10px;
-  }
-  
-  /* Make images responsive and smaller */
-  .product img {
+}
+
+/* Make images responsive and smaller */
+.product img {
     width: 100%;
     height: auto;
-    max-width: 150px;  /* Adjust this value to make images smaller */
+    max-width: 150px;
+    /* Adjust this value to make images smaller */
     display: block;
     margin: 0 auto 10px;
-  }
+}
 
-  /** -------------------Shopping Page Categories -------------------*/
-  .category h1 {
+/** -------------------Shopping Page Categories -------------------*/
+.category h1 {
     margin-bottom: 1rem;
-  }
-  .category-grid {
+}
+
+.category-grid {
     margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 1rem;
     padding: 0 1rem;
-  }
-  
-  .category {
-    background-color: rgba(255,255,255,0.1);
+}
+
+.category {
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 0.5rem;
     text-align: center;
     padding: 0.5rem 0.5rem;
-    transition: 
-      background-color 0.3s ease, 
-      transform 0.3s ease, 
-      box-shadow 0.3s ease;
-  }
-  
-  .category a {
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.category a {
     color: #fdd059;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.05rem;
     display: block;
-  }
-  
-  .category:hover {
-    background-color: rgba(255,255,255,0.2);
+}
+
+.category:hover {
+    background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-4px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  }
-  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
 /*----------------Cart Page-------------------*/
 /* Make all text/number inputs stretch full-width, with a bit of padding */
 section.order-summary,
 section.shipping,
-section.payment, 
+section.payment,
 section.confirmation {
-  max-width: 500px;        /* whatever width you like */
-  margin: 2rem auto;       /* center it */
-  padding: 0 1rem;         /* small side gutter on mobile */
+    max-width: 500px;
+    /* whatever width you like */
+    margin: 2rem auto;
+    /* center it */
+    padding: 0 1rem;
+    /* small side gutter on mobile */
 }
 
 /* Make the form a left-aligned flex column */
 section.shipping form,
 section.payment form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* everything starts at the same left edge */
-  margin-top: 1rem;        /* some space below the <h2> */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* everything starts at the same left edge */
+    margin-top: 1rem;
+    /* some space below the <h2> */
 }
 
 /* Labels and inputs fill the column */
 section.shipping form label,
 section.payment form label {
-  display: block;
-  margin-bottom: 0.25rem;
-  font-weight: bold;
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: bold;
 }
 
 section.shipping form input,
 section.payment form input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0.5em;
-  margin-bottom: 1rem;
-  font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5em;
+    margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
 /*------------------Accounts/Contact us and forms----------------------------*/
@@ -665,8 +857,8 @@ section.payment form input {
 .contact-form textarea,
 .account input[type="email"],
 .account input[type="password"] {
-  width: 100%;
-  box-sizing: border-box;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* =======================================================
@@ -737,25 +929,27 @@ section.payment form input {
 
     /* The Hunt, Scavenger Hunt, Blog Articles for Tablet */
     .row {
-        display: flex; /* Switch to flexbox for tablets and desktops */
+        display: flex;
+        /* Switch to flexbox for tablets and desktops */
         gap: 20px;
     }
 
     .leftcolumn {
         flex: 3;
     }
-    
+
     .rightcolumn {
-        flex: 1; /* 25% width */
+        flex: 1;
+        /* 25% width */
     }
 
     /* Blog Articles */
     .blogleftcolumn {
         flex: 33.33%;
     }
-    
+
     .blogrightcolumn {
-       flex: 66.66%;
+        flex: 66.66%;
     }
 
     /* Blog (All) */
@@ -766,9 +960,10 @@ section.payment form input {
     .txtcolumn {
         flex: 3;
     }
-    
+
     main {
-        max-width: 1200px; /* Expand content width */
+        max-width: 1200px;
+        /* Expand content width */
     }
 }
 
