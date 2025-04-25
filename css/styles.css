@@ -627,7 +627,7 @@ section.confirmation {
   padding: 0 1rem;         /* small side gutter on mobile */
 }
 
-/* 2) Make the form a left-aligned flex column */
+/* Make the form a left-aligned flex column */
 section.shipping form,
 section.payment form {
   display: flex;
@@ -636,7 +636,7 @@ section.payment form {
   margin-top: 1rem;        /* some space below the <h2> */
 }
 
-/* 3) Labels and inputs fill the column */
+/* Labels and inputs fill the column */
 section.shipping form label,
 section.payment form label {
   display: block;
@@ -651,6 +651,16 @@ section.payment form input {
   padding: 0.5em;
   margin-bottom: 1rem;
   font-size: 1rem;
+}
+
+/*------------------Accounts/Contact us and forms----------------------------*/
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea,
+.account input[type="email"],
+.account input[type="password"] {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* =======================================================
