@@ -351,22 +351,6 @@ button {
     text-shadow: 0 0 4px #000;
 }
 
-button {
-    background: linear-gradient(145deg, #444, #222);
-    border: none;
-    color: #fff;
-    padding: 0.6rem 1.2rem;
-    margin: 0.3rem;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.25s, transform 0.1s;
-}
-
-button:hover:not(:disabled) {
-    background: linear-gradient(145deg, #666, #333);
-}
-
 button:active:not(:disabled) {
     transform: scale(0.98);
 }
@@ -850,6 +834,14 @@ section.payment form input {
     margin-bottom: 1rem;
     font-size: 1rem;
 }
+
+/* make the quantity box narrower than the other text inputs */
+.qty-input {
+    width: 3rem;       /* or use e.g. 50px */
+    max-width: 3rem;   /* prevents it from growing if something else sets a larger width */
+    padding: 0.25rem;  /* optional: adjust inner spacing */
+    text-align: center;/* optional: center the number inside */
+  }
 
 /*------------------Accounts/Contact us and forms----------------------------*/
 .contact-form input[type="text"],
