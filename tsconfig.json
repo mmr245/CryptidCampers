@@ -1,14 +1,33 @@
 {
-   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "outDir": "./",
-    "rootDir": "./",
+  "compilerOptions": {
+    // allow modern JS features like String.includes, Array.from, Set, etc.
+    "target": "ES2016",
+
+    // bring in the browser DOM types plus ES2016 library
+    "lib": [
+      "DOM",
+      "ES2016"
+    ],
+
+    // you’re using native ES modules in the browser
+    "module": "ESNext",
+
+    // where to emit your .js files
+    "outDir": "./dist",
+
+    // where your .ts sources live
+    "rootDir": "./scripts",
+
+    // catch more errors, optional but recommended
     "strict": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": [
-    "game.ts",
-  ]
+
+  // compile all .ts files under scripts/
+  "include": ["scripts/**/*.ts"],
+
+  // don’t compile your node modules
+  "exclude": ["node_modules"]
 }

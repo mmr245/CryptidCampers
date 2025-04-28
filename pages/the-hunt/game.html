@@ -46,19 +46,32 @@
             <!-- Button to start the game -->
             <div class="container">
                 <h2>Welcome to our Mystical Hangman Game</h2>
-                <p class="instruction">Click "Start New Game" to begin playing!</p>
-                <img id="hangman-image" src="../../images/hangman-6.png" alt="Hangman" style="width: 200px;" />
-                <div id="word-display">Word will be displayed here</div>
-                <div id="attempts">Remaining Attempts: 6</div>
-                <div id="guessed-letters">Guessed Letters: </div>
-                <div id="hint">Hint: </div> <!-- Display the hint here -->
-                <input type="text" id="guess-input" maxlength="1" placeholder="Enter a letter" />
-                <button id="guess-button">Guess</button>
-                <button id="start-game" class="btn btn-primary">Start New Game</button>
+                <p class="instruction">Click "Start New Game" to begin playing!
+                    </br>Tap the letter to guess it, but be careful guess wrong 6 times and you're out.
+                    </br>If you feel confident, go ahead and guess the full word. Be warend you only get 1 chance to
+                    guess the full word. Get it wrong and you lose. 
+                </p>
+                <div id="message"></div>
+                <img id="hangman-image" src="../../images/game/hangman-6.png" alt="Hangman" style="width: 200px;" />
+                <div id="word">_ _ _ _ _</div>
+                <button id="hint-btn">Show Hint</button>
+                <div id="hint"></div>
+                <div id="attempts">Attempts left: 6</div>
+                <div id="letters-guessed">Letters guessed: </div>
+
+                <!--How users can guess-->
                 <div id="letter-bank">Letter Bank: </div>
+                <div class="full-word-guess">
+                    <label for="full-word-input">Guess the full word:</label>
+                    <input id="full-word-input" type="text" placeholder="Type the entire word" />
+                    <button id="guess-word-btn">Guess Word</button>
+                </div>
+
+                <!--Guess button -->
+                <button id="guess-btn">Guess</button>
+                <button id="new-game-btn">Start New Game</button>
+                
             </div>
-            <!-- Include the compiled JavaScript file -->
-            <script src="game.js"></script>
         </main>
         <footer>
             <p>&copy; 2025 Mystic Campers. All rights reserved.</p>
@@ -75,7 +88,7 @@
             menuToggle.classList.toggle('active');
         });
     </script>
-     <script type="module" src="../../dist/game.js"></script>
+    <script type="module" src="../../dist/game.js"></script>
 </body>
 
 </html>
